@@ -1,0 +1,44 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Product {
+  id        String   @id @default(cuid())
+  brand     String
+  model     String
+  category  String
+  specs     Json     @default("{}")
+  priceRange String? @map("price_range")
+  imageUrl  String?  @map("image_url")
+  sourceUrl String?  @map("source_url")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  comparisonsA Comparison[] @relation("ProductA")
+  comparisonsB Comparison[] @relation("ProductB")
+
+  @@unique([brand, model])
+  @@index([category])
+  @@map("products")
+}
+
+model Comparison {
+  id        String   @id @default(cuid())
+  slug      String   @unique
+  productA  String   @map("product_a_id")
+  productB  String   @map("product_b_id")
+  content   String   @default("")
+  verdict   String   @default("")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  productARef Product @relation("ProductA", fields: [productA], references: [id])
+  productBRef Product @relation("ProductB", fields: [productB], references: [id])
+
+  @@index([productA])
+  @@index([productB])
+  @@map("comparisons")
+}

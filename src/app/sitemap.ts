@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getComparisons, getProducts, productSlug } from "@/lib/products/store";
+import { getAllPosts } from "@/lib/blog/posts";
 
 const BASE = "https://hirdavatpro.com";
 
@@ -41,5 +42,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }));
 
-  return [...staticPages, ...categoryPages, ...productPages, ...comparisonPages];
+  const blogPages: MetadataRoute.Sitemap = getAllPosts().map(p => ({
+    url: `${BASE}/blog/${p.slug}`,
+    lastModified: new Date(p.publishedAt),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  return [...staticPages, ...categoryPages, ...productPages, ...comparisonPages, ...blogPages];
 }

@@ -324,6 +324,75 @@ Kaynak dumanı için en az FFP3 veya kaynak filtreli tam yüz maskesi kullanılm
       },
     ],
   },
+  {
+    slug: "daire-testere-rehberi",
+    title: "Daire Testere Seçim Rehberi",
+    excerpt:
+      "Disk çapı, diş sayısı, eğim açısı ve lazer kılavuz — daire testere alırken nelere bakmalısınız? Ahşap, laminat ve metal için doğru seçim.",
+    category: "Kesme & Testere",
+    readTime: "7 dk",
+    publishedAt: "2026-05-30",
+    relatedSlugs: ["matkap-nasil-secilir", "avuc-taslama-rehberi", "is-guvenligi-ekipmanlari"],
+    sections: [
+      {
+        heading: "Disk Çapı: 165 mm mi, 190 mm mi?",
+        body: `Daire testerenin en temel parametresi disk çapıdır. **165 mm (6½\")** diskler hafif ve manevralı; çoğu ev ve ince şantiye işi için yeterlidir. Maksimum kesim derinliği yaklaşık 55 mm'dir — standart 50 mm konstrüksiyon tahtasını kolayca keser.
+
+**190 mm (7¼\")** diskler endüstriyel standart kabul edilir. Yaklaşık 65 mm kesim derinliğiyle 2x8 ve çift katman malzemeleri rahatça işler. Ağırlık 165 mm'den 300–500 g daha fazladır; uzun mesailer için bu fark yorgunluk yaratabilir.
+
+Evde marangozluk veya tadilat için 165 mm genellikle fazlasıyla yeterlidir. Çatı kaplaması, döşeme veya yoğun şantiye işi yapıyorsanız 190 mm tercih edin.`,
+      },
+      {
+        heading: "Diş Sayısı: Hız mı, Kalite mi?",
+        body: `Disk üzerindeki diş sayısı kesim hızını ve yüzey kalitesini doğrudan etkiler.
+
+- **16–24 diş:** Ahşap ve OSB'nin hızlı boyuna/enine kesimleri için. Yüzey pürüzlü olabilir; görünmeyen kesimler için idealdir.
+- **40–48 diş:** Çok amaçlı disk; laminat yüzeyli paneller, ince kontrplak ve mobilya plakaları için daha temiz kenar verir.
+- **60–80 diş:** Laminat zemin, melamin kaplı tablalar ve alüminyum için yüksek kalite kesim. Kesim hızı düşer ama çentik ve tüylenmé en az düzeydedir.
+
+**İpucu:** Laminatı ters çevirip kaplamalı yüzeyi alta alarak kesin; diş yukarıdan aşağı çıkarak kaplama yüzeyine zarar vermez.`,
+      },
+      {
+        heading: "Eğim Açısı ve Kesim Derinliği Ayarı",
+        body: `Kaliteli daire testereler 0°–45° (bazı modeller 50°–55°) arasında pah kesimi yapabilir. Eğim kilit mekanizmasının sağlamlığına dikkat edin; işlem sırasında kayma yaparsa hem hatalı kesim hem de tehlikeli geri tepme oluşabilir.
+
+Kesim derinliği ayarı da kilit kolunun hassasiyetiyle ilgilidir: malzemenin yalnızca ~3–6 mm altına inmek yeterlidir. Gereksiz yere derin ayar hem kesim kalitesini düşürür hem de sıkışma riskini artırır.
+
+Açılır kollu (plunge-cut) özelliği olan modeller, panel orta noktasından dalmaya izin verir; mutfak tezgahı ve pencere boşluğu gibi kesimler için pratiktir.`,
+      },
+      {
+        heading: "Taban Plakaları: Magnezyum mu, Çelik mi?",
+        body: `Taban plakası (taban tablası) testerenin malzeme üzerinde kaydığı kısımdır. **Çelik taban** daha ağır ama dayanıklıdır; uzun ömür ister. **Magnezyum taban** hafif ve pürüzsüzdür; yoğun kullanımda yorgunluğu azaltır ve kaymayı kolaylaştırır.
+
+Alüminyum taban ucuz modellerde yaygındır; düşmelere karşı çelik kadar sağlam değildir. Profesyonel kullanım için magnezyum veya döküm çelik taban tercih edin.`,
+      },
+      {
+        heading: "Lazer Kılavuz ve LED Aydınlatma",
+        body: `Lazer kılavuz, kesim hattını malzeme üzerine yansıtarak kalemsiz doğrulama imkânı sunar. Parlak güneş ışığında lazer görünmeyebilir; bu durumda lazer yerine çift LED kılavuz sunan modeller daha pratiktir.
+
+Her iki sistem de tam olarak disk kenarında değil, disk önündeki bir noktada konumlandığından kalibrasyonu başlangıçta doğrulayın. İlk kesimden önce hurda parçada test edin.`,
+      },
+      {
+        heading: "Akülü mu, Kablolu mu?",
+        body: `**Kablolu modeller** sürekli, kesintisiz güç sağlar; uzun parçaların seri kesilmesinde ve ağır ahşapta avantajlıdır. 1200–1800 W güç aralığı yoğun kullanım için yeterlidir.
+
+**Akülü modeller** (18V veya 54/60V) mobilite sağlar; şantiye ve dış mekanda kablo çekme derdinden kurtarır. 18V piller çoğu ev işi için yeterli; 54V/60V modeller kabloluya yakın performans sunar ancak çok daha ağır ve pahalıdır.
+
+Aynı markanın akü ailesinde başka aletleriniz varsa akülü tesereyi tercih etmek ekonomiktir.`,
+      },
+      {
+        heading: "Güvenlik: Geri Tepme ve Bıçak Freni",
+        body: `Daire testereler yanlış kullanımda **geri tepme (kickback)** yapabilir: disk malzemede sıkışır ve alet geri sıçrar. Önlemler:
+
+1. Malzemenin her iki tarafını serbest bırakın; sıkıştırılmış taraf disk kenarına yapışır.
+2. Kesim boyunca el kılavuzunu kullanın, tutun.
+3. Disk çapına uygun hızda kesin; çok yavaş besleme sürtünmeyi artırır.
+4. **Bıçak freni (electric brake)** özellikli modeller motoru bıraktığınızda diski 1–2 saniyede durdurur; standart modeller 8–10 saniye dönmeye devam eder.
+
+Daima yüz siperliği, toz maskesi ve kesim güzergahının serbest olduğundan emin olun.`,
+      },
+    ],
+  },
 ];
 
 export function getAllPosts(): BlogPost[] {

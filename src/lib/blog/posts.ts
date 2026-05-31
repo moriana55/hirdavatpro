@@ -325,6 +325,88 @@ Kaynak dumanı için en az FFP3 veya kaynak filtreli tam yüz maskesi kullanılm
     ],
   },
   {
+    slug: "zimpara-makinesi-rehberi",
+    title: "Zımpara Makinesi Nasıl Seçilir?",
+    excerpt:
+      "Orbital mi, bant mı, delta mı? Kum numarası, toz toplama ve devir sayısı — ahşap, boya ve metal için doğru zımpara makinesi seçim rehberi.",
+    category: "Zımpara & Perdah",
+    readTime: "7 dk",
+    publishedAt: "2026-05-31",
+    relatedSlugs: ["avuc-taslama-rehberi", "daire-testere-rehberi", "is-guvenligi-ekipmanlari"],
+    sections: [
+      {
+        heading: "Üç Tip Zımpara: Hangisi Sizin İçin?",
+        body: `Zımpara makineleri temelde üç gruba ayrılır; doğru tipi seçmek işin yarısıdır.
+
+**Orbital (eksantrik) zımpara:** En yaygın ev ve atölye makinesidir. Zımpara tabanı hem döner hem de küçük eksantrik bir yörüngede salınım yapar. Bu çift hareket sayesinde ahşap tanesinin yönünden bağımsız, iz bırakmayan pürüzsüz yüzey elde edilir. Geniş düz yüzeyler, mobilya ve zemin perdahı için idealdir.
+
+**Bant zımpara:** Kauçuk tamburların üzerinde dönen zımpara bandı kullanır. Malzeme kaldırma hızı çok yüksektir; boyalı yüzey soyma, eski kaplama temizleme ve büyük ahşap parçaların şekillendirilmesinde kullanılır. Yanlış açıyla tutulursa derin izler bırakır; kontrol güçtür, deneyim gerektirir.
+
+**Delta (üçgen) zımpara:** Sivri üçgen tabanı sayesinde köşelere, oymalara ve dar boşluklara girer. Orbital zincirsiz yerleri bitirmek için orbital ile birlikte kullanılır. Kaldırma kapasitesi düşük; ince perdah ve köşe temizleme işleri için uygundur.
+
+Çoğu kullanıcı için **orbital zımpara** yeterlidir; bant zımparayı yalnızca ağır malzeme kaldırma ihtiyacınız varsa ekleyin.`,
+      },
+      {
+        heading: "Kum Numarası (Grit): İşe Doğru Başlamak",
+        body: `Zımpara kağıdının üzerindeki sayı, abrazif taneciklerin inceliğini gösterir. Sayı düştükçe tane kalabalıklaşır, kaldırma gücü artar.
+
+- **40–60 kum:** Eski boya soyma, büyük çaplak ve çürüklerin temizlenmesi. Ham malzeme yüzeyi hızla kaldırılır; ince ahşapta derin çizik bırakır.
+- **80–100 kum:** Kaba perdah başlangıcı. Yeni ahşap yüzeyini düzleştirmek, macun sonrası pürüzleri almak.
+- **120–150 kum:** Genel amaçlı perdah; boya öncesi en yaygın son adım.
+- **180–240 kum:** İnce perdah ve kat arası zımparalama. Boyalı yüzeyin sonraki kat için hazırlanması.
+- **320+ kum:** Son perdah, mat bitişin parlatılması, şeffaf vernik yüzey.
+
+**Kural:** Her zaman kaba kumdan başlayın, kademeli olarak inceletin. Kumu atlayarak zaman kazanmaya çalışmak sonuçta daha fazla iş çıkarır.`,
+      },
+      {
+        heading: "Devir Sayısı ve OPM: Hız Ayarı Neden Önemli?",
+        body: `Orbital zımparaların hızı **OPM (orbits per minute — dakikadaki salınım)** ile ölçülür. Bant zımparalarda ise bant hızı m/s cinsinden verilir.
+
+Yüksek OPM (12.000–14.000) malzemeyi hızlı kaldırır; kaba işlerde ve sert ahşaplarda zaman kazandırır. Düşük OPM (6.000–8.000) daha kontrollü perdah sağlar; yumuşak ahşap, boyalı yüzey ve ince kaplamalar için uygundur.
+
+**Hız ayarlı (değişken hız)** modeller her iki senaryoya da uyum sağlar. Tek sabit hızlı bütçe modellerinde ince işlerde çok agresif kaldırma yapılabileceğini göz önünde bulundurun.`,
+      },
+      {
+        heading: "Taban Boyutu: 1/4, 1/3 mü, 150 mm mi?",
+        body: `Orbital zımparaların tabanı standart zımpara kağıdı ölçülerine göre tasarlanır.
+
+- **1/4 taban (115×115 mm):** Kompakt ve hafif; dar yüzeylere kolay girer. Zımpara kağıdını taban kenarından kesin. Kısa ve orta boylu işlerde yeterlidir.
+- **1/3 taban (93×190 mm):** Uzun yüzeyler için daha hızlı ve verimli; kapı, masa üstü gibi dar ama uzun parçalarda avantajlı.
+- **150 mm yuvarlak taban:** Geniş yüzey kapsar; zemin ve büyük panel perdahında verimlidir. Özel Velcro diskler kullanır (kağıt kesmeden doğrudan yapıştır).
+
+Küçük taban = daha kolay manevra; büyük taban = daha hızlı bitiş. Çalışma parçalarınızın büyüklüğüne göre karar verin.`,
+      },
+      {
+        heading: "Toz Toplama: Atölyenizin Ciğerleri",
+        body: `Zımpara tozu hem sağlığa zararlı hem de çalışma kalitesini düşürür: toz birikintisi zımpara kağıdını tıkar, yüzeyde çizik bırakır.
+
+İyi bir toz toplama sistemi en az **toz poşeti** içermelidir; daha iyisi **vakum hortumu bağlantısı** olan modellerdir. Çoğu kaliteli orbital zımpara tabanında delikler vardır (genellikle 6 veya 8 delik); bu delikler vakumun tozu içine çekmesine olanak tanır. Deliksiz modellerde toz tahliyesi çok daha kötüdür.
+
+Uzun süreli kullanımda FFP2 toz maskesi takın; özellikle MDF, egzotik ahşap ve boyalı/vernikli yüzeylerde.`,
+      },
+      {
+        heading: "Akülü mu, Kablolu mu?",
+        body: `Zımpara makinelerinde güç ihtiyacı matkaptan düşüktür; bu nedenle akülü modeller kablolu seçeneklere oldukça yakın performans verir.
+
+**Kablolu modeller** uzun atölye çalışmalarında güç düşüşü olmadan çalışır; hafif ve ucuzdur. Kablo şantiyede kısıtlayıcı olabilir.
+
+**Akülü modeller (18V)** zemin perdahı, mobilya montajı ve saha işleri için özgürlük sağlar. Aynı markanın aküsünü başka aletlerle paylaşıyorsanız ek batarya maliyeti olmaz.
+
+Ev kullanımı ve atölye için kablolu model çoğunlukla daha ekonomik; sahada ve çeşitli noktalarda çalışıyorsanız akülüyü tercih edin.`,
+      },
+      {
+        heading: "Kullanım Güvenliği",
+        body: `Zımpara makineleri matkap veya testereden daha güvenli görünse de dikkatsizlik yaralanmaya yol açar.
+
+1. **Toz maskesi:** Ahşap ve boya tozu solunum yolu için zararlıdır; en az FFP2, MDF ve boyalı yüzeylerde FFP3.
+2. **Göz koruması:** İnce toz parçacıkları gözü tahriş eder.
+3. **İşi sabitlen:** İki elle veya mengeneyle sabitleyin; makinenin titreşimi parçayı kaydırabilir.
+4. **Zımpara kağıdını kontrol edin:** Yırtık veya kopuk kağıt makineyi titretir ve düzensiz yüzey bırakır.
+5. **Bant zımparada yönü koruyun:** Bant yönünün ahşap taneyle paralel olmasına özen gösterin; çapraz çalışma derin iz bırakır.`,
+      },
+    ],
+  },
+  {
     slug: "daire-testere-rehberi",
     title: "Daire Testere Seçim Rehberi",
     excerpt:

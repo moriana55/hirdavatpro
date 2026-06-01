@@ -407,6 +407,171 @@ Ev kullanımı ve atölye için kablolu model çoğunlukla daha ekonomik; sahada
     ],
   },
   {
+    slug: "dekupaj-testere-rehberi",
+    title: "Dekupaj Testere Rehberi",
+    excerpt:
+      "Eğri ve iç kesimler için en esnek alet: dekupaj testere. Bıçak tipi, salınım ayarı, tabla ve devir — ahşap, metal ve seramik için doğru seçim.",
+    category: "Kesme & Testere",
+    readTime: "7 dk",
+    publishedAt: "2026-06-01",
+    relatedSlugs: ["daire-testere-rehberi", "avuc-taslama-rehberi", "is-guvenligi-ekipmanlari"],
+    sections: [
+      {
+        heading: "Dekupaj Testere Nedir ve Nerede Kullanılır?",
+        body: `Dekupaj testere (jigsaw), ince dişli bir bıçağın yukarı-aşağı hareketi ile malzeme kesen el aletidir. Diğer testerelerden en temel farkı eğri, daire ve iç kesim yapabilmesidir: malzemenin ortasına daldırma kesimi (plunge-cut) yapabilirsiniz; çevre kenarından başlamak zorunda kalmazsınız.
+
+Kullanım alanları:
+- Mutfak tezgahı ve lavabo delik açma
+- İç köşe ve profil kesimi (şablon ile)
+- Laminat zemin ve panel kesimi
+- 2–6 mm ince metal levha kesimi
+- Seramik ve fiber çimento panel kesimi (özel bıçakla)
+
+Marangoz için daire testereyi tamamlayan bir araçtır; faz araçlarının daire testeresi yapamayacağı her eğri kesimi dekupaj tama alır.`,
+      },
+      {
+        heading: "Bıçak Tipi: T-Saplı mı, U-Saplı mı?",
+        body: `Tüm modern dekupaj testereler **T-saplı (T-shank)** sisteme geçmiştir; bıçak anahtar gerektirmeden tek elle değiştirilir. Eski makinelerde görülen **U-saplı (U-shank)** bıçaklar hâlâ piyasada bulunur ancak yeni makine alıyorsanız T-saplı modeli tercih edin; bıçak çeşidi çok daha zengindir.
+
+Bıçak seçimi malzemeye göre:
+- **Ahşap, iri diş (TPI 6–8):** Seri kesim; yüzey kalitesi orta. Boyunsuz kesim, ahşap ve OSB.
+- **Ahşap, ince diş (TPI 10–14):** Laminat, mobilya plakaları; daha temiz kenar, daha yavaş kesim.
+- **Metal bıçağı (TPI 18–24):** 1–6 mm çelik, alüminyum, bakır boru. Yüksek devir istemez; 2.000–2.500 spm yeterli.
+- **Elmas/karbür bıçak:** Seramik, fayans, fiber çimento.
+- **Bıçaksız tel bıçak:** Cam fiber ve sentetik malzeme için.
+
+TPI (teeth per inch) arttıkça yüzey kalitesi artar ama kesim hızı düşer.`,
+      },
+      {
+        heading: "Salınım (Orbital) Ayarı Nedir?",
+        body: `Salınım (orbital action) bıçağın yalnızca dikey değil aynı zamanda ileri-geri de hareket etmesini sağlar. Agresif salınım (3. kademe) çok daha hızlı malzeme kaldırır; düşük veya sıfır salınım daha temiz ve hassas kenar verir.
+
+- **Salınım 0 (kapalı):** Metal, seramik, laminat, ince ahşap. Hassas kesim.
+- **Salınım 1:** İnce-orta ahşap ve genel kesim.
+- **Salınım 2–3:** Kalın ahşap, OSB, kaba boyuna kesim. En hızlı ilerleme.
+
+Metal ve seramik için salınımı kapatmak zorunludur; aksi halde bıçak malzeme yüzeyini çizip titreşim yaratır ve bıçak ömrü kısalır.`,
+      },
+      {
+        heading: "Devir (SPM) ve Hız Kontrolü",
+        body: `Dekupaj testerenin hızı **SPM (strokes per minute — dakikada vuruş)** ile ölçülür. Çoğu kaliteli model 500–3.100 SPM arasında değişken hız sunar.
+
+Yüksek SPM (2.500–3.100) ahşap ve plastik için hız sağlar. Metal için 1.500–2.000 SPM'de çalışmak hem bıçak ömrünü uzatır hem de kesim yüzeyini düzeltir; çok hızlı bıçak metalda ısınarak dişleri körleştirir.
+
+Değişken hız tetiği (ayak basınca orantılı): ince ve kıvrımlı geçişlerde yavaşlama imkânı tanır. Sabit hız mandalı (lock-on) ise uzun düz kesimler için yorgunluğu azaltır.`,
+      },
+      {
+        heading: "Tabla ve Makas Açısı",
+        body: `Makine tabanı (tabla), malzeme üzerinde kayarak kesimi yönlendirir. 0°–45° yatırılabilen tablalar pah (bevel) kesimi sağlar; mutfak köşe birleştirme veya trapez kesimler için gereklidir.
+
+**Tablanın kalitesine dikkat edin:** İnce sac taban ucuz modellerde çıkıntılara takılır; döküm alüminyum veya çelik taban daha kaygan ve hassastır.
+
+Tabla kılavuz rayı veya dış destek mesnetleri bulunan modeller uzun düz kesimde marangoz kılavuz cetveli ile birlikte kullanılabilir; böylece daire testere kadar düz hat elde edilir.`,
+      },
+      {
+        heading: "Akülü mu, Kablolu mu?",
+        body: `**Kablolu modeller** sürekli ve değişmez güç sunar; uzun veya zor kesimler için daha güvenilirdir. Kablo şantiyede kılavuz düzeni bozabilir; ancak ev ve atölye için sorun değildir.
+
+**Akülü modeller (18V)** büyük mutfak tezgahları ve sahada çalışırken kablo olmaksızın özgürce hareket etmeyi sağlar. Aynı voltaj ailesinin başka aletleriyle akü paylaşılabiliyorsa tercih edilir.
+
+Dekupaj testereler matkaba kıyasla daha az güç çeker; bu nedenle 18V akülü modeller çoğu ev işi için yeterlidir.`,
+      },
+      {
+        heading: "Güvenlik ve Kullanım İpuçları",
+        body: `1. **Malzemeyi sıkıştırın:** Masaya mengene veya kıskaç ile sabitleyin. Tek elle malzeme tutarken diğer elde testere tutmak hem tehlikeli hem de kesim kalitesini düşürür.
+2. **Bıçağı değiştirmeden önce aletin fişini çekin** (veya aküyü çıkarın).
+3. Laminat yüzeyleri **kaplamalı tarafı alta alarak kesin**; bıçak yukarıdan aşağı çıktığı için kaplamalı kısım alta koyulduğunda yüzey temiz kalır.
+4. Metal keserken yavaş besleyin ve soğutma yağı (kesme yağı) kullanmayı düşünün; bıçak ısınması hem talaşı pekiştirir hem de malzemeyi çarpar.
+5. Toz maskesi ve gözlük takın; ince talaş ve metal kırıntıları göz için tehlikelidir.`,
+      },
+    ],
+  },
+  {
+    slug: "gonye-kesme-makinesi-rehberi",
+    title: "Gönye Kesme Makinesi Rehberi",
+    excerpt:
+      "Kaydırmalı mı, çift eğimli mi? Disk çapı, gönye ve eğim açısı aralığı, lazer kılavuz — atölye ve şantiye için doğru gönye makinesi seçimi.",
+    category: "Kesme & Testere",
+    readTime: "8 dk",
+    publishedAt: "2026-06-01",
+    relatedSlugs: ["daire-testere-rehberi", "dekupaj-testere-rehberi", "is-guvenligi-ekipmanlari"],
+    sections: [
+      {
+        heading: "Gönye Kesme Makinesi Nedir?",
+        body: `Gönye kesme makinesi (miter saw / chop saw), sabit bir diskin malzemeyi belirli açılarda kesmesini sağlayan tezgah üstü ya da taşınabilir bir alettir. Klasik dik kesimden 45° köşe birleştirmeye kadar geniş açı aralığında çalışır.
+
+Temel kullanım alanları:
+- Ahşap döşeme pervazı ve karkas profil kesimi
+- Kapı ve pencere kasası köşe birleştirme
+- Alüminyum profil ve PVC kesimi
+- Parke/laminat kenar kesimi
+- Çelik profil (özel diskle)
+
+Daire testereden farkı: malzeme sabit tutulur, alet aşağı iner. Bu sayede tekrar eden köşe kesimler milimetrik hassasiyetle üretilir; seri marangozluk için vazgeçilmezdir.`,
+      },
+      {
+        heading: "Tek Eğimli mi, Çift Eğimli mi? (Bevel)",
+        body: `**Tek eğimli (single bevel):** Tabla sabitken baş yalnızca bir yöne (genellikle sola) yatırılabilir. Karşı taraf için malzemeyi döndürmeniz gerekir.
+
+**Çift eğimli (dual bevel / compound):** Baş hem sola hem sağa yatırılır. Karmaşık bileşik açı (compound) kesimlerinde malzemeyi döndürmeden sağ ve sol pah aynı kurulumda kesilir. Çatı kaplaması, taç pervaz ve özel birleştirmeler için çok pratiktir.
+
+Ev ve basit atölye kullanımı için **tek eğimli** yeterlidir. Profesyonel marangoz ve döşeme ustaları için **çift eğimli** zaman kazandırır.`,
+      },
+      {
+        heading: "Kaydırmalı (Sliding) mi, Sabit mi?",
+        body: `**Sabit gönye:** Baş yalnızca aşağı iner. Maksimum kesim genişliği disk çapına bağlıdır; 254 mm disk yaklaşık 100–130 mm kesim genişliği sağlar. Kompakt ve hafif; küçük atölyeler ve taşıma için avantajlı.
+
+**Kaydırmalı gönye (sliding miter saw):** Baş aşağı inerken aynı zamanda ileri-geri kayar. Bu hareket sayesinde küçük bir diskle çok daha geniş tahta kesilebilir; 216 mm diskli kaydırmalı bir model 300–350 mm genişliğinde ahşap kesebilir.
+
+Geniş parçalar, panel kenarı ve büyük profiller için kaydırmalı model şarttır. Kompakt çalışma alanında ise sabit model daha az yer kaplar.`,
+      },
+      {
+        heading: "Disk Çapı Nasıl Seçilir?",
+        body: `Yaygın disk çapları:
+- **190 mm (7½\"):** Kompakt ve hafif; küçük pervaz ve ince ahşap için yeterli.
+- **216 mm (8½\"):** En popüler ev ve küçük atölye boyutu; kesim derinliği ve genişliği dengeli.
+- **254 mm (10\"):** Endüstriyel standart; geniş keresteler ve ağır atölye kullanımı.
+- **305 mm (12\"):** Çok büyük kesim kapasitesi; profesyonel ve ticari ortamlar.
+
+Disk büyüdükçe makine ağırlaşır ve fiyat artar. **216 mm kaydırmalı** çoğu kullanıcı için mükemmel denge noktasıdır.
+
+Not: Disk çapı arttıkça diş seçim önemi de artar; 48–60 dişli ahşap diskleri temiz kesim sağlar, 80+ diş laminat ve MDF için idealdir.`,
+      },
+      {
+        heading: "Açı Aralıkları: Gönye ve Eğim",
+        body: `**Gönye açısı (miter):** Yatay düzlemdeki açıdır. Standart makineler 0°–45° (her iki yönde) sunar; bazı modeller 50°–52° kadar gider. Beşgen veya sekizgen çerçeve gibi alışılmadık açılar için geniş gönye aralıklı model tercih edin.
+
+**Eğim açısı (bevel):** Dikeyde yatırma açısıdır. Çift eğimli modeller genellikle her iki yönde 45°–48° sunar.
+
+**Durdurma noktaları (detent/preset):** Sık kullanılan açılarda (0°, 15°, 22,5°, 30°, 45°) otomatik kilit yapan pozisyonlardır. Kaliteli makinelerde bu kilit sert ve titreşime dayanıklı olmalı; gevşek kilit açı kaymasına yol açar.`,
+      },
+      {
+        heading: "Lazer Kılavuz ve LED Aydınlatma",
+        body: `Lazer kılavuz, disk kesim hattını malzeme yüzeyine kırmızı çizgi olarak yansıtır. Kalem işareti olmadan hızlı konumlandırma için faydalıdır; ancak lazer çizgisinin disk kenarının tam olarak neresinde olduğunu kalibre etmek gerekir.
+
+LED çift gölge sistemi daha yeni bir çözümdür: iki küçük LED ışığının gölgesi kesim noktasını gösterir ve gün ışığında lazere göre daha net görünür. Bazı kullanıcılar bu sistemi lazere tercih eder.
+
+Her iki sistemde de ilk kurulumda hurda parçayla test edin; fabrika kalibrasyonu her zaman %100 değildir.`,
+      },
+      {
+        heading: "Toz Toplama ve Atölye Düzeni",
+        body: `Gönye makineleri çok miktarda talaş üretir. Entegre toz torbası standart olmakla birlikte tutma oranı %30–50 civarında kalır; iyi bir atölye için endüstriyel vakum sistemi bağlantısı önerilir.
+
+Makineyi duvara yakın konumlandırmayın: kaydırmalı modeller arkaya doğru yer açar. Standart bir 216 mm kaydırmalı model için tabladan duvara en az 30–40 cm boşluk bırakın.
+
+Uzun parça desteği (stand veya mesnet) kesim hassasiyetini artırır: ağır ve uzun tahta makine tablasından düşünce hem kesim kayar hem de malzeme zarar görür.`,
+      },
+      {
+        heading: "Güvenlik",
+        body: `1. **Üst koruma kapağı her zaman yerinde olsun;** disk görünür halde bırakmak kabul edilemez.
+2. **Malzemeyi tutma kolunuzla sıkıştırın** — disk aşağı inerken malzemenin kayması geri tepmeye neden olur.
+3. Kesimden sonra diski **tam durana kadar tablaya sürmeyin;** disk fırlamış talaşı makineye geri taşıyabilir.
+4. Gönye açısını değiştirmeden önce makineyi durdurun ve kilidi sıkıştırın.
+5. Toz maskesi (FFP2), gözlük ve kulak koruyucu zorunludur; makine 95–100 dB gürültü üretir.`,
+      },
+    ],
+  },
+  {
     slug: "daire-testere-rehberi",
     title: "Daire Testere Seçim Rehberi",
     excerpt:
@@ -414,7 +579,7 @@ Ev kullanımı ve atölye için kablolu model çoğunlukla daha ekonomik; sahada
     category: "Kesme & Testere",
     readTime: "7 dk",
     publishedAt: "2026-05-30",
-    relatedSlugs: ["matkap-nasil-secilir", "avuc-taslama-rehberi", "is-guvenligi-ekipmanlari"],
+    relatedSlugs: ["dekupaj-testere-rehberi", "gonye-kesme-makinesi-rehberi", "is-guvenligi-ekipmanlari"],
     sections: [
       {
         heading: "Disk Çapı: 165 mm mi, 190 mm mi?",

@@ -640,6 +640,136 @@ Daima yüz siperliği, toz maskesi ve kesim güzergahının serbest olduğundan 
       },
     ],
   },
+  {
+    slug: "akulu-tornavida-rehberi",
+    title: "Akülü Tornavida Rehberi: Doğru Modeli Nasıl Seçersiniz?",
+    excerpt:
+      "Tork, hız kademesi, akü kapasitesi ve bit seti — akülü tornavida alırken nelere dikkat etmeli? Hafif kullanıcıdan profesyonele tam rehber.",
+    category: "Delme & Vidalama",
+    readTime: "7 dk",
+    publishedAt: "2026-06-02",
+    relatedSlugs: ["matkap-nasil-secilir", "el-aleti-seti-rehberi"],
+    sections: [
+      {
+        heading: "Tornavida mı, Matkap mı?",
+        body: `Akülü tornavida (İngilizce: cordless screwdriver / drill-driver) ile akülü matkap sık sık karıştırılır. Temel fark şudur: tornavidalar vida sıkma ve hafif delme için optimize edilmiştir; düşük tork ayarları, hafif gövde ve genellikle daha küçük akü. Matkaplar ise hem delme hem vidalama yapabilir, daha yüksek güç sunar ama daha ağırdır.
+
+Günlük ev tamiratları, mobilya montajı ve elektrik tesisatı işleri için akülü tornavida yeterlidir ve çok daha rahattır. Ancak yoğun beton delme veya uzun süreli ağır vidalama için matkap tercih edilmelidir.`,
+      },
+      {
+        heading: "Tork Değeri Ne Anlama Gelir?",
+        body: `Tork (Nm), motorun vida üzerine uyguladığı döndürme kuvvetidir. Ev kullanımı için 15–25 Nm yeterlidir; bu değer IKEA mobilyası, priz montajı ve hafif ahşap işleri için fazlasıyla yeterli güç sağlar.
+
+Ağır ahşap işleri, zemin döşemesi veya metal montaj için 30–50 Nm arayan modellere bakın. 50 Nm üzeri tork genellikle matkap-tornavida (combi drill) kategorisine girer ve daha büyük, daha ağır modellerdir.
+
+**Kavrama (clutch) kademeleri:** İyi bir tornavida 15–24 farklı tork ayarı sunar. Düşük kademeler hassas montajlarda vidayı yakmaz; yüksek kademeler derin, güçlü vidalama sağlar.`,
+      },
+      {
+        heading: "Akü Voltajı ve Kapasitesi",
+        body: `- **3.6V – 4V:** Çok hafif, tek elle kullanım. Yalnızca küçük vidalar için.
+- **10.8V / 12V:** Ev kullanımı için ideal denge — hafif, yeterli güç. Büyük markaların bu segmentteki modelleri son derece yeteneklidir.
+- **18V:** Daha fazla güç ve dayanıklılık; profesyonel kullanıcılar ve yoğun iş yükü için.
+
+**Ah (amper-saat) kapasitesi:** 1.5 Ah kısa işler için yeterli; 2.0–3.0 Ah tam iş günü için güvenli. Kapasitesi yüksek akü hem daha ağır hem de daha pahalıdır, ancak şarj arası süreyi belirgin biçimde uzatır.`,
+      },
+      {
+        heading: "Hız Kademeleri",
+        body: `Tek hızlı modeller basit ev işleri için yeterlidir. İki hızlı modeller (1. kademe: yavaş-yüksek tork, 2. kademe: hızlı-düşük tork) çok yönlülük sağlar:
+
+- **1. kademe (düşük hız):** Büyük vida sıkma, yüksek tork gerektiren montaj.
+- **2. kademe (yüksek hız):** Küçük vida, hızlı delme.
+
+Düzenli olarak farklı malzemelerle çalışıyorsanız iki kademeli model kesinlikle tercih edin.`,
+      },
+      {
+        heading: "Bit Seti ve Mandren",
+        body: `Çoğu akülü tornavida 6.35 mm (¼ inç) altıgen bit tutucu ile gelir. Bu standart sayesinde piyasadaki bit setlerinin tamamı uyumludur.
+
+Kaliteli bir bit seti en az şunları içermelidir: PH1, PH2 (Phillips/yıldız), PZ1, PZ2 (Pozidriv), T20, T25 (Torx), düz uç ve alyan takımı. Manyetik bit tutucu vida düşürmesini önler — özellikle darlarda çalışırken büyük kolaylık sağlar.
+
+Bazı modeller 10 mm anahtarsız mandrene sahiptir; bu sayede hem bit hem de normal matkap ucu kullanabilirsiniz.`,
+      },
+      {
+        heading: "Marka ve Fiyat Rehberi",
+        body: `- **Giriş segment (300–600 TL):** Bautec, Powermat — ev içi hafif kullanım için yeterli.
+- **Orta segment (700–1.500 TL):** Bosch EasyDrill, Black+Decker BDCDD12 — ev kullanıcısına ideal denge.
+- **Üst segment (1.500–3.000 TL):** Bosch Professional GSR, Makita DF333D — yarı-profesyonel veya yoğun ev kullanımı.
+- **Profesyonel (3.000 TL+):** Milwaukee M12/M18, Festool, DeWalt — uzun garanti, güçlü servis ağı, sert saha koşulları.
+
+Akülü alet ailesini genişletecekseniz aynı voltaj platformunu seçin: Bosch 18V, Makita 18V veya Milwaukee M18 gibi ekosistemler aküyü diğer aletlerle paylaştırmanızı sağlar.`,
+      },
+    ],
+  },
+  {
+    slug: "lazer-tesviye-aleti-rehberi",
+    title: "Lazer Tesviye Aleti Rehberi: Satın Alma ve Kullanım Kılavuzu",
+    excerpt:
+      "Çizgi lazer mi, nokta lazer mi, döner lazer mi? Doğruluk sınıfları, kendi kendini tesviye eden modeller ve profesyonel kullanım farkları.",
+    category: "Ölçme & İşaretleme",
+    readTime: "8 dk",
+    publishedAt: "2026-06-02",
+    relatedSlugs: ["is-guvenligi-ekipmanlari", "el-aleti-seti-rehberi"],
+    sections: [
+      {
+        heading: "Lazer Tesviye Aleti Türleri",
+        body: `Piyasada dört temel lazer tesviye tipi bulunur:
+
+**1. Nokta lazeri:** Tek bir nokta veya birkaç nokta (genellikle 3–5) yansıtır. Zemin-tavan aktarımı ve dikme alımı için kullanılır. En basit ve en ucuz tiptir.
+
+**2. Çizgi lazeri (cross-line):** Yatay ve/veya dikey lazer çizgisi yansıtır. Fayans döşeme, asma tavan, alçıpan montajı ve priz hizalama için yaygındır. Ev ve küçük ticari projelerin çoğu için yeterlidir.
+
+**3. Döner lazer:** 360° dönerek tüm duvarlara ve tavana yatay çizgi çizer. Büyük alan seviyeleme, zemin döşemesi ve çatı işleri için kullanılır; profesyonel inşaat aletidir.
+
+**4. Çok çizgili lazer (multi-line):** 3×360° veya 5 hat gibi gelişmiş modeller; büyük hacimli iç mekan işlerinde tek seferde tam referans sağlar.`,
+      },
+      {
+        heading: "Kendi Kendini Tesviye Eden (Self-Leveling) Özelliği",
+        body: `Modern lazer tesviye aletlerinin büyük çoğunluğu otomatik tesviye (self-leveling) özelliğine sahiptir. Alet hafifçe eğik kurulsa bile dahili sarkaç veya servo motor sayesinde ±4° ila ±6° aralığında kendini otomatik olarak dengeler.
+
+Manuel modellerde ise dengelemeyi kendiniz yapmanız ve balonlu tesviye ile kontrol etmeniz gerekir; bu hem zaman alır hem de hata marjını artırır.
+
+**Dikkat:** Eğim açısı self-leveling sınırını aşarsa çoğu alet sesli veya görsel uyarı verir ve ışını yanıp söndürür. Bu uyarıyı görmezden gelen ölçümler kesinlikle güvenilmez olur.`,
+      },
+      {
+        heading: "Doğruluk Sınıfları ve ±mm/m Değeri",
+        body: `Lazer tesviye aletleri doğruluklarına göre sınıflandırılır. Kutuda veya teknik tabloda "±X mm/10 m" gibi ifade edilir.
+
+- **±3 mm/10 m:** Giriş seviyesi ev modelleri. Duvar boyama, perde ray montajı gibi hassasiyet gerektirmeyen işler.
+- **±1 mm/10 m:** Orta segment. Fayans, laminat döşeme ve asma tavan için yeterli.
+- **±0.5 mm/10 m:** Profesyonel inşaat kalitesi. Zemin betonu, kapı ve pencere kasaları, yüksek hassasiyetli montaj.
+- **±0.1 mm/10 m:** Döner lazerler ve üst segment modeller. Nivelasyon, topoğrafik çalışmalar.
+
+Ev kullanımı için ±1–2 mm/10 m değerine sahip bir model fazlasıyla yeterlidir.`,
+      },
+      {
+        heading: "Çalışma Menzili ve Dedektör Kullanımı",
+        body: `Çizgi lazerlerin görünür çalışma menzili genellikle 10–15 m'dir; parlak güneş ışığında daha kısa, karanlık ortamda daha uzundur. Kapalı mekan çalışmaları için çoğu model yeterlidir.
+
+Açık hava veya büyük alanlarda lazer dedektörü (alıcı) kullanmak gerekir. Dedektör çıplak gözle görünmeyen ışını algılar; çalışma mesafesini 50–100 m'ye kadar çıkarır.
+
+Yeşil lazer ışını kırmızıya göre aynı güçte yaklaşık 4 kat daha görünürdür. Geniş alanlarda veya aydınlık ortamlarda yeşil lazer tercih edin; ancak fiyatı da belirgin biçimde yüksektir.`,
+      },
+      {
+        heading: "Montaj ve Aksesuar",
+        body: `Çoğu lazer tesviye aleti standart ¼ inç tripod vidası deliğiyle gelir. Buna uygun bir tripod veya manyetik raf klips kombinasyonu hem elleri serbest bırakır hem de farklı yüksekliklerde çalışmayı kolaylaştırır.
+
+Önemli aksesuarlar:
+- **Manyetik duvar klipsi:** Hızlı kurulum, yüzey hasar vermeden tutar.
+- **Uzatma tripodu:** Zemin ile tavan arasında herhangi bir yüksekliğe ayarlama.
+- **Lazer gözlüğü:** Kırmızı lazer ışınını aydınlık ortamda daha görünür kılar.
+- **Taşıma çantası:** Hassas optik için koruma şarttır.`,
+      },
+      {
+        heading: "Hangi Modeli Almalısınız?",
+        body: `- **Tek seferlik ev tamiratı (200–500 TL):** Uygun fiyatlı nokta veya tek çizgi lazer — perde ray, tablo asma, basit hizalama işleri.
+- **Düzenli DIY ve tadilat (500–1.500 TL):** Çapraz çizgi lazer, self-leveling, ±1 mm/10 m — fayans, laminat, asma tavan.
+- **Küçük ölçekli ticari kullanım (1.500–4.000 TL):** Çok çizgili lazer, yeşil ışın, dedektör uyumlu — montaj firmaları, elektrikçiler, sıhhi tesisatçılar.
+- **İnşaat ve saha (4.000 TL+):** Döner lazer + dedektör seti — zemin betonu, nivelasyon, büyük alan tesviyesi.
+
+Satın alma öncesi kontrol listesi: self-leveling var mı, doğruluk değeri kaç mm/10 m, akü mi fiş mi, tripod dahil mi, yetkili servis var mı?`,
+      },
+    ],
+  },
 ];
 
 export function getAllPosts(): BlogPost[] {

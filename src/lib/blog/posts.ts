@@ -770,6 +770,159 @@ Satın alma öncesi kontrol listesi: self-leveling var mı, doğruluk değeri ka
       },
     ],
   },
+  {
+    slug: "isi-tabancasi-rehberi",
+    title: "Isı Tabancası Rehberi: Hangi Model, Hangi Kullanım?",
+    excerpt:
+      "Boya soyma, boru bükme, büzme hortum ve ahşap yakma — ısı tabancası çok yönlü bir el aletidir. Watt, sıcaklık aralığı ve nozul seçimi rehberi.",
+    category: "El Aletleri",
+    readTime: "7 dk",
+    publishedAt: "2026-06-03",
+    relatedSlugs: ["el-aleti-seti-rehberi", "is-guvenligi-ekipmanlari"],
+    sections: [
+      {
+        heading: "Isı Tabancası Ne İşe Yarar?",
+        body: `Isı tabancası (İngilizce: heat gun), elektrik motoruyla ısıtılan havayı yüksek sıcaklıkta üfleyen bir el aletidir. Saç kurutma makinesiyle görsel benzerliğine karşın çok daha yüksek sıcaklıklara (150°C – 700°C) ulaşır ve tamamen farklı amaçlarla kullanılır.
+
+Yaygın kullanım alanları:
+- **Boya ve vernik soyma:** Ahşap, metal ve PVC yüzeylerden eski boyayı kabartır, kazımayla kolayca soyulmasını sağlar.
+- **Büzme hortum (shrink tube) uygulaması:** Elektrik tesisatında kablo eklerini yalıtmak için kullanılan ısıyla büzüşen boruları aktive eder.
+- **PVC boru bükme:** Alçıpan askı rayları, tesisat boruları ve dekoratif profilleri kırmadan bükülebilir hale getirir.
+- **Ahşap yakma (Pyrography):** Kontrollü meme uçlarıyla ahşap yüzeyde dekoratif desen yakmak için kullanılır.
+- **Yapıştırıcı ve folyo çözme:** Araç kaplama folyolarını, eski çıkartmaları ve etiketleri ısıtarak yapışkanı yumuşatıp temiz kaldırma sağlar.
+- **Donmuş boru çözme:** Kışın donmuş metal borulara dikkatli ısı uygulanarak buzun çözülmesi sağlanır (PVC borularda kullanmayın).`,
+      },
+      {
+        heading: "Watt ve Sıcaklık Aralığı",
+        body: `Isı tabancaları genellikle **1.500W – 2.000W** güç aralığında üretilir. Watt değeri ne kadar yüksekse alet daha hızlı ısınır ve daha uzun süreli kullanımda stabil sıcaklık korur.
+
+Sıcaklık aralığı kullanım alanına göre seçim yaparken kritiktir:
+
+- **50°C – 300°C:** Büzme hortum, folyo ve etiket kaldırma, hafif yapıştırıcı çözme. Plastikle çalışırken yanmayı önlemek için düşük aralıkta çalışın.
+- **300°C – 450°C:** Boya soyma, dolgu macun kurutma, PVC boru bükme. Çoğu genel amaçlı çalışma bu aralıkta gerçekleşir.
+- **450°C – 600°C:** Metal yüzeylerde yoğun boya/vernik soyma, lehim eritme, ahşap yakma.
+- **600°C+:** Cam şekillendirme, cam elyaf kalıp çalışmaları; profesyonel ve endüstriyel kullanım.
+
+**Dijital vs. analog kontrol:** Dijital sıcaklık göstergesi hassas ayar imkânı sunar; hassas büzme veya folyo çalışmalarında fazladan 50°C'nin zarar verebileceği durumlarda bu özellik değerlidir. Analog modeller (düşük/orta/yüksek kademe) genel boya soyma ve ev tamiratı için yeterlidir.`,
+      },
+      {
+        heading: "Hava Akış Hızı ve Çift Kademe",
+        body: `Sıcaklık kadar önemli olan diğer parametre hava akış hızıdır (L/dk veya m/s olarak ifade edilir). Düşük akış hızı belirli bir noktayı yoğun ısıtır; yüksek akış hızı daha geniş alanı eşit ısıtır.
+
+Çoğu orta ve üst segment model en az iki kademeli hava akışı sunar:
+- **1. kademe (düşük akış):** Hassas çalışmalar — büzme hortum, küçük etiket, lehim.
+- **2. kademe (yüksek akış):** Geniş yüzey boya soyma, boru çözme, büyük folyo kaldırma.
+
+Tek kademeli modeller giriş segment ve yalnızca boya soyma kullanımı için yeterlidir; çok yönlü kullanım planlanıyorsa çift kademeli model tercih edilmelidir.`,
+      },
+      {
+        heading: "Nozul (Meme) Çeşitleri",
+        body: `Isı tabancasının asıl çok yönlülüğünü sağlayan aksesuarlar nozullardır. Temel tipler:
+
+- **Düz nozul (standart):** Geniş, yayılmış ısı çıkışı. Boya soyma ve genel amaçlı kullanım.
+- **Konsantre nozul:** Küçük noktaya yoğunlaştırılmış ısı. Büzme hortum, lehim ve hassas çalışmalar.
+- **Yansıtma nozulu (reflektör):** U şeklinde veya kapalı, boruyu çevresinden eşit ısıtır. PVC boru bükme için zorunludur.
+- **Cam nozulu (fish-tail/balık kuyruğu):** Geniş ve ince çıkış; cam yüzeyden folyo kaldırma veya büyük alan boya soyma için.
+- **Ahşap yakma ucu:** Yüksek sıcaklıkta ince çizgi veya desen yakmak için.
+
+Nozullar genellikle ¾–1 dakika sonra çok sıkı ısınır; değiştirirken ısıya dayanıklı eldiven kullanın veya aletin soğumasını bekleyin.`,
+      },
+      {
+        heading: "Güvenlik: Yangın ve Yanık Riskleri",
+        body: `Isı tabancası 400–600°C çıkış sıcaklığına ulaşabilir; bu nedenle basit bir el aleti olarak hafife alınmamalıdır.
+
+Temel güvenlik kuralları:
+1. **Alevi olan yüzeyler yakınında kullanmayın:** Yanıcı solvent, boya thinneri veya gaz kalıntısı bulunan yüzeyler alevin olmadığı durumlarda bile tutuşabilir.
+2. **Kurşunlu boya soyarken dikkat:** 1970 öncesi yapılarda kurşunlu boya olabilir; ısıtmak zehirli buhar çıkarır. Maske ve havalandırma zorunludur.
+3. **Asla tek yönde tutmayın:** Sürekli aynı noktaya odaklanmak yanmaya yol açar. Daima yavaş ve eşit hareketlerle çalışın.
+4. **Çalışmadan sonra soğutun:** Kullanımdan hemen sonra masaya yatırmayın; nozul metal yüzeyleri yakabilir. Aletin ayak üzerinde dik durmasına izin verin ya da askıya asın.
+5. **Plastik dumanından uzak durun:** PVC ve benzeri plastiklerin aşırı ısıtılması toksik klor bileşikleri çıkarabilir.`,
+      },
+      {
+        heading: "Hangi Modeli Almalısınız?",
+        body: `- **Giriş segment (150–350 TL):** Tek ya da çift kademeli, 1.500W, 2–3 nozul — büzme hortum ve hafif boya soyma için yeterli.
+- **Orta segment (350–700 TL):** Dijital sıcaklık ayarı, 2.000W, geniş nozul seti — ev tamiratı ve tadilat projeleri için ideal.
+- **Üst segment (700–1.500 TL):** LCD ekran, hassas ±10°C sıcaklık kontrolü, turbo mod, ergonomik gövde — yoğun kullanıcılar ve hobi atölyeleri için.
+- **Profesyonel (1.500 TL+):** Bosch GHG 23-66, Steinel, Leister — sürekli endüstriyel kullanım, uzun ömür ve servis garantisi.
+
+Neredeyse tüm kullanım senaryoları için orta segment bir model (400–600 TL) yeterlidir. Eğer büzme hortum ve etiket kaldırma dışında kullanmayacaksanız, giriş segment yeterlidir.`,
+      },
+    ],
+  },
+  {
+    slug: "yuksek-basinc-yikama-makinesi-rehberi",
+    title: "Yüksek Basınçlı Yıkama Makinesi Rehberi: Bar, Litre ve Doğru Seçim",
+    excerpt:
+      "Araç yıkama, bahçe, teras, çatı ve endüstriyel temizlik için yüksek basınçlı yıkama makinesi seçimi. Bar değeri, L/saat, lans türleri ve güvenlik rehberi.",
+    category: "Temizleme & Bakım",
+    readTime: "8 dk",
+    publishedAt: "2026-06-03",
+    relatedSlugs: ["kompresor-secimi", "is-guvenligi-ekipmanlari"],
+    sections: [
+      {
+        heading: "Bar mı, L/saat mi — Hangi Değer Daha Önemli?",
+        body: `Yüksek basınçlı yıkama makineleri iki temel parametre ile tanımlanır: **basınç (bar)** ve **su debisi (L/saat veya L/dk)**. İkisi birbirini tamamlar; yalnızca birine bakarak karar vermek yanıltıcı olabilir.
+
+**Basınç (bar):** Su hızını ve delme/koparma gücünü belirler. Yüksek basınç, inatçı kiri, yosunu ve biyolojik birikintileri koparır. Araç yıkama için 100–130 bar yeterlidir; beton zemin ve çatı temizliğinde 150–200+ bar gerekebilir.
+
+**Debi (L/saat):** Birim sürede pompalanan su miktarıdır. Yüksek debi, geniş yüzeyleri daha hızlı temizler ve köpük uygulamalarında daha etkilidir. 300–400 L/saat ev kullanımı için standart; 500–700 L/saat daha hızlı ve verimli temizlik sağlar.
+
+**Temizlik Birimi (TU veya CU):** Bazı markalar bar × L/dk formülüyle hesaplanan birleşik etkinlik değerini kullanır. Bu değer yüksekse hem basınç hem debi dengelidir demektir; yalnızca bar sayısının yüksek olması debinin düşük olduğu modellerde performansı yanıltabilir.`,
+      },
+      {
+        heading: "Motor Türleri: Elektrikli mi, Benzinli mi?",
+        body: `**Elektrikli modeller:**
+Ev ve bahçe kullanımı için standarttır. Fişe bağlıdır, elektrik kablosu uzunluğuyla sınırlıdır (genellikle 5–10 m). Avantajları: sessiz çalışma, bakımsız motor, hafif gövde, düşük başlangıç maliyeti. Güç kaynağı olmayan alanda kullanılamaz.
+
+**Benzinli modeller:**
+Uzak bölgelerde, inşaat alanlarında veya elektrik erişiminin olmadığı yerlerde vazgeçilmezdir. Çok daha yüksek basınç (250+ bar) ve debi üretebilir. Dezavantajları: gürültülü, ağır, yakıt ve yağ bakımı gerektirir, kapalı mekanda egzoz tehlikesi yaratır.
+
+**Akülü modeller:**
+Son yıllarda 18V–60V platformlarında ciddi performans gösteren akülü yıkama makineleri çıkmıştır. Araç yıkama ve balkon temizliği için pratiktir; ancak basınç ve debi elektrikli modellerin altında kalır ve akü ömrü genellikle 15–25 dakikadır.
+
+Ev kullanımı için elektrikli model her zaman önerilen seçenektir.`,
+      },
+      {
+        heading: "Lans ve Nozul Seçimi",
+        body: `Yıkama makinesinin etkinliği büyük ölçüde kullanılan nozula bağlıdır. Nozuller genellikle renk kodlu açı ile tanımlanır:
+
+- **0° (kırmızı):** Nokta bazlı, maksimum güç. İnatçı pas, beton kireci ve çatlak içi temizliği için. **Araç veya canlı dokular üzerinde KULLANMAYIN** — ciddi hasar verir.
+- **15° (sarı):** Dar açılı yoğun jet. Beton, metal yüzey, mermer ve taş temizliği.
+- **25° (yeşil):** En çok yönlü nozul. Araç yıkama, teras, ahşap çit, bahçe mobilyası. Başlangıç noktası olarak bu nozul önerilir.
+- **40° (beyaz):** Geniş, yumuşak fan. Hassas yüzeyler, camlar, boyalı tahta.
+- **65°–siyah (köpük nozulu):** Kimyasal ve şampuan uygulaması; deterjanı geniş alana eşit dağıtır.
+
+Dönen fırça (rotary brush) ve çatı lansı gibi özel aksesuarlar, farklı yüzeyler için hem temizlik kalitesini artırır hem de basınçla zarar verme riskini azaltır.`,
+      },
+      {
+        heading: "Su Girişi ve Depo Modeller",
+        body: `Çoğu ev modeli şebeke suyu bağlantısıyla çalışır; makineye bağlanan hortum doğrudan musluğa gider. Minimum giriş basıncı genellikle 0.1–0.3 bar'dır — neredeyse tüm şebeke sistemleri bu koşulu sağlar.
+
+**Depo (tank) modeller:** Şebekeye bağlantı olmayan alanlarda (saha, çiftlik, tekne) kullanım için su tankıyla birlikte gelir veya dışarıdan depodan beslenir. Makine kendi emme pompasıyla çalışır; kuru çalışma koruması olup olmadığını kontrol edin.
+
+**Genişletilmiş hortum:** Standart hortumlar 6–8 m'dir. 15–20 m'ye kadar uzatma hortumları mevcuttur; ancak her ek metre basınç kaybına yol açar. Yüksek veya uzak noktalara çalışacaksanız uzun hortum yerine makinenin kendisini daha yakına taşıyın.`,
+      },
+      {
+        heading: "Güvenlik: Geri Tepme, Cilt Kesikleri ve Yüzey Hasarı",
+        body: `Yüksek basınçlı su jeti masum görünse de ciddi yaralanmalara yol açabilir:
+
+1. **Cilt kesikleri:** 100 bar üzeri basınçta su eli veya ayağa yönlendirilirse derinin altına sızabilir ve enfeksiyona neden olabilir. Alet çalışırken lansı asla vücuda yönlendirmeyin.
+2. **Gözlere su sıçraması:** Koruyucu gözlük takın; geri çıkıntılı yüzeylerde su geri sıçrar.
+3. **Kayma tehlikesi:** Yıkanan zemin ıslanır ve kayganlaşır; kaymaz tabanlı ayakkabı giyin, zemin üzerinde dikkatli hareket edin.
+4. **Yüzey hasarı:** 0° nozul ve aşırı yakın mesafe; yumuşak ahşap, boyalı metal, cam yüzey ve otomobil lakesinde hasara yol açar. Mesafeyi artırın veya açı nozulu değiştirin.
+5. **Elektrik güvenliği:** Elektrikli modellerin kablosunu suyla temas ettirmeyin; IP sınıfına dikkat edin (IPX5 ve üzeri su sıçramasına karşı güvenli).`,
+      },
+      {
+        heading: "Hangi Modeli Almalısınız?",
+        body: `- **Hafif ev kullanımı — araç ve balkon (500–1.000 TL):** 100–120 bar, 300–360 L/saat, 1.400–1.600W — Karcher K2, Bosch EasyAquatak, Bautec serisi.
+- **Orta kullanım — teras, çit, bahçe mobilyası (1.000–2.000 TL):** 130–150 bar, 400–450 L/saat, 1.700–1.900W — Karcher K4, Bosch AdvancedAquatak 140, Nilfisk Core 140.
+- **Yoğun ev + hafif ticari (2.000–4.000 TL):** 150–180 bar, 500+ L/saat, 2.000–2.400W — Karcher K5/K7, Nilfisk Select 140, Makita HW1300.
+- **Ticari ve endüstriyel (4.000 TL+):** 200+ bar, 600+ L/saat, paslanmaz pompa, uzun garanti — Karcher HD serisi, Nilfisk Alto, benzinli Briggs & Stratton motorlu modeller.
+
+**Pratik ipucu:** Karcher K2 ile K7 arası modellerin üst nozul/aksesuar uyumluluğu kısmidir; aksesuar planı varsa aynı seri içinde kalın. Aynı şekilde Bosch ve Nilfisk serilerinde çapraz uyumluluk modele göre değişir, satın almadan kontrol edin.`,
+      },
+    ],
+  },
 ];
 
 export function getAllPosts(): BlogPost[] {

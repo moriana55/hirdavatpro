@@ -923,6 +923,219 @@ Dönen fırça (rotary brush) ve çatı lansı gibi özel aksesuarlar, farklı y
       },
     ],
   },
+  {
+    slug: "planya-makinesi-rehberi",
+    title: "Planya Makinesi Rehberi: Ahşap Yüzey Düzleme ve Model Seçimi",
+    excerpt:
+      "El planyası mı, masa planyası mı? Bıçak genişliği, talaş derinliği ve devir sayısı nasıl değerlendirilir? Ahşap işçiliği için eksiksiz planya rehberi.",
+    category: "Ahşap İşleme",
+    readTime: "9 dk",
+    publishedAt: "2026-06-04",
+    relatedSlugs: ["daire-testere-secim-rehberi", "dekupaj-testere-rehberi", "zimpara-makinesi-nasil-secilir"],
+    sections: [
+      {
+        heading: "Planya Nedir ve Ne İşe Yarar?",
+        body: `Planya makinesi, ahşap yüzeyleri belirli bir kalınlık ve düzlükte işleyen elektrikli el aletidir. Ana işlevi şunlardır:
+
+- Eğri veya çarpılmış tahtalarda düz yüzey elde etmek
+- Kapı ve çerçevelerden ince talaş alarak tam ölçüye getirmek
+- Ahşap kenarlara pah kırmak (genellikle 45°)
+- Birleştirme öncesinde yüzeyleri eşitlemek
+
+Planya, zımpara makinesine göre çok daha hızlı ve daha fazla malzeme kaldırır; ancak bıçak izi bırakabileceğinden kaba düzleme sonrasında ince zımparalama tavsiye edilir.`,
+      },
+      {
+        heading: "El Planyası mı, Masa Planyası mı?",
+        body: `**El planyası (taşınabilir):**
+Aleti ahşabın üzerinde hareket ettirerek çalışırsınız. Sabit olmayan, büyük veya yerinde işlenmesi gereken parçalar için idealdir. Kapı yontmak, duvara monte çerçeveleri düzeltmek gibi işlerde vazgeçilmezdir. 82 mm ile 110 mm arasında değişen bıçak genişliğine sahiptir.
+
+**Masa planyası (kalınlık planyası / thickness planer):**
+Ahşabı makinenin altından geçirerek sabit kalınlıkta çıkarmak için kullanılır. Tüm tahtaları aynı kalınlığa getirmek isteyenlerin aracıdır. Hacimli ve ağırdır; atölye kullanımına yönelik, taşınamaz.
+
+**Yüzey planyası (jointer):**
+Tahtanın bir yüzeyini tamamen düz hale getirir. Genellikle masa planyasından önce kullanılır: önce jointer ile bir yüz düzlenir, ardından masa planyasıyla karşı yüz o yüzeye paralel yapılır. İkisi birlikte kullanıldığında profesyonel ahşap işçiliğinin temelini oluşturur.
+
+Ev kullanıcısı için taşınabilir el planyası genellikle en pratik başlangıç noktasıdır.`,
+      },
+      {
+        heading: "Bıçak Genişliği ve Talaş Derinliği",
+        body: `**Bıçak genişliği:** El planyalarında standart genişlikler 82 mm ve 102–110 mm'dir. 82 mm çoğu ev ve tamir işi için yeterlidir; daha geniş tahtalarda tek geçişte düzleme yapmak istiyorsanız 102+ mm tercih edin. Daha geniş bıçak daha ağır alet anlamına gelir.
+
+**Maksimum talaş derinliği:** Tek geçişte alınabilecek en fazla malzeme miktarıdır. Genellikle 0–3 mm arasında ayarlanabilir. Kaba düzlemede 1–2 mm, ince son geçişte 0.2–0.5 mm önerilir. Derin talaş almak aletinizi yorar, bıçakları erken köreltir.
+
+**Devir sayısı (dev/dk):** Yüksek devir daha pürüzsüz yüzey demektir. Kaliteli el planyaları 15.000–17.000 dev/dk aralığında çalışır. Düşük devirli modeller sert ahşapta bıçak izi bırakabilir.
+
+**Motor gücü:** Ev kullanımı için 600–800 W yeterlidir; meşe, gürgen veya ceviz gibi sert ağaçları düzenli işleyecekseniz 850–1.100 W modelleri tercih edin.`,
+      },
+      {
+        heading: "Bıçak Tipi: HSS mi, Karbür mü?",
+        body: `**HSS (Yüksek Hız Çeliği) bıçaklar:**
+Standart ve ucuzdur. Kolayca bilenebilir. Yumuşak ahşapta uzun süre keskin kalır; sert ahşapta veya yoğun kullanımda daha çabuk körelebilir. Bileme tecrübeniz varsa uzun vadede ekonomiktir.
+
+**Karbür (widia) bıçaklar:**
+Serttir, çok daha uzun ömürlüdür. Sert ağaçlar, MDF ve kontrplak gibi yapıştırıcı içeren malzemelerde HSS bıçaklardan 3–5 kat daha uzun süre keskin kalır. Bilemesi zordur, değiştirilmesi önerilir. İlk alım maliyeti yüksek, uzun vadede avantajlı.
+
+**Çift bıçak vs. tek bıçak:** Çoğu el planyası iki bıçakla çalışır; bazı üst modeller 3 bıçak kullanır. Daha fazla bıçak = daha pürüzsüz yüzey ve daha uzun bıçak ömrü.
+
+**Tek kullan-at bıçaklar:** Bazı markalarda (Bosch, DeWalt) döndürülerek iki keskin kenar sunan tek kullan-at karbon bıçaklar bulunur. Pratiktir ama uzun vadede maliyet hesabı yapın.`,
+      },
+      {
+        heading: "Pah Kırma ve Kanal Açma",
+        body: `El planyalarının önemli bir özelliği de **pah kırma** (chamfering) kapasitesidir. Tabanın ön kısmında genellikle 45° V-oyuğu vardır; bu oyuğa tahtanın kenarı yerleştirilerek tek geçişte düzgün pah elde edilir. Bazı modellerde 30°–60° arası ayarlanabilir pah kılavuzu bulunur.
+
+**Kanal açma (rebating/rabbeting):** Bazı planyalarda tabanın bir tarafı tamamen açıktır; bu sayede kanal veya basamak profili oluşturulabilir. Bu özelliğe sahip modeller daha çok ahşap işçileri için avantajlıdır.
+
+**Paralel kılavuz:** Çoğu planyada vida ile kilitlenen yan kılavuz aksesuarı standart olarak gelir. Tahtanın kenarından sabit mesafede düz planyalama yapmanızı sağlar.`,
+      },
+      {
+        heading: "Toz Toplama ve Talaş Yönetimi",
+        body: `Planya makineleri son derece fazla talaş üretir. Toz ve talaş yönetimi hem çalışma ortamı hem de sağlık açısından kritiktir.
+
+- **Talaş çıkış yönü:** Çoğu planya sağa talaş atar. Bazı modellerde yön değiştirilebilir veya torba bağlantısı her iki yana da yapılabilir.
+- **Toz torbası:** Tüm modellerde standart olarak gelir; ağırlığı ve hacmi kısıtlıdır, sık boşaltılmalıdır.
+- **Endüstriyel süpürge bağlantısı:** 36 mm veya 58 mm adaptörle harici toz toplama sistemine bağlanır. Büyük işlerde mutlaka tavsiye edilir.
+- **MDF ve kontrplak:** Bu malzemeleri işlerken ince toz yoğun çıkar. Toz maskesi (FFP2/FFP3) ve gözlük şarttır; formaldehit içeren yapıştırıcı gazları tehlikelidir.`,
+      },
+      {
+        heading: "Kullanım Teknikleri ve Yaygın Hatalar",
+        body: `**Doğru baskı ve hız:** Planyayı tutarlı hızda ilerletin; çok yavaş hareket yüzeyde yanma izine, çok hızlı hareket dalgalı yüzeye yol açar. Başlangıç ve bitiş noktalarında baskıyı tahtanın diğer ucuna kaydırın — aksi halde "at kafası" (snipe) denen baş ve son kısımda derin iz sorunu oluşur.
+
+**Tahıl yönüne göre çalışın:** Ahşabın tahılıyla (lif yönüyle) aynı yönde planyalayın. Karşı yönde planyalamak parçalanmaya ve yüzey sökülmesine neden olur.
+
+**Bıçak ayarı:** İlk geçişte kalın talaş (1–1.5 mm), son geçişlerde ince talaş (0.3–0.5 mm) alın. Son geçiş ne kadar ince olursa yüzey o kadar düzgün olur.
+
+**Durak tahtası kullanın:** Küçük parçaları çalışma tezgahına vidalanmış durdurucularla sabitleyin; planya hem elinizi hem parçayı yerinden oynatabilir.
+
+**Sert düğümlerden kaçının veya dikkatli geçin:** Budak (düğüm) noktalarında bıçak şoku yaşanabilir ve bıçak körelebilir; o noktalarda talaş derinliğini azaltın.`,
+      },
+      {
+        heading: "Hangi Modeli Almalısınız?",
+        body: `- **Giriş seviye — kapı yontma, ara sıra tamir (500–900 TL):** 82 mm bıçak, 600–650 W, 15.000 dev/dk — Bosch PHO 1500, Black+Decker KW750K, Bautec serisi.
+- **Orta seviye — düzenli atölye kullanımı (900–1.800 TL):** 82 mm, 800–850 W, HSS veya karbür bıçak seçeneği — Makita KP0800, Bosch PHO 2000, Metabo Ho E 8260.
+- **Profesyonel (1.800–3.500 TL):** 102–110 mm geniş bıçak, 900–1.100 W, yüksek devir, karbür bıçak standart — Makita KP0810, DeWalt DW680, Festool HL 850.
+
+**Masa planyası (kalınlık planyası) — atölye için (3.000–8.000 TL):** Makita 2012NB (306 mm), DeWalt DW734, Jet 15G — seri üretim veya eşit kalınlık gerektiren projeler için.
+
+**Pratik ipucu:** El planyası alırken bıçak yedek bulunabilirliğini kontrol edin. Bazı ucuz modellerde bıçak bulmak zorlaşabiliyor; Bosch, Makita ve DeWalt bıçakları her hırdavatçıda bulunur.`,
+      },
+    ],
+  },
+  {
+    slug: "motorlu-testere-rehberi",
+    title: "Motorlu Testere (Zincirli Testere) Rehberi: Doğru Model ve Güvenli Kullanım",
+    excerpt:
+      "Benzinli mi, elektrikli mi, akülü mü? Kılavuz uzunluğu, zincir adımı ve güvenlik ekipmanları. Ağaç kesme ve odun yarma için eksiksiz chainsaw rehberi.",
+    category: "Kesme & Biçme",
+    readTime: "10 dk",
+    publishedAt: "2026-06-04",
+    relatedSlugs: ["daire-testere-secim-rehberi", "dekupaj-testere-rehberi", "is-guvenligi-ekipmanlari-rehberi"],
+    sections: [
+      {
+        heading: "Motorlu Testere Nedir ve Hangi İşlere Yarar?",
+        body: `Motorlu testere (zincirli testere veya chainsaw), hareketli çelik zincir üzerindeki kesici dişlerle ağaç ve odun kesen motorlu alettir. Kullanım alanları:
+
+- **Yakacak odun hazırlama:** Kütükleri belirli uzunluklarda kesmek (bucking)
+- **Ağaç kesme:** Dal budama ve devrik ağaç temizliği (felling)
+- **Bahçe bakımı:** Kuru dal temizliği, çalı kesimi
+- **İnşaat/ahşap işçiliği:** Kaba kereste kesimi, tomruk şekillendirme (milling)
+- **Acil durum ve temizlik:** Fırtına sonrası yol açma, devrilmiş gövde kaldırma
+
+Yüzey zımparası veya daire testere ile karıştırmayın — motorlu testere çok daha büyük malzeme kaldırır ve orantılı güvenlik gereklilikleri vardır.`,
+      },
+      {
+        heading: "Benzinli mi, Elektrikli mi, Akülü mü?",
+        body: `**Benzinli motorlu testere:**
+En yüksek gücü ve taşınabilirliği sunar. Elektrik kaynağı olmayan ormanlık alanlarda, büyük gövde kesiminde veya uzun süre kesintisiz çalışmalarda seçilecek seçenektir. Dezavantajları: gürültülü (100+ dB), titreşim yüksek, motor bakımı gerektirir (hava filtresi, buji, karbüratör), soğuk başlatma sorunu yaşanabilir. 30–90+ cc motor hacmi aralığında gelir.
+
+**Elektrikli motorlu testere (kablolu):**
+Bahçe ve küçük arazi kullanımı için uygundur. Fiyatı düşüktür, motor bakımı yoktur, her çekişte tam güç verir. Dezavantajı: elektrik kablosuyla sınırlıdır (genellikle 30–40 m). 1.800–2.400 W aralığında güç sunar.
+
+**Akülü motorlu testere (brushless):**
+Son yıllarda 18V–40V platformlarında ciddi güç gösteren modeller çıkmıştır. Sese duyarlı alanlarda (şehir bahçeleri), evin yakınında, platformda başka aletiniz varsa ideal seçenektir. Biri diğer aletlerle ortak akü platformuysa ek maliyet düşer. Dezavantajı: büyük gövde kesiminde benzinli modelin gerisinde kalır; akü ömrü 20–45 dakikadır.
+
+**Karar rehberi:** Küçük bahçe ve ev kullanımı → elektrikli veya akülü; orman, büyük arazi, uzak alan → benzinli.`,
+      },
+      {
+        heading: "Kılavuz Uzunluğu (Bar) ve Güç Eşleşmesi",
+        body: `Kılavuz (bar), zincirin üzerinde döndüğü çelik levhaya verilen isimdir. Uzunluğu doğrudan kesilebilecek maksimum çap ile ilişkilidir.
+
+| Kılavuz Uzunluğu | Uygun Kullanım | Tipik Güç |
+|---|---|---|
+| 25–30 cm | Dal kesimi, ince tomruklar (≤20 cm çap) | 30–35 cc / 1.5–1.8 kW |
+| 35–40 cm | Orta çaplı gövde (≤35 cm), yakacak odun | 38–45 cc / 1.8–2.2 kW |
+| 45–50 cm | Büyük gövde (≤45 cm), sert ağaçlar | 50–60 cc / 2.2–2.8 kW |
+| 60+ cm | Profesyonel devrim kesimi | 70+ cc |
+
+**Kılavuzu motora eşleştirme:** Küçük motora büyük kılavuz takılırsa testere güç kaybeder ve ısınır; büyük motora çok kısa kılavuz takmak ise boşa güç harcamasına yol açar. Üretici uyumluluk tablosunu mutlaka kontrol edin.`,
+      },
+      {
+        heading: "Zincir Adımı ve Diş Profili",
+        body: `**Zincir adımı (pitch):** Zincirleme art arda üç perçinin ortaları arasındaki mesafenin yarısıdır. En yaygın değerler:
+- **1/4":** Çok küçük, hafif testere ve budama uygulamaları
+- **3/8" LP (Low Profile):** Hafif ev testiyeleri, elektrikli modeller
+- **3/8":** En yaygın evrensel adım; çoğu orta ve büyük testere
+- **0.325":** Orta güçlü testere, hız/güç dengesi
+- **0.404":** Ağır profesyonel kesim, büyük motor
+
+**Diş profili:**
+- **Tam keski (Full chisel):** Kare diş; sert ağaçta hızlı keser ama çabuk körelebilir, bileme için ustalık ister
+- **Yarı keski (Semi chisel):** Yuvarlatılmış diş; daha uzun keskin kalır, kirli/kumlu ahşaçta daha toleranslı, bilemesi daha kolay
+- **Düşük profil:** Hafif ve az güçlü testiyelerde standart; güvenli kullanım için sınırlı dişlenme
+
+Zinciri satın alırken adım + diş sayısı + zincir kalınlığı (gauge) üçlüsünün kılavuzla uyumlu olmasına dikkat edin. Uyumsuz zincir takılmaz veya çıkar.`,
+      },
+      {
+        heading: "Güvenlik Ekipmanları — Vazgeçilmez",
+        body: `Motorlu testere, el aletleri içinde en yüksek yaralanma riskine sahip alet kategorisindedir. Aşağıdaki ekipmanlar zorunludur:
+
+1. **Chainsaw koruyucu pantolon (chaps/trousers):** Ağır kumaş katmanları zincir temasını keserek bacak yaralanmalarını önler. EN 381-5 standardına uygun olmalı.
+2. **Koruyucu bot:** Çelik burunlu, anti-kesim koruyuculu chainsaw botu (EN 381-3).
+3. **Baret + yüz siperi:** Düşen ağaç parçalarına ve talaşa karşı. Entegre kulak koruyucu tercih edilebilir.
+4. **Eldiven:** Titreşim önleyici, anti-kesim korumalı (EN 388).
+5. **Kulak koruyucu:** Benzinli testere 100+ dB gürültü üretir; uzun süreli maruziyette işitme kaybı yaratır.
+
+**Testere üzerindeki güvenlik sistemleri:**
+- **Ön el koruma kalkanı + atış freni (chain brake):** Testere geri teper (kickback) anında freni devreye sokarak zinciri durdurur — asla devre dışı bırakmayın.
+- **Zincirlerin sağ taraf koruyucu:** Zincirin kılavuzu terk etmesi durumunda el temasını önler.
+- **Gaz kilidi (throttle interlock):** Yanlışlıkla tam gaz uygulanmasını önler.`,
+      },
+      {
+        heading: "Geri Tepme (Kickback) ve Nasıl Önlenir?",
+        body: `**Kickback nedir?** Kılavuzun üst ucu (saat 12 bölgesi, "kickback zone") bir nesneyle temas ettiğinde, testere kontrol dışında yukarı ve geriye doğru fırlar. Saniyenin çok küçük bir diliminde gerçekleşir ve en sık görülen ağır yaralanma sebebidir.
+
+**Önlem adımları:**
+- Kılavuzun üst ucunu kullanarak asla kesim yapmayın
+- Düşük zincir hızında (rölanti) kesime başlamayın; tam gaz devrine geldikten sonra ahşaba temas ettirin
+- Kesim yaparken kılavuzu açılı (paralel değil, hafif eğik) tutun
+- Ön el koruma kalkanının temiz ve çalışır olduğundan emin olun
+- Yorgunken veya rahatsızken çalışmayın — dikkat dağınıklığı en büyük risk faktörüdür
+
+**Çalışma pozisyonu:** Testereyi daima iki elle tutun. Vücudunuzu kılavuzun hizasından değil, yanından konumlandırın.`,
+      },
+      {
+        heading: "Bakım: Zincir Bileme, Yağlama ve Hava Filtresi",
+        body: `**Zincir bileme:** Körleşmiş zincir hem tehlikelidir (daha fazla güç uygulanır, kontrol azalır) hem de motoru zorar. Belirtiler: talaş yerine toz çıkması, testereyi kesmek için baskı yapmak zorunda kalmak. El bileme dosyası veya elektrikli bileme aleti kullanılabilir. Adım ve diş profiline göre doğru dosya çapını seçin; üretici kılavuzunda belirtilmiştir.
+
+**Zincir yağı:** Zincir ve kılavuz, otomatik yağlama pompasıyla yağlanır. Yağ deposu ayrıdır; her yakıt doldurduğunuzda kontrol edin. Düşük yağ = hızlı kılavuz aşınması. Kaliteli chainsaw bar & chain oil kullanın; bitkisel yağ da çevresel seçenek olarak kabul edilir.
+
+**Hava filtresi:** Benzinli modellerde kirli hava filtresi yakıt tüketimini artırır ve motor güçten düşer. Her 5–10 çalışma saatinde kontrol edin, temizleyin; gerekirse değiştirin.
+
+**Buji:** Her sezonda kontrol edin; karbonlanmış buji soğuk başlatma sorununa yol açar.
+
+**Yakıt:** Modern benzinli testere motorları 2 zamanlıdır — yakıta yağ karıştırılır (genellikle 50:1 oranı). Yanlış karışım motoru yakar. Hazır karışım yakıt kullanılabilir.`,
+      },
+      {
+        heading: "Hangi Modeli Almalısınız?",
+        body: `- **Hafif bahçe kullanımı — ince dal ve küçük gövde (elektrikli, 800–1.500 TL):** 30–35 cm bar, 1.800–2.000 W — Bosch UniversalChain 35, Black+Decker GK1840T, Einhell serisi.
+- **Orta kullanım — yakacak odun, orta gövde (akülü 18V–40V, 1.500–4.000 TL):** 35–40 cm bar — Makita DUC355Z (18V×2), DeWalt DCCS670, Greenworks 60V.
+- **Bahçe + orta orman (benzinli giriş, 2.000–3.500 TL):** 35–40 cm bar, 38–42 cc — Husqvarna 135, STIHL MS 170/180, Echo CS-310.
+- **Ağır odun ve büyük gövde (benzinli orta, 3.500–6.000 TL):** 45–50 cm bar, 50–55 cc — Husqvarna 450 Rancher, STIHL MS 250/271, Oregon CS1500.
+- **Profesyonel (6.000 TL+):** 50+ cm bar, 60+ cc — Husqvarna 572XP, STIHL MS 462, Makita EA6100P.
+
+**Pratik ipucu:** STIHL ve Husqvarna yetkili servis ağı Türkiye'de yaygındır; yedek parça ve zincir bulmak kolaydır. Marka bilinmez ucuz modellerde servis ve yedek parça sıkıntısı yaşanabilir. Güvenlik önlemlerini ve ekipmanlarını almadan testereye başlamayın.`,
+      },
+    ],
+  },
 ];
 
 export function getAllPosts(): BlogPost[] {

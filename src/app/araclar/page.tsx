@@ -5,8 +5,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Araçlar",
-  description: "Matkap ucu ve ileride eklenecek teknik seçim araçları.",
+  title: "Araçlar — Hırdavat Seçim Araçları",
+  description: "Matkap ucu, testere seçimi, vida & dübel eşleştirme ve daha fazlası. Taban malzemesi ve montaj yüküne göre anlık teknik öneri.",
 };
 
 const items = [
@@ -18,11 +18,11 @@ const items = [
     live: true,
   },
   {
-    href: "#",
+    href: "/araclar/vida-dubel",
     title: "Vida & dübel eşleştirme",
-    desc: "Montaj yükü ve taban malzemesine göre uyum — geliştirme aşamasında.",
+    desc: "Beton, gazbeton, alçıpan, ahşap ve metal için doğru dübel tipi, vida boyutu ve delik çapı önerisi.",
     icon: Layers,
-    live: false,
+    live: true,
   },
 ] as const;
 

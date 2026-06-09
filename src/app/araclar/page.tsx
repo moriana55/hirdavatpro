@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Drill, Layers } from "lucide-react";
+import { ArrowRight, Disc3, Drill, Layers } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
@@ -22,6 +22,13 @@ const items = [
     title: "Vida & dübel eşleştirme",
     desc: "Beton, gazbeton, alçıpan, ahşap ve metal için doğru dübel tipi, vida boyutu ve delik çapı önerisi.",
     icon: Layers,
+    live: true,
+  },
+  {
+    href: "/araclar/testere-secimi",
+    title: "Testere & bıçak seçimi",
+    desc: "Malzeme, kesim tipi ve ortama göre daire, şerit, dekupaj, tilki kuyruğu veya zincirli testere önerisi.",
+    icon: Disc3,
     live: true,
   },
 ] as const;

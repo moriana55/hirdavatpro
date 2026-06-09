@@ -1302,6 +1302,99 @@ Modern makinelerde şu önlemler alınır:
       },
     ],
   },
+  {
+    slug: "serit-testere-rehberi",
+    title: "Şerit Testere Rehberi: Doğru Modeli Seçmek",
+    excerpt:
+      "Masaüstü mü, sütunlu mu? Bant genişliği ve diş sayısı nasıl seçilir? Ahşap, et ve metal için şerit testere rehberi.",
+    category: "Kesme & Biçme",
+    readTime: "8 dk",
+    publishedAt: "2026-06-09",
+    relatedSlugs: ["daire-testere-rehberi", "dekupaj-testere-rehberi", "is-guvenligi-ekipmanlari"],
+    sections: [
+      {
+        heading: "Şerit Testere Nedir, Ne İşe Yarar?",
+        body: `Şerit testere, sürekli dönen ince bir metal bant üzerine kurulu bir kesim makinesidir. Bıçak iki veya daha fazla tekerlek üzerinde gerili döner; iş parçası bu bant boyunca yönlendirilir.
+
+Daire testereden temel farkı eğri ve profil kesim yapabilmesidir. Serbest el hareketi ve kılavuz kullanımıyla hem düz hem de karmaşık konturları takip eder. Bant ince tutulabildiğinden fire (talaş kaybı) minimumdur — bu özelliğiyle değerli ahşap ve et işlemede tercih edilir.`,
+      },
+      {
+        heading: "Masaüstü mi, Sütunlu mu?",
+        body: `**Masaüstü şerit testere:**
+Kompakt yapısıyla atölye ve hobi kullanımı için idealdir. Tekerlek çapı genellikle 200–250 mm arasındadır; kesim yüksekliği 150–200 mm ile sınırlıdır. Ağırlığı 15–30 kg olduğundan taşınabilir. Fiyat aralığı 3.000–8.000 TL bandındadır.
+
+**Sütunlu (kolonlu) şerit testere:**
+Ticari ve yarı-endüstriyel kullanım için üretilir. Tekerlek çapı 300–500 mm'ye çıkabilir; kalın ahşap bloklar ve kütük kesimi mümkündür. Zemine sabitlenecek şekilde tasarlanmıştır; fiyatı 12.000 TL'nin üzerinde başlar.
+
+Hobici ve küçük ölçekli marangozlar için masaüstü model genellikle yeterlidir. Seri üretim veya et işleme yapılıyorsa sütunlu model tercih edilir.`,
+      },
+      {
+        heading: "Bant Genişliği ve Diş Sayısı",
+        body: `Bant genişliği (mm cinsinden) kesimin ne kadar eğrilebileceğini ve bant dayanımını belirler:
+
+| Bant Genişliği | Min. Kesim Yarıçapı | Kullanım |
+|---|---|---|
+| 3–6 mm | 15–25 mm | İnce eğri, oyma, marquetry |
+| 10 mm | 50 mm | Genel eğri kesim |
+| 13 mm | 75 mm | Çok amaçlı, kontur |
+| 20–25 mm | 200 mm+ | Düz kesim, kütük yarma |
+
+Diş sayısı (TPI — Teeth Per Inch) kesim kalitesini belirler:
+- **3–6 TPI:** Hızlı, kaba kesim — yumuşak ahşap ve et işleme
+- **6–10 TPI:** Çok amaçlı — genel ahşap kullanımı
+- **14–18 TPI:** İnce ve temiz kesim — sert ahşap, ince panel
+- **18–32 TPI:** Metal kesimi — alüminyum, ince çelik
+
+Çoğu atölye için 6–10 TPI ve 13 mm genişliğinde bant başlangıç olarak idealdir.`,
+      },
+      {
+        heading: "Motor Gücü ve Tekerlek Çapı",
+        body: `**Motor gücü (W):** Masaüstü modellerde 250–750 W yeterlidir. 50 mm üzeri sert ahşap veya yoğun kullanım için 500 W ve üzeri önerilir. Sütunlu modellerde 1.000–2.000 W yaygındır.
+
+**Tekerlek çapı (mm):** Çap, ne kadar kalın malzeme kesilebileceğini doğrudan etkiler. Çap büyüdükçe bant daha uzun ve bant yorulma hızı daha düşük olur. 200 mm tekerlek hobi için, 300 mm ticari hafif kullanım için uygundur.
+
+**Tabla boyutu:** İş parçasını destekleyen tabla büyüdükçe büyük parçaları kesmek kolaylaşır. 300 × 300 mm hobiye yeterlidir; profesyonel kullanım için 400 × 400 mm ve üzeri arayın.`,
+      },
+      {
+        heading: "Bant Gerginliği ve Kılavuz Ayarı",
+        body: `Doğru bant gerginliği performans ve bant ömrü açısından kritiktir. Çok gevşek bant titreşir ve kayar; çok gergin bant ise kırılır.
+
+**Gerginlik testi:** Bantı 25 mm kenara ittirdiğinizde 5–6 mm sapma normal kabul edilir. Çoğu makinede gerginlik ayar vidası mevcuttur; bant değişiminden sonra mutlaka kontrol edin.
+
+**Kılavuz blokları:** Bant, üst ve alt bölmede kılavuz blokları tarafından desteklenir. Bu bloklar bant yüzeyine temas etmeyecek ancak çok yakın konumda olmalıdır (0,1–0,2 mm boşluk ideal). Ayarsız kılavuzlar bant kırılmasına ve eğri kesime yol açar.
+
+**Tabla eğimi:** Tabla çoğunlukla 0–45° eğim yapabilir. Eğimli kesimden önce tabla kilit vidasının sıkıldığından emin olun.`,
+      },
+      {
+        heading: "Et Kesimi İçin Şerit Testere",
+        body: `Şerit testere kasaplık ve et işleme endüstrisinde de yaygın kullanılır. Et kesim bantları paslanmaz çelik gövdeli, kolay temizlenebilir yüzeylerle üretilir.
+
+Dikkat edilecek noktalar:
+- Paslanmaz çelik tabla ve iç yüzeyler — korozyon ve bakteri birikimini önler
+- Gıdaya uygun (food-grade) bıçak bandı; nikel veya inox dişler
+- Düşük TPI (3–6) kemik ve büyük et blokları için
+- Su tahliyesi olan makine tabanı
+- CE ve gıda hijyeni standartlarına (EC 1935/2004) uygunluk
+
+Ev kasaphanesi kurmayı düşünüyorsanız mutlaka gıda uyumlu sertifikalı model tercih edin.`,
+      },
+      {
+        heading: "Güvenlik ve Bakım",
+        body: `**Güvenlik:**
+- Her kesim öncesi bant kılıfını iş parçası kalınlığına göre ayarlayın; bant mümkün olduğunca az açıkta kalmalıdır.
+- Parmaklarınız bant hizasına asla yaklaşmamalı; push stick kullanın.
+- Kesilecek parçayı serbest bırakmayın; eğrilen parça bant kılavuzuna takılarak bant kırılabilir.
+- Kulak koruyucusu ve gözlük daima takılı olmalıdır.
+
+**Bant değişimi:** Kırık, çatlak veya aşırı diş kaybı varsa derhal değiştirin. Yeni bant takarken tekerlek üzerine düzgün oturduğundan ve kılavuzlara göre hizalandığından emin olun.
+
+**Düzenli bakım:**
+- Talaş birikimi: Makine tabanı ve kılavuzları her kullanım sonrası temizleyin.
+- Tekerlek rulmanları: Yılda bir kontrol; anormal ses çıkarıyorsa değiştirin.
+- Tabla yüzeyi: Reçine ve özü birikimini önlemek için hafif mineral yağıyla silin.`,
+      },
+    ],
+  },
 ];
 
 export function getAllPosts(): BlogPost[] {

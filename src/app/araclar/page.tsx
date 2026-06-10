@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Disc3, Drill, Layers } from "lucide-react";
+import { ArrowRight, Disc3, Drill, Eraser, Layers } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Araçlar — Hırdavat Seçim Araçları",
-  description: "Matkap ucu, testere seçimi, vida & dübel eşleştirme ve daha fazlası. Taban malzemesi ve montaj yüküne göre anlık teknik öneri.",
+  description: "Matkap ucu, testere seçimi, vida & dübel eşleştirme, zımpara grit seçimi ve daha fazlası. Taban malzemesi ve işleme göre anlık teknik öneri.",
 };
 
 const items = [
@@ -29,6 +29,13 @@ const items = [
     title: "Testere & bıçak seçimi",
     desc: "Malzeme, kesim tipi ve ortama göre daire, şerit, dekupaj, tilki kuyruğu veya zincirli testere önerisi.",
     icon: Disc3,
+    live: true,
+  },
+  {
+    href: "/araclar/zimpara-secimi",
+    title: "Zımpara & grit seçimi",
+    desc: "Ham ahşap, metal, boya katı ve plastik için doğru grit sırası, zımpara cinsi ve uygulama önerisi.",
+    icon: Eraser,
     live: true,
   },
 ] as const;

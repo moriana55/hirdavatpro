@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Disc3, Drill, Eraser, Layers } from "lucide-react";
+import { ArrowRight, Disc3, Drill, Eraser, Layers, PaintBucket } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
@@ -36,6 +36,13 @@ const items = [
     title: "Zımpara & grit seçimi",
     desc: "Ham ahşap, metal, boya katı ve plastik için doğru grit sırası, zımpara cinsi ve uygulama önerisi.",
     icon: Eraser,
+    live: true,
+  },
+  {
+    href: "/araclar/boya-hesaplayici",
+    title: "Boya miktarı hesaplayıcı",
+    desc: "Oda ölçüleri, yüzey tipi ve kat sayısına göre gereken boya miktarını ve ideal kutu kombinasyonunu hesaplayın.",
+    icon: PaintBucket,
     live: true,
   },
 ] as const;

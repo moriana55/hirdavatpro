@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Disc3, Drill, Eraser, Layers, PaintBucket } from "lucide-react";
+import { ArrowRight, Disc3, Drill, Eraser, HardHat, Layers, PaintBucket } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Araçlar — Hırdavat Seçim Araçları",
-  description: "Matkap ucu, testere seçimi, vida & dübel eşleştirme, zımpara grit seçimi ve daha fazlası. Taban malzemesi ve işleme göre anlık teknik öneri.",
+  description: "Matkap ucu, testere seçimi, vida & dübel eşleştirme, zımpara grit seçimi, beton karışım hesaplayıcı ve daha fazlası. Taban malzemesi ve işleme göre anlık teknik öneri.",
 };
 
 const items = [
@@ -43,6 +43,13 @@ const items = [
     title: "Boya miktarı hesaplayıcı",
     desc: "Oda ölçüleri, yüzey tipi ve kat sayısına göre gereken boya miktarını ve ideal kutu kombinasyonunu hesaplayın.",
     icon: PaintBucket,
+    live: true,
+  },
+  {
+    href: "/araclar/beton-karisim",
+    title: "Beton karışım hesaplayıcı",
+    desc: "C10'dan C30'a beton sınıfı seçin, hacim veya torba sayısı girin — çimento, kum, çakıl ve su miktarlarını anında hesaplayın.",
+    icon: HardHat,
     live: true,
   },
 ] as const;

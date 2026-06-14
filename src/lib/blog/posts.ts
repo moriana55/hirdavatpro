@@ -1395,6 +1395,69 @@ Ev kasaphanesi kurmayı düşünüyorsanız mutlaka gıda uyumlu sertifikalı mo
       },
     ],
   },
+  {
+    slug: "darbeli-tornavida-rehberi",
+    title: "Darbeli Tornavida (Impact Driver) Rehberi: Akülü Tornavidadan Farkı ve Doğru Seçim",
+    excerpt:
+      "Impact driver nedir, akülü tornavidadan ne zaman üstündür? Nm tork, darbe frekansı ve hangi vida tipinde hangi makine kullanılır — adım adım rehber.",
+    category: "Delme & Vidalama",
+    readTime: "7 dk",
+    publishedAt: "2026-06-14",
+    relatedSlugs: ["akulu-tornavida-rehberi", "matkap-nasil-secilir"],
+    sections: [
+      {
+        heading: "Darbeli Tornavida Nedir?",
+        body: `Darbeli tornavida (impact driver), döner hareketle eş zamanlı darbeli çarpma hareketi üretir. Akülü tornavidanın aksine, direnç arttığında motor durmak yerine tetik mekanizması devreye girerek milisaniyeler içinde güçlü bir tork darbesi üretir. Bu sayede büyük vida ve civatalar çok daha az güç harcayarak sıkılabilir.
+
+Dış görünüş olarak akülü tornavidaya benzer ancak genellikle daha küçük ve hafiftir. 1/4 inç altıgen mandren standardı kullanır; yuvarlak şaftlı uçlar bu makinelere takılmaz.`,
+      },
+      {
+        heading: "Akülü Tornavidadan Ne Zaman Üstündür?",
+        body: `İki aletin farkı en çok uzun vida ve yüksek dirençli civatada ortaya çıkar.
+
+**Darbeli tornavida tercih edin:**
+- 60 mm ve üzeri vida boylarında (deck screew, çatı vidası, ağır konstrüksiyon)
+- Sert ahşap ve kompozit malzemelerde
+- Çok sayıda vida/civata sıkma gereken seri işlerde (çatı kaplama, perde duvar, raf kurulumu)
+- M6 ve üzeri civatalarda (akülü tornavida bu boyda takılı kalır veya bitikten çıkar)
+
+**Akülü tornavida tercih edin:**
+- İnce ahşapta hassas vidalama gerektiğinde (vida başı gömülmemeli)
+- Küçük vida ve perçinlerde
+- Dübel gerektirecek delme–vida kombinasyon işlerinde (tornavida modu + düşük tork)**`,
+      },
+      {
+        heading: "Tork ve Darbe Frekansı: Ne Anlama Gelir?",
+        body: `**Maksimum Tork (Nm):** Darbeli tornavidalarda 150–350 Nm arasında değişir. Ev kullanımı için 180–220 Nm yeterlidir; ahşap konstrüksiyon ve çelik montajda 250 Nm ve üzeri tercih edin.
+
+**IPM / BPM (Darbe Sayısı):** Dakikadaki darbe sayısıdır (İngilizce: Impacts Per Minute). 3.000–4.000 IPM çoğu kullanım için uygundur. Yüksek IPM seri işleri hızlandırır ancak kırılgan malzemelerde vida başını parçalayabilir.
+
+**Devir (rpm):** 2.500–3.600 rpm arasındadır. Darbeli tornavidanın devrini düşürmek için tetik hassasiyeti kritiktir; vida başında kumanda kaybı yaşanmaması için tetik kademeli sıkılmalıdır.`,
+      },
+      {
+        heading: "Mandren Tipi: 1/4 İnç Altıgen",
+        body: `Darbeli tornavidalar evrensel olarak 1/4 inç (6,35 mm) altıgen mandren kullanır. Bu standartta binlerce bits ucu mevcuttur: PH (Phillips), PZ (Pozidriv), T (Torx), SQ (Robertson), altıgen (Hex).
+
+Dikkat: Normal akülü tornavida uçlarının şaftı yuvarlak olup darbeli tornavidada tutunmaz. Darbeli tornavida için "impact rated" etiketli uçlar seçin; bunlar darbe gerilmelerine dayanacak şekilde üretilir ve kırılmaz.`,
+      },
+      {
+        heading: "Akü Uyumluluğu ve Platform Seçimi",
+        body: `Çoğu büyük marka (Makita, Bosch, Dewalt, Milwaukee, Hikoki) aynı akü platformunu tüm alet ailesinde paylaşır. Elinizde mevcut akü varsa aynı markadan bir darbeli tornavida almak hem ekonomik hem pratiktir.
+
+**18V mi, 12V mi?** Günlük ve ağır kullanım için 18V tercih edin. 12V modeller daha hafif ve kompakttır; düşük tavanlı, dar alanlarda çalışanlara uygundur ancak tork kapasitesi sınırlıdır.
+
+**Fırçasız motor (brushless):** Mümkünse fırçasız motor seçin. Daha az ısı, daha az bakım, daha uzun motor ömrü ve aynı akü şarjıyla %15–25 daha fazla iş yapar.`,
+      },
+      {
+        heading: "Güvenlik ve Kullanım İpuçları",
+        body: `- **Bilek kontrolü:** Yüksek tork darbeleri bilekte ani dönme yaratabilir; tutma pozisyonunuzu sağlamlaştırın.
+- **Gözlük zorunlu:** Vida/civata başından kopan metal kıymıklar sıkça saçılır.
+- **Vida hizası:** Ucu vidaya tam dik ve hizalı tutun; eğik tutan uç vida başını soyar.
+- **İnce malzeme dikkat:** Sunta, MDF ve alçıpanda vida gömülmesi (over-drive) yaşanabilir. Tork ayarlı durdurma özellikli modeller veya aksesuar derinlik sınırlayıcı kullanın.
+- **Akü sıcaklığı:** Uzun seri çalışmada akü ısınır; 40°C üzeri şarjdan kaçının, birkaç dakika soğutun.`,
+      },
+    ],
+  },
 ];
 
 export function getAllPosts(): BlogPost[] {

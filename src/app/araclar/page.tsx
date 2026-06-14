@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Disc3, Drill, Eraser, HardHat, Layers, PaintBucket } from "lucide-react";
+import { ArrowRight, Disc3, Drill, Eraser, HardHat, Layers, PaintBucket, Zap } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Araçlar — Hırdavat Seçim Araçları",
-  description: "Matkap ucu, testere seçimi, vida & dübel eşleştirme, zımpara grit seçimi, beton karışım hesaplayıcı ve daha fazlası. Taban malzemesi ve işleme göre anlık teknik öneri.",
+  description: "Matkap ucu, testere seçimi, vida & dübel eşleştirme, zımpara grit seçimi, beton karışım hesaplayıcı, kablo kesiti hesaplayıcı ve daha fazlası. Taban malzemesi ve işleme göre anlık teknik öneri.",
 };
 
 const items = [
@@ -50,6 +50,13 @@ const items = [
     title: "Beton karışım hesaplayıcı",
     desc: "C10'dan C30'a beton sınıfı seçin, hacim veya torba sayısı girin — çimento, kum, çakıl ve su miktarlarını anında hesaplayın.",
     icon: HardHat,
+    live: true,
+  },
+  {
+    href: "/araclar/kablo-kesiti",
+    title: "Kablo kesiti hesaplayıcı",
+    desc: "Akım, kablo uzunluğu ve izin verilen gerilim düşüşüne göre minimum bakır veya alüminyum kablo kesitini anında hesaplayın.",
+    icon: Zap,
     live: true,
   },
 ] as const;

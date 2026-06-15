@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Disc3, Drill, Eraser, HardHat, Layers, PaintBucket, Zap } from "lucide-react";
+import { ArrowRight, Disc3, Drill, Eraser, Grid3x3, HardHat, Layers, PaintBucket, Zap } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Araçlar — Hırdavat Seçim Araçları",
-  description: "Matkap ucu, testere seçimi, vida & dübel eşleştirme, zımpara grit seçimi, beton karışım hesaplayıcı, kablo kesiti hesaplayıcı ve daha fazlası. Taban malzemesi ve işleme göre anlık teknik öneri.",
+  description: "Matkap ucu, testere seçimi, vida & dübel eşleştirme, zımpara grit seçimi, beton karışım hesaplayıcı, kablo kesiti hesaplayıcı, fayans hesaplayıcı ve daha fazlası. Taban malzemesi ve işleme göre anlık teknik öneri.",
 };
 
 const items = [
@@ -57,6 +57,13 @@ const items = [
     title: "Kablo kesiti hesaplayıcı",
     desc: "Akım, kablo uzunluğu ve izin verilen gerilim düşüşüne göre minimum bakır veya alüminyum kablo kesitini anında hesaplayın.",
     icon: Zap,
+    live: true,
+  },
+  {
+    href: "/araclar/fayans-hesaplayici",
+    title: "Fayans & karo hesaplayıcı",
+    desc: "Oda ölçüleri ve fayans boyutuna göre gereken fayans adedi, kutu sayısı ve derz uzunluğunu hesaplayın. Fire payı otomatik eklenir.",
+    icon: Grid3x3,
     live: true,
   },
 ] as const;

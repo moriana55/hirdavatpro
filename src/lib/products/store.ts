@@ -1,31 +1,79 @@
 import { prisma } from "@/lib/db";
 import type { Product, Comparison } from "./types";
+import fs from "fs";
+import path from "path";
+
+// ── JSON fallback ──
+// The seeded catalog (data/*.json) is used when the DB is unreachable or empty
+// (e.g. local dev against an un-seeded Neon branch). Keeps the site renderable
+// without a populated database; the admin write paths still go straight to the DB.
+let _fileProducts: Product[] | null = null;
+let _fileComparisons: Comparison[] | null = null;
+
+function fileProducts(): Product[] {
+  if (_fileProducts) return _fileProducts;
+  try {
+    const raw = fs.readFileSync(path.join(process.cwd(), "data", "products.json"), "utf8");
+    const arr = JSON.parse(raw);
+    _fileProducts = (Array.isArray(arr) ? arr : []).map(toProduct);
+  } catch {
+    _fileProducts = [];
+  }
+  return _fileProducts;
+}
+
+function fileComparisons(): Comparison[] {
+  if (_fileComparisons) return _fileComparisons;
+  try {
+    const raw = fs.readFileSync(path.join(process.cwd(), "data", "comparisons.json"), "utf8");
+    const arr = JSON.parse(raw);
+    _fileComparisons = (Array.isArray(arr) ? arr : []).map(toComparison);
+  } catch {
+    _fileComparisons = [];
+  }
+  return _fileComparisons;
+}
 
 // ── Read helpers (cached per request via Next.js) ──
 
 export async function getProducts(): Promise<Product[]> {
-  const rows = await prisma.product.findMany({ orderBy: { createdAt: "desc" } });
-  return rows.map(toProduct);
+  try {
+    const rows = await prisma.product.findMany({ orderBy: { createdAt: "desc" } });
+    if (rows.length) return rows.map(toProduct);
+  } catch {}
+  return fileProducts();
 }
 
 export async function getProductById(id: string): Promise<Product | undefined> {
-  const row = await prisma.product.findUnique({ where: { id } });
-  return row ? toProduct(row) : undefined;
+  try {
+    const row = await prisma.product.findUnique({ where: { id } });
+    if (row) return toProduct(row);
+  } catch {}
+  return fileProducts().find(p => p.id === id);
 }
 
 export async function getProductsByCategory(category: string): Promise<Product[]> {
-  const rows = await prisma.product.findMany({ where: { category }, orderBy: { brand: "asc" } });
-  return rows.map(toProduct);
+  try {
+    const rows = await prisma.product.findMany({ where: { category }, orderBy: { brand: "asc" } });
+    if (rows.length) return rows.map(toProduct);
+  } catch {}
+  return fileProducts().filter(p => p.category === category);
 }
 
 export async function getProductBySlug(slug: string): Promise<Product | undefined> {
-  const products = await prisma.product.findMany();
-  return products.map(toProduct).find(p => productSlug(p) === slug);
+  try {
+    const products = await prisma.product.findMany();
+    if (products.length) return products.map(toProduct).find(p => productSlug(p) === slug);
+  } catch {}
+  return fileProducts().find(p => productSlug(p) === slug);
 }
 
 export async function getProductByBrandModel(brand: string, model: string): Promise<Product | undefined> {
-  const row = await prisma.product.findUnique({ where: { brand_model: { brand, model } } });
-  return row ? toProduct(row) : undefined;
+  try {
+    const row = await prisma.product.findUnique({ where: { brand_model: { brand, model } } });
+    if (row) return toProduct(row);
+  } catch {}
+  return fileProducts().find(p => p.brand === brand && p.model === model);
 }
 
 export function productSlug(p: Pick<Product, "brand" | "model">): string {
@@ -64,13 +112,19 @@ export async function deleteProduct(id: string) {
 // ── Comparisons ──
 
 export async function getComparisons(): Promise<Comparison[]> {
-  const rows = await prisma.comparison.findMany({ orderBy: { createdAt: "desc" } });
-  return rows.map(toComparison);
+  try {
+    const rows = await prisma.comparison.findMany({ orderBy: { createdAt: "desc" } });
+    if (rows.length) return rows.map(toComparison);
+  } catch {}
+  return fileComparisons();
 }
 
 export async function getComparisonBySlug(slug: string): Promise<Comparison | undefined> {
-  const row = await prisma.comparison.findUnique({ where: { slug } });
-  return row ? toComparison(row) : undefined;
+  try {
+    const row = await prisma.comparison.findUnique({ where: { slug } });
+    if (row) return toComparison(row);
+  } catch {}
+  return fileComparisons().find(c => c.slug === slug);
 }
 
 export async function saveComparison(comparison: Omit<Comparison, "createdAt"> & { createdAt?: string }): Promise<Comparison> {

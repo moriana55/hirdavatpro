@@ -137,6 +137,24 @@ export default async function AdminDashboardPage() {
             ANALİTİĞİ AÇ →
           </Link>
         </div>
+        {/* Module 5: B2B Teklifler */}
+        <div className="bg-white border border-border-subtle rounded-2xl p-6 hover:border-primary transition-all duration-300 group flex flex-col justify-between shadow-sm">
+          <div>
+            <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-4 group-hover:scale-105 transition-transform">
+              <span className="material-symbols-outlined text-[24px]">request_quote</span>
+            </div>
+            <h3 className="font-title-lg text-title-lg font-bold mb-2">B2B Teklif Talepleri</h3>
+            <p className="text-secondary text-body-sm leading-relaxed mb-6">
+              Gelen B2B teklif satırlarını görüntüleyin. Satırlar otomatik olarak katalog ürünleriyle eşleştirilir; eşleşmeyen veya belirsiz SKU&apos;lar işaretlenir.
+            </p>
+          </div>
+          <Link
+            href="/x9k4-sys/teklifler"
+            className="w-full bg-slate-gray text-white py-3 text-center rounded font-label-caps text-[11px] font-bold group-hover:bg-primary transition-colors decoration-none"
+          >
+            TEKLİFLERİ AÇ →
+          </Link>
+        </div>
       </section>
 
       {/* Info Warning */}

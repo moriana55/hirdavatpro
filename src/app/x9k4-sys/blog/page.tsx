@@ -1,7 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Loader2, Sparkles, Trash2, Eye, EyeOff, Plus, Edit2, X, Check, Image as ImageIcon } from "lucide-react";
+import { Loader2, Sparkles, Trash2, Eye, EyeOff, Plus, Edit2, X, Check, Image as ImageIcon, LayoutTemplate } from "lucide-react";
+import { CATEGORY_LABELS, CATEGORY_GROUPS } from "@/lib/products/types";
+
+const TEMPLATE_KINDS = [
+  { value: "best-of", label: "En İyi N Listesi" },
+  { value: "spec-guide", label: "Teknik Spec Rehberi" },
+  { value: "buyers-guide", label: "Satın Alma Rehberi" },
+];
 
 type BlogPost = {
   id: string;
@@ -16,7 +23,18 @@ type BlogPost = {
   createdAt: string;
 };
 
-type Tab = "liste" | "yeni";
+type Tab = "liste" | "yeni" | "sablon";
+
+type TemplateResult = {
+  title: string;
+  slug: string;
+  excerpt: string;
+  category: string;
+  content: string;
+  readTime: string;
+  suggestedProducts: { id: string; brand: string; model: string; slug: string; priceRange?: string }[];
+  internalLinks: { label: string; href: string }[];
+};
 
 const CATEGORIES = [
   "Delme & Vidalama",
@@ -52,6 +70,14 @@ export default function AdminBlogPage() {
   const [msg, setMsg] = useState<{ type: "ok" | "err"; text: string } | null>(null);
   const [deleteConfirm, setDeleteConfirm] = useState<string | null>(null);
   const [preview, setPreview] = useState(false);
+
+  // Şablon üretimi
+  const [tplCategory, setTplCategory] = useState("darbeli-matkap");
+  const [tplKind, setTplKind] = useState("best-of");
+  const [tplCount, setTplCount] = useState(5);
+  const [tplEnrich, setTplEnrich] = useState(false);
+  const [tplLoading, setTplLoading] = useState(false);
+  const [tplResult, setTplResult] = useState<TemplateResult | null>(null);
 
   const load = async () => {
     setLoading(true);
@@ -100,6 +126,43 @@ export default function AdminBlogPage() {
     } finally {
       setGenerating(false);
     }
+  };
+
+  const generateTemplate = async () => {
+    setTplLoading(true);
+    setTplResult(null);
+    try {
+      const r = await fetch("/api/blog/template", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ category: tplCategory, kind: tplKind, count: tplCount, enrich: tplEnrich }),
+      });
+      const data = await r.json();
+      if (!r.ok) throw new Error(data.error);
+      setTplResult(data.template);
+      flash("ok", "Taslak üretildi!");
+    } catch (e: unknown) {
+      flash("err", (e as Error).message || "Hata");
+    } finally {
+      setTplLoading(false);
+    }
+  };
+
+  const useTemplate = () => {
+    if (!tplResult) return;
+    setForm({
+      ...emptyForm,
+      title: tplResult.title,
+      slug: tplResult.slug,
+      excerpt: tplResult.excerpt,
+      content: tplResult.content,
+      category: tplResult.category,
+      readTime: tplResult.readTime,
+    });
+    setEditId(null);
+    setPreview(false);
+    setTab("yeni");
+    flash("ok", "Taslak editöre yüklendi. Düzenleyip kaydedin.");
   };
 
   const save = async () => {
@@ -179,6 +242,9 @@ export default function AdminBlogPage() {
             <button onClick={() => { setTab("liste"); }} className={`px-4 py-2 rounded text-sm font-medium transition-colors ${tab === "liste" ? "bg-zinc-800 text-white" : "text-zinc-400 hover:text-white"}`}>
               Liste
             </button>
+            <button onClick={() => { setTab("sablon"); }} className={`px-4 py-2 rounded text-sm font-medium transition-colors flex items-center gap-1.5 ${tab === "sablon" ? "bg-orange-600 text-white" : "bg-zinc-800 text-zinc-300 hover:text-white"}`}>
+              <LayoutTemplate className="size-4" /> Şablon
+            </button>
             <button onClick={() => { cancelEdit(); setTab("yeni"); }} className={`px-4 py-2 rounded text-sm font-medium transition-colors flex items-center gap-1.5 ${tab === "yeni" && !editId ? "bg-orange-600 text-white" : "bg-zinc-800 text-zinc-300 hover:text-white"}`}>
               <Plus className="size-4" /> Yeni Yazı
             </button>
@@ -247,6 +313,122 @@ export default function AdminBlogPage() {
                   </div>
                 </div>
               ))
+            )}
+          </div>
+        )}
+
+        {/* TEMPLATE TAB */}
+        {tab === "sablon" && (
+          <div className="space-y-5">
+            <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-5">
+              <h2 className="text-sm font-bold text-white mb-1 flex items-center gap-2">
+                <LayoutTemplate className="size-4 text-orange-400" /> Kategoriye Duyarlı Blog Şablonu
+              </h2>
+              <p className="text-xs text-zinc-500 mb-4">
+                Kategori seçin; ilgili katalog ürünleri ve dahili rehber linkleri otomatik eklenir. Harici API gerekmez.
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                  <label className="block text-xs font-medium text-zinc-400 mb-1.5">Kategori</label>
+                  <select
+                    value={tplCategory}
+                    onChange={(e) => setTplCategory(e.target.value)}
+                    className="w-full bg-zinc-950 border border-zinc-700 rounded px-3 py-2.5 text-white text-sm focus:outline-none focus:border-orange-500"
+                  >
+                    {CATEGORY_GROUPS.map((g) => (
+                      <optgroup key={g.label} label={g.label}>
+                        {g.categories.map((c) => (
+                          <option key={c} value={c}>{CATEGORY_LABELS[c]}</option>
+                        ))}
+                      </optgroup>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-xs font-medium text-zinc-400 mb-1.5">Şablon Tipi</label>
+                  <select
+                    value={tplKind}
+                    onChange={(e) => setTplKind(e.target.value)}
+                    className="w-full bg-zinc-950 border border-zinc-700 rounded px-3 py-2.5 text-white text-sm focus:outline-none focus:border-orange-500"
+                  >
+                    {TEMPLATE_KINDS.map((k) => <option key={k.value} value={k.value}>{k.label}</option>)}
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-xs font-medium text-zinc-400 mb-1.5">Ürün Sayısı (liste)</label>
+                  <input
+                    type="number" min={3} max={10}
+                    value={tplCount}
+                    onChange={(e) => setTplCount(Math.max(3, Math.min(10, parseInt(e.target.value) || 5)))}
+                    className="w-full bg-zinc-950 border border-zinc-700 rounded px-3 py-2.5 text-white text-sm focus:outline-none focus:border-orange-500"
+                  />
+                </div>
+              </div>
+
+              <label className="flex items-center gap-2 mt-4 cursor-pointer">
+                <input type="checkbox" checked={tplEnrich} onChange={(e) => setTplEnrich(e.target.checked)} className="accent-orange-500" />
+                <span className="text-xs text-zinc-300">OpenAI ile cilala (anahtar varsa)</span>
+              </label>
+
+              <button
+                onClick={generateTemplate}
+                disabled={tplLoading}
+                className="mt-4 flex items-center gap-2 px-5 py-2.5 bg-orange-600 hover:bg-orange-500 disabled:opacity-50 rounded text-white font-medium text-sm transition-colors"
+              >
+                {tplLoading ? <Loader2 className="size-4 animate-spin" /> : <Sparkles className="size-4" />}
+                {tplLoading ? "Üretiyor..." : "Taslak Üret"}
+              </button>
+            </div>
+
+            {tplResult && (
+              <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-5 space-y-4">
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-zinc-500">Başlık</p>
+                  <h3 className="text-white font-semibold">{tplResult.title}</h3>
+                  <p className="text-zinc-400 text-xs mt-1">{tplResult.excerpt}</p>
+                </div>
+
+                {tplResult.suggestedProducts.length > 0 && (
+                  <div>
+                    <p className="text-[10px] font-bold uppercase tracking-wider text-zinc-500 mb-1.5">
+                      Önerilen Ürünler ({tplResult.suggestedProducts.length})
+                    </p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {tplResult.suggestedProducts.map((p) => (
+                        <span key={p.id} className="text-[11px] bg-zinc-800 border border-zinc-700 rounded px-2 py-1 text-zinc-300">
+                          {p.brand} {p.model}{p.priceRange ? ` · ${p.priceRange}` : ""}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {tplResult.internalLinks.length > 0 && (
+                  <div>
+                    <p className="text-[10px] font-bold uppercase tracking-wider text-zinc-500 mb-1.5">Dahili Linkler</p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {tplResult.internalLinks.map((l) => (
+                        <span key={l.href} className="text-[11px] bg-zinc-800 border border-zinc-700 rounded px-2 py-1 text-orange-300">
+                          {l.label}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-zinc-500 mb-1.5">İçerik Önizleme</p>
+                  <pre className="bg-zinc-950 border border-zinc-700 rounded p-4 text-zinc-300 text-xs leading-relaxed whitespace-pre-wrap max-h-[320px] overflow-auto font-mono">{tplResult.content}</pre>
+                </div>
+
+                <button
+                  onClick={useTemplate}
+                  className="flex items-center gap-2 px-5 py-2.5 bg-emerald-700 hover:bg-emerald-600 rounded text-white font-medium text-sm transition-colors"
+                >
+                  <Check className="size-4" /> Editöre Yükle
+                </button>
+              </div>
             )}
           </div>
         )}

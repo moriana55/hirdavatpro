@@ -1,11 +1,21 @@
 "use client";
 
 import { useEffect, useState, useMemo } from "react";
-import { Sparkles, Trash2, ArrowRightLeft, Loader2, Search, ChevronDown, Image as ImageIcon } from "lucide-react";
+import { Sparkles, Trash2, ArrowRightLeft, Loader2, Search, ChevronDown, Image as ImageIcon, Upload, FileWarning } from "lucide-react";
 import type { Product, ProductCategory } from "@/lib/products/types";
 import { CATEGORY_LABELS } from "@/lib/products/types";
 
-type Tab = "ekle" | "liste" | "karsilastir";
+type Tab = "ekle" | "csv" | "liste" | "karsilastir";
+
+type ImportResult = {
+  success: boolean;
+  dryRun: boolean;
+  total: number;
+  validRows: number;
+  imported: number;
+  preview?: { brand: string; model: string; category: string }[];
+  errors: { line: number; message: string }[];
+};
 
 export default function AdminProductsPage() {
   const [tab, setTab] = useState<Tab>("ekle");
@@ -37,6 +47,12 @@ export default function AdminProductsPage() {
 
   // Görsel üretme
   const [imgLoading, setImgLoading] = useState<string | null>(null);
+
+  // CSV içe aktarma
+  const [csvText, setCsvText] = useState("");
+  const [csvFileName, setCsvFileName] = useState("");
+  const [csvLoading, setCsvLoading] = useState(false);
+  const [importResult, setImportResult] = useState<ImportResult | null>(null);
 
   useEffect(() => {
     fetch("/api/products")
@@ -100,6 +116,43 @@ export default function AdminProductsPage() {
     setBulkInput("");
     setBulkLoading(false);
     setBulkProgress(null);
+  }
+
+  function handleCsvFile(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setCsvFileName(file.name);
+    setImportResult(null);
+    const reader = new FileReader();
+    reader.onload = () => setCsvText(typeof reader.result === "string" ? reader.result : "");
+    reader.readAsText(file);
+  }
+
+  async function runImport(dryRun: boolean) {
+    if (!csvText.trim()) { msg("err", "Önce bir CSV yükleyin veya yapıştırın"); return; }
+    setCsvLoading(true);
+    try {
+      const res = await fetch("/api/products/import", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ csv: csvText, dryRun }),
+      });
+      const data: ImportResult & { error?: string } = await res.json();
+      if (!res.ok && !data.errors) throw new Error(data.error || "İçe aktarma hatası");
+      setImportResult(data);
+      if (!dryRun && data.imported > 0) {
+        // Listeyi tazele.
+        const fresh = await fetch("/api/products").then(r => r.json());
+        setProducts(fresh);
+        msg("ok", `✓ ${data.imported} ürün içe aktarıldı`);
+      } else if (dryRun) {
+        msg("ok", `${data.validRows} geçerli satır, ${data.errors.length} uyarı`);
+      }
+    } catch (err: any) {
+      msg("err", err.message || "Hata");
+    } finally {
+      setCsvLoading(false);
+    }
   }
 
   async function handleDelete(id: string) {
@@ -168,6 +221,7 @@ export default function AdminProductsPage() {
 
   const TABS: { id: Tab; label: string }[] = [
     { id: "ekle", label: "Ürün Ekle" },
+    { id: "csv", label: "CSV İçe Aktar" },
     { id: "liste", label: `Liste (${products.length})` },
     { id: "karsilastir", label: "Karşılaştırma Üret" },
   ];
@@ -272,6 +326,105 @@ export default function AdminProductsPage() {
               {bulkLoading ? `İşleniyor (${bulkProgress?.done}/${bulkProgress?.total})...` : "Toplu Ekle & Üret"}
             </button>
           </div>
+        </div>
+      )}
+
+      {/* TAB: CSV İÇE AKTAR */}
+      {tab === "csv" && (
+        <div className="space-y-6">
+          <div className="rounded-xl border border-zinc-200 bg-zinc-50 p-6">
+            <h2 className="text-sm font-bold text-zinc-700 mb-1 flex items-center gap-2">
+              <Upload className="size-4 text-orange-600" /> CSV ile Toplu Ürün İçe Aktar
+            </h2>
+            <p className="text-xs text-zinc-400 mb-1">
+              Sütunlar (sıra fark etmez): <code className="bg-zinc-200 px-1 rounded text-[11px]">Brand, Model, Category, Specs (JSON), Image URL, SourceUrl</code>
+            </p>
+            <p className="text-xs text-zinc-400 mb-4">
+              Category geçerli bir kategori slug&apos;ı olmalı (ör. <code className="bg-zinc-200 px-1 rounded text-[11px]">darbeli-matkap</code>). Mevcut ürünler marka+model ile güncellenir.
+            </p>
+
+            <div className="flex flex-wrap items-center gap-3 mb-3">
+              <label className="flex items-center gap-2 rounded-lg border border-zinc-300 bg-white px-4 py-2 text-sm font-bold text-zinc-700 cursor-pointer hover:border-orange-500 transition">
+                <Upload className="size-4" />
+                Dosya Seç
+                <input type="file" accept=".csv,text/csv" onChange={handleCsvFile} className="hidden" />
+              </label>
+              {csvFileName && <span className="text-xs text-zinc-500">{csvFileName}</span>}
+            </div>
+
+            <textarea
+              value={csvText}
+              onChange={(e) => { setCsvText(e.target.value); setImportResult(null); }}
+              rows={8}
+              placeholder={'Brand,Model,Category,Specs (JSON),Image URL,SourceUrl\nBosch,GSB 13 RE,darbeli-matkap,"{""Güç"":""600W"",""Devir"":""2800 rpm""}",https://...,https://...'}
+              className="w-full rounded-lg border border-zinc-200 bg-white px-3 py-2.5 text-sm text-zinc-900 outline-none focus:border-orange-500 font-mono mb-3"
+            />
+
+            <div className="flex flex-wrap gap-3">
+              <button onClick={() => runImport(true)} disabled={csvLoading || !csvText.trim()}
+                className="flex items-center gap-2 rounded-lg border border-zinc-300 bg-white px-4 py-2 text-sm font-bold text-zinc-700 hover:border-orange-500 transition disabled:opacity-50">
+                {csvLoading ? <Loader2 className="size-4 animate-spin" /> : <Search className="size-4" />}
+                Doğrula (Önizle)
+              </button>
+              <button onClick={() => runImport(false)} disabled={csvLoading || !csvText.trim()}
+                className="flex items-center gap-2 rounded-lg bg-orange-600 px-4 py-2 text-sm font-bold text-white hover:bg-orange-500 transition disabled:opacity-50">
+                {csvLoading ? <Loader2 className="size-4 animate-spin" /> : <Upload className="size-4" />}
+                İçe Aktar
+              </button>
+            </div>
+          </div>
+
+          {importResult && (
+            <div className="rounded-xl border border-zinc-200 bg-white p-6">
+              <div className="flex flex-wrap gap-2 mb-4">
+                <span className="text-[11px] font-bold px-2.5 py-1 rounded-full border bg-zinc-100 text-zinc-700 border-zinc-300">
+                  Toplam satır: {importResult.total}
+                </span>
+                <span className="text-[11px] font-bold px-2.5 py-1 rounded-full border bg-emerald-100 text-emerald-700 border-emerald-300">
+                  Geçerli: {importResult.validRows}
+                </span>
+                {!importResult.dryRun && (
+                  <span className="text-[11px] font-bold px-2.5 py-1 rounded-full border bg-blue-100 text-blue-700 border-blue-300">
+                    İçe aktarıldı: {importResult.imported}
+                  </span>
+                )}
+                {importResult.errors.length > 0 && (
+                  <span className="text-[11px] font-bold px-2.5 py-1 rounded-full border bg-amber-100 text-amber-700 border-amber-300">
+                    Uyarı: {importResult.errors.length}
+                  </span>
+                )}
+              </div>
+
+              {importResult.dryRun && importResult.preview && importResult.preview.length > 0 && (
+                <div className="mb-4">
+                  <p className="text-xs font-bold text-zinc-500 uppercase tracking-wider mb-2">Önizleme (ilk {importResult.preview.length})</p>
+                  <div className="space-y-1 max-h-48 overflow-auto">
+                    {importResult.preview.map((p, i) => (
+                      <div key={i} className="text-xs text-zinc-600 flex gap-2">
+                        <span className="font-semibold text-zinc-800">{p.brand} {p.model}</span>
+                        <span className="text-zinc-400">{CATEGORY_LABELS[p.category as ProductCategory] || p.category}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {importResult.errors.length > 0 && (
+                <div>
+                  <p className="text-xs font-bold text-amber-600 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                    <FileWarning className="size-3.5" /> Satır Uyarıları
+                  </p>
+                  <div className="space-y-1 max-h-48 overflow-auto">
+                    {importResult.errors.map((er, i) => (
+                      <div key={i} className="text-xs text-amber-700">
+                        {er.line > 0 ? `Satır ${er.line}: ` : ""}{er.message}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
         </div>
       )}
 

@@ -32,7 +32,9 @@ export async function proxy(request: NextRequest) {
   const isApiMutation =
     (pathname === "/api/products" && ["POST", "DELETE"].includes(request.method)) ||
     (pathname.startsWith("/api/products/image") && request.method === "POST") ||
+    (pathname.startsWith("/api/products/import") && request.method === "POST") ||
     (pathname === "/api/compare" && request.method === "POST") ||
+    (pathname.startsWith("/api/b2b/quote/status") && request.method === "POST") ||
     pathname.startsWith("/api/bulk-generate") ||
     (pathname.startsWith("/api/blog") && ["POST", "PATCH", "DELETE"].includes(request.method));
 
@@ -53,5 +55,6 @@ export const config = {
     "/api/products/:path*",
     "/api/compare/:path*",
     "/api/blog/:path*",
+    "/api/b2b/quote/status/:path*",
   ],
 };

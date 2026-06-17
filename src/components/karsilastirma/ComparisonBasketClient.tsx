@@ -3,6 +3,7 @@
 import { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
 import type { Product } from "@/lib/products/types";
+import { ComparisonShareBar } from "@/components/karsilastirma/ComparisonShareBar";
 
 interface ComparisonBasketClientProps {
   allProducts: Product[];
@@ -119,7 +120,7 @@ export function ComparisonBasketClient({ allProducts }: ComparisonBasketClientPr
   return (
     <main className="pt-32 pb-20 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
       {/* Breadcrumb */}
-      <nav className="mb-8 flex flex-wrap items-center gap-2 text-[13px] text-secondary font-body-sm">
+      <nav className="no-print mb-8 flex flex-wrap items-center gap-2 text-[13px] text-secondary font-body-sm">
         <Link href="/" className="hover:text-primary transition-colors decoration-none font-bold">Ana Sayfa</Link>
         <span className="material-symbols-outlined text-[16px]">chevron_right</span>
         <span className="text-on-surface font-semibold">Karşılaştırma Sepetim</span>
@@ -134,7 +135,7 @@ export function ComparisonBasketClient({ allProducts }: ComparisonBasketClientPr
           </p>
         </div>
         {selectedProducts.length >= 2 && (
-          <div className="flex items-center gap-3 bg-surface-container-low px-4 py-2 border border-border-subtle rounded">
+          <div className="no-print flex items-center gap-3 bg-surface-container-low px-4 py-2 border border-border-subtle rounded">
             <input
               type="checkbox"
               id="show-basket-diffs-toggle"
@@ -256,6 +257,14 @@ export function ComparisonBasketClient({ allProducts }: ComparisonBasketClientPr
       {/* 2 or 3 Products Comparison Table */}
       {selectedProducts.length >= 2 && (
         <section className="space-y-8">
+          {/* Dışa aktar / paylaş aksiyonları */}
+          <ComparisonShareBar
+            shareTitle="Karşılaştırma Sepetim — HırdavatPro"
+            shareText={`Teknik karşılaştırma: ${selectedProducts
+              .map((p) => `${p.brand} ${p.model}`)
+              .join(" vs ")}`}
+          />
+
           {/* Tool Cards Header Grid */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-gutter items-end">
             <div className="hidden md:block">

@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import Link from "next/link";
 import type { Product, Comparison } from "@/lib/products/types";
 import { CATEGORY_LABELS } from "@/lib/products/types";
+import { ComparisonShareBar } from "@/components/karsilastirma/ComparisonShareBar";
 
 const productSlug = (p: Pick<Product, "brand" | "model">): string => {
   return `${p.brand}-${p.model}`.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/-+/g, "-").replace(/^-|-$/g, "");
@@ -69,7 +70,7 @@ export function ComparisonClient({
   return (
     <main className="pt-32 pb-20 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
       {/* Breadcrumb */}
-      <nav className="mb-8 flex flex-wrap items-center gap-2 text-[13px] text-secondary font-body-sm">
+      <nav className="no-print mb-8 flex flex-wrap items-center gap-2 text-[13px] text-secondary font-body-sm">
         <Link href="/" className="hover:text-primary transition-colors decoration-none font-bold">Ana Sayfa</Link>
         <span className="material-symbols-outlined text-[16px]">chevron_right</span>
         <Link href="/karsilastirma" className="hover:text-primary transition-colors decoration-none font-bold">Karşılaştırmalar</Link>
@@ -85,7 +86,7 @@ export function ComparisonClient({
             Profesyonel ekipmanların teknik özelliklerini yan yana inceleyin. Endüstriyel hassasiyetle hazırlanmış veri tablosu.
           </p>
         </div>
-        <div className="flex items-center gap-3 bg-surface-container-low px-4 py-2 border border-border-subtle rounded">
+        <div className="no-print flex items-center gap-3 bg-surface-container-low px-4 py-2 border border-border-subtle rounded">
           <input
             type="checkbox"
             id="show-diffs-toggle"
@@ -98,6 +99,12 @@ export function ComparisonClient({
           </label>
         </div>
       </header>
+
+      {/* Dışa aktar / paylaş aksiyonları */}
+      <ComparisonShareBar
+        shareTitle={`${a.brand} ${a.model} vs ${b.brand} ${b.model} — Teknik Karşılaştırma`}
+        shareText={`${a.brand} ${a.model} ve ${b.brand} ${b.model} teknik karşılaştırması`}
+      />
 
       {/* Tool Selection / Summary Row */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-8 items-end">
@@ -278,7 +285,7 @@ export function ComparisonClient({
 
       {/* Related Comparisons */}
       {relatedComps.length > 0 && (
-        <section className="mt-16 pt-10 border-t border-border-subtle">
+        <section className="no-print mt-16 pt-10 border-t border-border-subtle">
           <p className="font-label-caps text-label-caps text-slate-gray mb-6 font-bold">İLGİLİ TEKNİK KARŞILAŞTIRMALAR</p>
           <div className="grid gap-4 md:grid-cols-2">
             {relatedComps.map((c) => {

@@ -208,3 +208,65 @@ body {
   border-top: 2px solid rgba(164, 55, 0, 0.2);
   background-color: #FFF8E1 !important;
 }
+
+/* ============================================================
+   Karşılaştırma yazdırma / PDF çıktısı (print-optimized)
+   Nav, footer, CTA ve etkileşimli aksiyonları gizler;
+   spec tablosunu temiz, mürekkep-dostu olarak basar.
+   "nereden alınır" affiliate bağlantıları KORUNUR.
+   ============================================================ */
+@media print {
+  /* Tarayıcının arka plan renklerini koru (diff vurguları için) */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Site kabuğu ve ekran-içi aksiyonlar gizlenir */
+  header,
+  footer,
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #000 !important;
+  }
+
+  /* Üst boşluğu (fixed header için bırakılan pt-32) sıfırla */
+  main {
+    padding-top: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Tabloların sayfa sonlarında parçalanmasını engelle */
+  .comparison-table-row {
+    page-break-inside: avoid;
+  }
+
+  table {
+    width: 100% !important;
+  }
+
+  /* Sticky kolon yazdırmada normal akışa dönsün */
+  .sticky-column {
+    position: static !important;
+  }
+
+  /* Gölge ve yuvarlatmaları sadeleştir */
+  .shadow-sm,
+  .shadow,
+  .shadow-md {
+    box-shadow: none !important;
+  }
+
+  /* Bağlantıların kesilmemesi için */
+  a {
+    text-decoration: none !important;
+  }
+
+  @page {
+    margin: 1.4cm;
+  }
+}

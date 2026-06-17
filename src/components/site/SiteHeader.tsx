@@ -35,7 +35,7 @@ export function SiteHeader() {
   return (
     <>
       <header className="bg-surface/85 backdrop-blur-md border-b border-border-subtle fixed top-0 left-0 right-0 w-full z-50">
-        <nav className="flex items-center justify-between px-margin-desktop py-4 w-full max-w-max-width mx-auto">
+        <nav aria-label="Ana menü" className="flex items-center justify-between px-margin-desktop py-4 w-full max-w-max-width mx-auto">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group decoration-none shrink-0">
             <span className="text-2xl font-bold text-primary group-hover:opacity-90 transition-opacity">
@@ -49,6 +49,7 @@ export function SiteHeader() {
               const isActive = pathname === item.href || pathname.startsWith(item.href + "/");
               return (
                 <Link key={item.href} href={item.href}
+                  aria-current={isActive ? "page" : undefined}
                   className={`font-label-caps text-label-caps transition-all pb-1 decoration-none ${
                     isActive ? "text-primary border-b-2 border-primary" : "text-secondary hover:text-primary"
                   }`}>
@@ -60,10 +61,11 @@ export function SiteHeader() {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center gap-gutter">
-            <form onSubmit={e => { e.preventDefault(); if (searchQuery.trim()) window.location.href = `/arama?q=${encodeURIComponent(searchQuery)}`; }}
+            <form role="search" onSubmit={e => { e.preventDefault(); if (searchQuery.trim()) window.location.href = `/arama?q=${encodeURIComponent(searchQuery)}`; }}
               className="relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-secondary" />
-              <input type="text" value={searchQuery} onChange={e => setSearchQuery(e.target.value)}
+              <Search aria-hidden="true" className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-secondary" />
+              <input type="search" value={searchQuery} onChange={e => setSearchQuery(e.target.value)}
+                aria-label="Sitede teknik analiz ara"
                 placeholder="Teknik analiz ara..."
                 className="pl-9 pr-4 py-2 bg-surface-container-low border border-border-subtle rounded text-body-sm focus:outline-none focus:border-primary w-56 transition-colors" />
             </form>
@@ -85,9 +87,12 @@ export function SiteHeader() {
                 {basketCount}
               </Link>
             )}
-            <button onClick={() => setMobileOpen(o => !o)} aria-label="Menü"
+            <button onClick={() => setMobileOpen(o => !o)}
+              aria-label={mobileOpen ? "Menüyü kapat" : "Menüyü aç"}
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-menu"
               className="p-2 rounded-lg border border-border-subtle text-secondary hover:text-primary hover:bg-surface-container transition-colors">
-              {mobileOpen ? <X className="size-5" /> : <Menu className="size-5" />}
+              {mobileOpen ? <X aria-hidden="true" className="size-5" /> : <Menu aria-hidden="true" className="size-5" />}
             </button>
           </div>
         </nav>
@@ -95,12 +100,13 @@ export function SiteHeader() {
 
       {/* Mobile Menu Dropdown */}
       {mobileOpen && (
-        <div className="fixed top-[65px] left-0 right-0 z-40 bg-surface border-b border-border-subtle shadow-lg md:hidden">
+        <div id="mobile-menu" className="fixed top-[65px] left-0 right-0 z-40 bg-surface border-b border-border-subtle shadow-lg md:hidden">
           <div className="px-6 py-4 space-y-1">
             {navItems.map(item => {
               const isActive = pathname === item.href || pathname.startsWith(item.href + "/");
               return (
                 <Link key={item.href} href={item.href}
+                  aria-current={isActive ? "page" : undefined}
                   className={`block py-3 font-label-caps text-label-caps border-b border-border-subtle/50 last:border-0 decoration-none ${
                     isActive ? "text-primary" : "text-secondary"
                   }`}>
@@ -108,10 +114,11 @@ export function SiteHeader() {
                 </Link>
               );
             })}
-            <form onSubmit={e => { e.preventDefault(); if (searchQuery.trim()) { window.location.href = `/arama?q=${encodeURIComponent(searchQuery)}`; setMobileOpen(false); } }}
+            <form role="search" onSubmit={e => { e.preventDefault(); if (searchQuery.trim()) { window.location.href = `/arama?q=${encodeURIComponent(searchQuery)}`; setMobileOpen(false); } }}
               className="relative pt-3">
-              <Search className="absolute left-3 top-1/2 translate-y-[-25%] size-4 text-secondary" />
-              <input type="text" value={searchQuery} onChange={e => setSearchQuery(e.target.value)}
+              <Search aria-hidden="true" className="absolute left-3 top-1/2 translate-y-[-25%] size-4 text-secondary" />
+              <input type="search" value={searchQuery} onChange={e => setSearchQuery(e.target.value)}
+                aria-label="Sitede ara"
                 placeholder="Ara..."
                 className="w-full pl-9 pr-4 py-2.5 bg-surface-container-low border border-border-subtle rounded text-sm focus:outline-none focus:border-primary" />
             </form>

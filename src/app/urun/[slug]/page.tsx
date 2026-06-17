@@ -354,13 +354,18 @@ export default async function ProductDetailPage({ params }: Props) {
                 <h2 className="font-title-md text-title-md text-white font-bold">Teknik Özellikler</h2>
               </div>
               <div className="divide-y divide-border-subtle">
-                {specEntries.map(([key, val], i) => (
-                  <div key={key} className="spec-row grid grid-cols-2 p-4 font-body-sm text-body-sm items-center">
-                    <span className="text-secondary font-semibold">{key}</span>
-                    <span className="font-spec-data text-spec-data text-on-surface font-bold">{String(val)}</span>
+                {specEntries.length > 0 ? (
+                  specEntries.map(([key, val]) => (
+                    <div key={key} className="spec-row grid grid-cols-2 p-4 font-body-sm text-body-sm items-center">
+                      <span className="text-secondary font-semibold">{key}</span>
+                      <span className="font-spec-data text-spec-data text-on-surface font-bold">{String(val)}</span>
+                    </div>
+                  ))
+                ) : (
+                  <div className="p-6 text-center text-secondary font-body-sm">
+                    Bu ürün için teknik özellikler henüz eklenmedi.
                   </div>
-                ))}
-
+                )}
               </div>
             </div>
           </div>

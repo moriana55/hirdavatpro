@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Beton Karışım Hesaplayıcı — Hırdavat Pro",
   description:
     "C10'dan C30'a beton sınıfı seçin, hacim veya torba sayısı girin — çimento, kum, çakıl ve su miktarlarını anında hesaplayın.",
+  alternates: { canonical: "https://hirdavatpro.com/araclar/beton-karisim" },
 };
 
 export default function BetonKarisimPage() {

@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 export const metadata: Metadata = {
   title: "Araçlar — Hırdavat Seçim & Hesaplama Araçları",
   description: "Akıllı alet danışmanı, matkap ucu, testere seçimi, vida & dübel eşleştirme, zımpara grit seçimi, boya/beton/kablo/fayans hesaplayıcıları ve harita tasarımcısı. Taban malzemesi ve işleme göre anlık teknik öneri.",
+  alternates: { canonical: "https://hirdavatpro.com/araclar" },
 };
 
 const items = [

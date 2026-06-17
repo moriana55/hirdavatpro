@@ -19,9 +19,23 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/blog`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.7 },
     { url: `${BASE}/arama`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.5 },
     { url: `${BASE}/araclar`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
-    { url: `${BASE}/araclar/matkap-ucu`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE}/araclar/testere-secimi`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE}/araclar/vida-dubel`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
+    ...[
+      "akilli-secim",
+      "beton-karisim",
+      "boya-hesaplayici",
+      "fayans-hesaplayici",
+      "harita-tasarim",
+      "kablo-kesiti",
+      "matkap-ucu",
+      "testere-secimi",
+      "vida-dubel",
+      "zimpara-secimi",
+    ].map((tool) => ({
+      url: `${BASE}/araclar/${tool}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
   ];
 
   const categoryPages: MetadataRoute.Sitemap = categories.map(cat => ({

@@ -6,6 +6,7 @@ export const dynamic = "force-dynamic";
 export const metadata = {
   title: "Akıllı Alet Danışmanı — HırdavatPro",
   description: "Bütçeniz, kullanım yoğunluğunuz ve ihtiyaç duyduğunuz özelliklere göre en ideal profesyonel aleti saniyeler içinde belirleyin.",
+  alternates: { canonical: "https://hirdavatpro.com/araclar/akilli-secim" },
 };
 
 export default async function AkilliSecimPage() {

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getProducts, getComparisons } from "@/lib/products/store";
-import { CATEGORY_LABELS } from "@/lib/products/types";
+import { LogoutButton } from "./LogoutButton";
 
 export const dynamic = "force-dynamic";
 
@@ -28,13 +28,16 @@ export default async function AdminDashboardPage() {
             İçerik kataloğunu, AI spesifikasyon çekimlerini ve toplu analiz üretimini yönetin.
           </p>
         </div>
-        <Link
-          href="/"
-          className="text-xs bg-slate-gray text-white px-4 py-2 font-bold rounded font-label-caps text-label-caps hover:bg-primary transition-all decoration-none flex items-center gap-1.5"
-        >
-          <span className="material-symbols-outlined text-[16px]">home</span>
-          SİTEYE DÖN
-        </Link>
+        <div className="flex items-center gap-2">
+          <Link
+            href="/"
+            className="text-xs bg-slate-gray text-white px-4 py-2 font-bold rounded font-label-caps text-label-caps hover:bg-primary transition-all decoration-none flex items-center gap-1.5"
+          >
+            <span className="material-symbols-outlined text-[16px]">home</span>
+            SİTEYE DÖN
+          </Link>
+          <LogoutButton />
+        </div>
       </header>
 
       {/* Database Quick Stats */}
@@ -122,7 +125,7 @@ export default async function AdminDashboardPage() {
       <footer className="mt-12 bg-[#FFF8E1] border border-[#FFE082] rounded-xl p-4 flex gap-3 items-start">
         <span className="material-symbols-outlined text-warning-amber text-[20px] shrink-0">warning</span>
         <p className="text-secondary text-[12px] leading-relaxed">
-          <strong>Güvenlik Uyarısı:</strong> Yönetici panelleri şifresiz test aşamasındadır. Üretim veya sunucu veritabanını bozmamak için toplu üretim modülünü çalıştırırken aşırı eşleştirme limitlerine dikkat edin.
+          <strong>Uyarı:</strong> Toplu üretim modülü çok sayıda AI çağrısı yapar ve maliyet doğurur. Üretim veritabanını bozmamak için aşırı eşleştirme limitlerine dikkat edin.
         </p>
       </footer>
     </main>

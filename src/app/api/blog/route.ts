@@ -1,6 +1,14 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { prisma } from "@/lib/db";
+import { isAuthorized } from "@/lib/auth";
+import { safeJson, reqString, badRequest } from "@/lib/validation";
+
+export const dynamic = "force-dynamic";
+
+function unauthorized() {
+  return NextResponse.json({ error: "Yetkisiz erişim." }, { status: 401 });
+}
 
 function slugify(text: string) {
   return text
@@ -12,46 +20,94 @@ function slugify(text: string) {
 }
 
 export async function GET() {
-  const posts = await prisma.blogPost.findMany({ orderBy: { createdAt: "desc" } });
-  return NextResponse.json(posts);
+  try {
+    const posts = await prisma.blogPost.findMany({ orderBy: { createdAt: "desc" } });
+    return NextResponse.json(posts);
+  } catch {
+    return NextResponse.json({ error: "Yazılar yüklenemedi." }, { status: 500 });
+  }
 }
 
 export async function POST(req: NextRequest) {
-  const body = await req.json();
-  const { title, slug, excerpt, content, category, coverImage, readTime, published } = body;
-  if (!title) return NextResponse.json({ error: "title gerekli" }, { status: 400 });
+  if (!(await isAuthorized(req))) return unauthorized();
 
-  const finalSlug = slug?.trim() || slugify(title);
+  const body = await safeJson<Record<string, unknown>>(req);
+  if (!body) return badRequest("Geçersiz istek.");
 
-  const post = await prisma.blogPost.create({
-    data: {
-      title,
-      slug: finalSlug,
-      excerpt: excerpt ?? "",
-      content: content ?? "",
-      category: category ?? "",
-      coverImage: coverImage ?? null,
-      readTime: readTime ?? "5 dk",
-      published: published ?? false,
-    },
-  });
-  return NextResponse.json(post);
+  const title = reqString(body.title, "title", 200);
+  if (!title.ok) return badRequest(title.error);
+
+  const excerpt = reqString(body.excerpt, "excerpt", 500, { required: false });
+  const content = reqString(body.content, "content", 100_000, { required: false });
+  const category = reqString(body.category, "category", 100, { required: false });
+  const readTime = reqString(body.readTime, "readTime", 30, { required: false });
+  const slugInput = reqString(body.slug, "slug", 200, { required: false });
+  if (!excerpt.ok) return badRequest(excerpt.error);
+  if (!content.ok) return badRequest(content.error);
+  if (!category.ok) return badRequest(category.error);
+  if (!readTime.ok) return badRequest(readTime.error);
+  if (!slugInput.ok) return badRequest(slugInput.error);
+
+  const coverImage = typeof body.coverImage === "string" && body.coverImage.length <= 2000
+    ? body.coverImage
+    : null;
+
+  const finalSlug = slugInput.value || slugify(title.value);
+
+  try {
+    const post = await prisma.blogPost.create({
+      data: {
+        title: title.value,
+        slug: finalSlug,
+        excerpt: excerpt.value,
+        content: content.value,
+        category: category.value,
+        coverImage,
+        readTime: readTime.value || "5 dk",
+        published: body.published === true,
+      },
+    });
+    return NextResponse.json(post);
+  } catch {
+    return NextResponse.json({ error: "Yazı oluşturulamadı (slug benzersiz olmalı)." }, { status: 500 });
+  }
 }
 
 export async function PATCH(req: NextRequest) {
-  const body = await req.json();
-  const { id, ...data } = body;
-  if (!id) return NextResponse.json({ error: "id gerekli" }, { status: 400 });
+  if (!(await isAuthorized(req))) return unauthorized();
 
-  const post = await prisma.blogPost.update({ where: { id }, data });
-  return NextResponse.json(post);
+  const body = await safeJson<Record<string, unknown>>(req);
+  if (!body) return badRequest("Geçersiz istek.");
+
+  const { id, ...rest } = body;
+  if (typeof id !== "string" || !id) return badRequest("id gerekli");
+
+  // Sadece izin verilen alanları güncelle.
+  const allowed = ["title", "slug", "excerpt", "content", "category", "coverImage", "readTime", "published"];
+  const data: Record<string, unknown> = {};
+  for (const key of allowed) {
+    if (key in rest) data[key] = rest[key];
+  }
+
+  try {
+    const post = await prisma.blogPost.update({ where: { id }, data });
+    return NextResponse.json(post);
+  } catch {
+    return NextResponse.json({ error: "Yazı güncellenemedi." }, { status: 500 });
+  }
 }
 
 export async function DELETE(req: NextRequest) {
+  if (!(await isAuthorized(req))) return unauthorized();
+
   const { searchParams } = new URL(req.url);
   const id = searchParams.get("id");
-  if (!id) return NextResponse.json({ error: "id gerekli" }, { status: 400 });
+  if (!id) return badRequest("id gerekli");
 
-  await prisma.blogPost.delete({ where: { id } });
-  return NextResponse.json({ ok: true });
+  try {
+    await prisma.blogPost.delete({ where: { id } });
+    return NextResponse.json({ ok: true });
+  } catch {
+    return NextResponse.json({ error: "Yazı silinemedi." }, { status: 500 });
+  }
 }

@@ -4,6 +4,7 @@ import { TestereSecimTool } from "./TestereSecimTool";
 export const metadata: Metadata = {
   title: "Testere & bıçak seçimi",
   description: "Malzeme, kesim tipi ve ortama göre doğru testere ve bıçak önerisi. Daire, şerit, dekupaj, tilki kuyruğu, zincirli.",
+  alternates: { canonical: "https://hirdavatpro.com/araclar/testere-secimi" },
 };
 
 export default function TestereSecimPage() {

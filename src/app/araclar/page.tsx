@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Disc3, Drill, Eraser, Grid3x3, HardHat, Layers, Map, PaintBucket, Sparkles, Zap } from "lucide-react";
+import { ArrowRight, Disc3, Drill, Eraser, Grid3x3, HardHat, LayoutGrid, Layers, Map, PaintBucket, Sparkles, Zap } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
@@ -72,6 +72,13 @@ const items = [
     title: "Fayans & karo hesaplayıcı",
     desc: "Oda ölçüleri ve fayans boyutuna göre gereken fayans adedi, kutu sayısı ve derz uzunluğunu hesaplayın. Fire payı otomatik eklenir.",
     icon: Grid3x3,
+    live: true,
+  },
+  {
+    href: "/araclar/zemin-planlayici",
+    title: "Zemin & Yerleşim Planlayıcı",
+    desc: "Oda ölçülerini girin, fayans/laminat/boya seçin; 2D yerleşim planını görselleştirip malzeme miktarını hesaplayın. Yazdırın veya SVG indirin.",
+    icon: LayoutGrid,
     live: true,
   },
   {

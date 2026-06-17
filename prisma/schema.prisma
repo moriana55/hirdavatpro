@@ -95,6 +95,39 @@ model B2BQuote {
   @@map("b2b_quotes")
 }
 
+// ── Kayıtlı projeler (Feature 6) ──
+// Anonim sahip anahtarı (localStorage'da üretilen ownerKey) ile basit eşleştirme.
+// Gerçek kullanıcı hesabı yok; ownerKey istemcide saklanır.
+model Project {
+  id        String   @id @default(cuid())
+  ownerKey  String   @map("owner_key") // anon cihaz/kullanıcı anahtarı
+  name      String
+  desc      String   @default("") // orijinal iş tarifi
+  items     Json     // [{ category, categoryLabel, rol, neden, productId?, brand?, model?, priceRange? }]
+  notes     String   @default("")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([ownerKey])
+  @@map("projects")
+}
+
+// ── Garanti & servis takibi (Feature 7) ──
+model WarrantyRecord {
+  id           String   @id @default(cuid())
+  ownerKey     String   @map("owner_key") // anon sahip anahtarı
+  productLabel String   @map("product_label") // serbest metin ürün adı
+  brand        String   @default("")
+  serial       String   @default("")
+  purchaseDate DateTime @map("purchase_date")
+  months       Int      @default(24) // garanti süresi (ay)
+  note         String   @default("")
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  @@index([ownerKey])
+  @@map("warranty_records")
+}
+
 model BlogPost {
   id         String   @id @default(cuid())
   title      String

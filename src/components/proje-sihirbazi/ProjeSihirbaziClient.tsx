@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { getOwnerKey } from "@/lib/owner-key";
 
 interface LineProduct {
   id: string;
@@ -68,6 +69,8 @@ export function ProjeSihirbaziClient() {
   const [error, setError] = useState<string | null>(null);
   const [kit, setKit] = useState<KitResp | null>(null);
   const [toast, setToast] = useState<string | null>(null);
+  const [lastDesc, setLastDesc] = useState("");
+  const [saving, setSaving] = useState(false);
 
   const run = async (text: string) => {
     const value = text.trim();
@@ -86,7 +89,7 @@ export function ProjeSihirbaziClient() {
       });
       const data: KitResp = await r.json();
       if (!r.ok) setError(data.error || "Bir hata oluştu.");
-      else setKit(data);
+      else { setKit(data); setLastDesc(value); }
     } catch {
       setError("Sunucuya ulaşılamadı.");
     } finally {
@@ -116,6 +119,45 @@ export function ProjeSihirbaziClient() {
   const addOne = (id: string) => {
     const { added, full } = addToBasket([id]);
     showToast(full ? "Sepet dolu (maks 3 ürün)." : added ? "Sepete eklendi." : "Zaten sepette.");
+  };
+
+  // Sihirbaz çıktısını "Projelerim"e kaydet.
+  const saveProject = async () => {
+    if (!kit) return;
+    const defaultName = kit.baslik;
+    const name = window.prompt("Proje adı:", defaultName);
+    if (!name || !name.trim()) return;
+    setSaving(true);
+    try {
+      const ownerKey = getOwnerKey();
+      const items = kit.lines.map((l) => {
+        const p = l.products[0];
+        return {
+          category: l.category,
+          categoryLabel: l.categoryLabel,
+          rol: l.rol,
+          neden: l.neden,
+          productId: p?.id,
+          brand: p?.brand,
+          model: p?.model,
+          priceRange: p?.priceRange,
+        };
+      });
+      const r = await fetch("/api/projects", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "x-owner-key": ownerKey },
+        body: JSON.stringify({ ownerKey, name: name.trim(), desc: lastDesc, items }),
+      });
+      if (r.ok) showToast("Proje 'Projelerim'e kaydedildi.");
+      else {
+        const d = await r.json().catch(() => ({}));
+        showToast(d.error || "Proje kaydedilemedi.");
+      }
+    } catch {
+      showToast("Sunucuya ulaşılamadı.");
+    } finally {
+      setSaving(false);
+    }
   };
 
   return (
@@ -170,13 +212,23 @@ export function ProjeSihirbaziClient() {
               <h2 className="font-headline-md text-headline-md font-bold">{kit.baslik}</h2>
               <p className="text-secondary font-body-md max-w-2xl mt-1">{kit.ozet}</p>
             </div>
-            <button
-              onClick={addAll}
-              className="shrink-0 bg-compare-action text-white py-3 px-6 rounded font-label-caps text-label-caps font-bold hover:opacity-95 transition-all flex items-center gap-2"
-            >
-              <span className="material-symbols-outlined text-[18px]">add_shopping_cart</span>
-              HEPSİNİ SEPETE EKLE
-            </button>
+            <div className="flex flex-wrap gap-3 shrink-0">
+              <button
+                onClick={saveProject}
+                disabled={saving}
+                className="bg-primary text-white py-3 px-6 rounded font-label-caps text-label-caps font-bold hover:bg-primary/95 transition-all disabled:opacity-50 flex items-center gap-2"
+              >
+                <span className="material-symbols-outlined text-[18px]">{saving ? "progress_activity" : "bookmark_add"}</span>
+                PROJEYİ KAYDET
+              </button>
+              <button
+                onClick={addAll}
+                className="bg-compare-action text-white py-3 px-6 rounded font-label-caps text-label-caps font-bold hover:opacity-95 transition-all flex items-center gap-2"
+              >
+                <span className="material-symbols-outlined text-[18px]">compare_arrows</span>
+                HEPSİNİ KARŞILAŞTIR
+              </button>
+            </div>
           </div>
 
           <div className="grid gap-4 md:grid-cols-2">
@@ -220,10 +272,14 @@ export function ProjeSihirbaziClient() {
             })}
           </div>
 
-          <div className="flex items-center justify-center pt-2">
+          <div className="flex flex-wrap items-center justify-center gap-6 pt-2">
             <Link href="/karsilastirma/sepet" className="text-primary font-bold hover:underline font-label-caps text-label-caps flex items-center gap-1">
               <span className="material-symbols-outlined text-[18px]">compare_arrows</span>
               KARŞILAŞTIRMA SEPETİNE GİT →
+            </Link>
+            <Link href="/projelerim" className="text-secondary font-bold hover:text-primary font-label-caps text-label-caps flex items-center gap-1">
+              <span className="material-symbols-outlined text-[18px]">folder_special</span>
+              PROJELERİM →
             </Link>
           </div>
         </div>

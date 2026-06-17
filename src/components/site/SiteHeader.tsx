@@ -7,6 +7,8 @@ import { Menu, X, Search } from "lucide-react";
 
 const navItems = [
   { href: "/proje-sihirbazi", label: "Proje Sihirbazı" },
+  { href: "/projelerim", label: "Projelerim" },
+  { href: "/garanti", label: "Garanti" },
   { href: "/gorsel-arama", label: "Görsel Arama" },
   { href: "/usta-bul", label: "Usta Bul" },
   { href: "/karsilastirma", label: "Karşılaştırmalar" },

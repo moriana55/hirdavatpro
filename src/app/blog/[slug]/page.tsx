@@ -2,9 +2,14 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getAllPosts, getPostBySlug, getRelatedPosts } from "@/lib/blog/posts";
+import { getShoppableProducts } from "@/lib/blog/commerce";
+import { BlogUrunSeridi } from "@/components/blog/BlogUrunSeridi";
 import { Clock, Tag, ArrowLeft } from "lucide-react";
 
 type Props = { params: Promise<{ slug: string }> };
+
+// Ürün şeridi DB'den okur; build anında DB gerektirmemek için dinamik render.
+export const dynamic = "force-dynamic";
 
 export async function generateStaticParams() {
   return getAllPosts().map(p => ({ slug: p.slug }));
@@ -34,6 +39,14 @@ export default async function BlogPostPage({ params }: Props) {
   if (!post) notFound();
 
   const related = getRelatedPosts(post);
+
+  // İçerik → satış: bu rehberle ilgili katalog ürünleri (DB erişilemezse graceful boş).
+  let shoppable: Awaited<ReturnType<typeof getShoppableProducts>> = [];
+  try {
+    shoppable = await getShoppableProducts(post, 4);
+  } catch {
+    shoppable = [];
+  }
 
   return (
     <article className="mx-auto max-w-3xl px-4 py-14 md:px-6 md:py-20">
@@ -170,6 +183,9 @@ export default async function BlogPostPage({ params }: Props) {
           </section>
         ))}
       </div>
+
+      {/* İçerik → satış: bu işte geçen aletler şeridi */}
+      <BlogUrunSeridi products={shoppable} />
 
       {/* Related */}
       {related.length > 0 && (

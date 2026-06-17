@@ -19,6 +19,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/blog`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.7 },
     { url: `${BASE}/arama`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.5 },
     { url: `${BASE}/araclar`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
+    { url: `${BASE}/proje-sihirbazi`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/projelerim`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.5 },
+    { url: `${BASE}/garanti`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.6 },
     ...[
       "akilli-secim",
       "beton-karisim",
@@ -30,6 +33,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       "testere-secimi",
       "vida-dubel",
       "zimpara-secimi",
+      "zemin-planlayici",
     ].map((tool) => ({
       url: `${BASE}/araclar/${tool}`,
       lastModified: new Date(),

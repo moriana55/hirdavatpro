@@ -480,7 +480,7 @@ export default async function ProductDetailPage({ params }: Props) {
         <UyumlulukSection product={product} allProducts={allProducts} />
 
         {/* Fiyat & Stok Karşılaştır (Feature 9) — çok kaynaklı (STUB veri) */}
-        <FiyatKarsilastirClient productId={product.id} />
+        <FiyatKarsilastirClient productId={product.id} slug={slug} />
 
         {/* Mühendislik Uyumluluk Rehberi (Özellik 5) */}
         <section className="mt-16 pt-10 border-t border-border-subtle">

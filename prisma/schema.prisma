@@ -77,6 +77,39 @@ model Project {
   @@map("projects")
 }
 
+// ── Affiliate "nereden alınır" tıklama takibi (Feature: affiliate click tracking) ──
+// Kullanıcı dışa yönlendiren bir mağaza linkine tıkladığında kaydedilir.
+// PII saklanmaz; yalnızca hangi ürün/mağaza/hedef ve isteğe bağlı referrer host'u.
+model AffiliateClick {
+  id        String   @id @default(cuid())
+  productId String?  @map("product_id") // katalog ürün id'si (varsa)
+  slug      String?  // ürün slug'ı (varsa)
+  retailer  String   // Hepsiburada | Trendyol | Koçtaş | Amazon TR | Yetkili Bayi ...
+  targetUrl String   @map("target_url") // yönlendirilen gerçek mağaza URL'i
+  referrer  String?  // istek referrer host'u (PII yok)
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@index([retailer])
+  @@index([productId])
+  @@index([createdAt])
+  @@map("affiliate_clicks")
+}
+
+// ── Lead yakalama (Feature: comparison email capture / lead-gen) ──
+// Karşılaştırma paylaş/kaydet aksiyonunda OPSİYONEL e-posta. KVKK uyumlu açık rıza.
+model Lead {
+  id        String   @id @default(cuid())
+  email     String
+  source    String   @default("comparison") // hangi akıştan geldi
+  context   String   @default("") // ör. karşılaştırılan ürünler / slug
+  consent   Boolean  @default(false) // açık rıza işaretlendi mi
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@index([source])
+  @@index([createdAt])
+  @@map("leads")
+}
+
 model BlogPost {
   id         String   @id @default(cuid())
   title      String

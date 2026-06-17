@@ -263,6 +263,8 @@ export function ComparisonBasketClient({ allProducts }: ComparisonBasketClientPr
             shareText={`Teknik karşılaştırma: ${selectedProducts
               .map((p) => `${p.brand} ${p.model}`)
               .join(" vs ")}`}
+            leadSource="comparison-basket"
+            leadContext={selectedProducts.map((p) => `${p.brand} ${p.model}`).join(" vs ")}
           />
 
           {/* Tool Cards Header Grid */}

@@ -104,6 +104,8 @@ export function ComparisonClient({
       <ComparisonShareBar
         shareTitle={`${a.brand} ${a.model} vs ${b.brand} ${b.model} — Teknik Karşılaştırma`}
         shareText={`${a.brand} ${a.model} ve ${b.brand} ${b.model} teknik karşılaştırması`}
+        leadSource="comparison-page"
+        leadContext={`${a.brand} ${a.model} vs ${b.brand} ${b.model}`}
       />
 
       {/* Tool Selection / Summary Row */}

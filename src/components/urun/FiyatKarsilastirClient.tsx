@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { buildAffiliateHref } from "@/lib/affiliate/retailers";
 
 interface PriceSource {
   source: string;
@@ -21,7 +22,7 @@ interface Resp {
 
 const formatTRY = (v: number) => "₺" + Math.round(v).toLocaleString("tr-TR");
 
-export function FiyatKarsilastirClient({ productId }: { productId: string }) {
+export function FiyatKarsilastirClient({ productId, slug }: { productId: string; slug?: string }) {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState<Resp | null>(null);
@@ -118,7 +119,7 @@ export function FiyatKarsilastirClient({ productId }: { productId: string }) {
                           <td className="p-3 text-secondary text-[12px] hidden md:table-cell">{s.shippingNote}</td>
                           <td className="p-3 text-right">
                             <a
-                              href={s.url}
+                              href={buildAffiliateHref({ url: s.url, retailer: s.source, productId, slug })}
                               target="_blank"
                               rel="nofollow noopener noreferrer"
                               className="text-primary font-bold text-[12px] hover:underline inline-flex items-center gap-1"

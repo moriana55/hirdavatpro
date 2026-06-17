@@ -119,6 +119,24 @@ export default async function AdminDashboardPage() {
             BLOG YÖNETİMİ →
           </Link>
         </div>
+        {/* Module 4: Analytics */}
+        <div className="bg-white border border-border-subtle rounded-2xl p-6 hover:border-primary transition-all duration-300 group flex flex-col justify-between shadow-sm">
+          <div>
+            <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-4 group-hover:scale-105 transition-transform">
+              <span className="material-symbols-outlined text-[24px]">monitoring</span>
+            </div>
+            <h3 className="font-title-lg text-title-lg font-bold mb-2">Affiliate & Lead Analitiği</h3>
+            <p className="text-secondary text-body-sm leading-relaxed mb-6">
+              &quot;Nereden alınır&quot; çıkış tıklamalarını mağaza ve ürün bazında izleyin. B2B teklif, kayıtlı proje ve lead sinyallerini tek ekranda görün.
+            </p>
+          </div>
+          <Link
+            href="/x9k4-sys/analiz"
+            className="w-full bg-slate-gray text-white py-3 text-center rounded font-label-caps text-[11px] font-bold group-hover:bg-primary transition-colors decoration-none"
+          >
+            ANALİTİĞİ AÇ →
+          </Link>
+        </div>
       </section>
 
       {/* Info Warning */}

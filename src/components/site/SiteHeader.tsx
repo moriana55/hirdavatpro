@@ -1,47 +1,123 @@
-import Link from "next/link";
-import { Search, Wrench } from "lucide-react";
-import { cn } from "@/lib/utils";
+"use client";
 
-const nav = [
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useState, useEffect } from "react";
+import { Menu, X, Search } from "lucide-react";
+
+const navItems = [
   { href: "/karsilastirma", label: "Karşılaştırmalar" },
+  { href: "/araclar", label: "Seçim Araçları" },
   { href: "/blog", label: "Rehberler" },
-  { href: "/araclar", label: "Araçlar" },
+  { href: "/arama", label: "Ara" },
 ] as const;
 
 export function SiteHeader() {
-  return (
-    <header className="sticky top-0 z-50 border-b border-zinc-200 bg-white/90 backdrop-blur-md">
-      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-4 px-4 md:px-6">
-        <Link href="/" className="group flex items-center gap-2 shrink-0">
-          <span className="grid h-8 w-8 place-items-center rounded-lg border border-zinc-300 bg-zinc-100 transition group-hover:border-orange-500/40">
-            <Wrench className="size-4 text-orange-600" aria-hidden />
-          </span>
-          <span className="font-heading text-sm font-semibold tracking-tight text-zinc-900 md:text-base">
-            Hırdavat<span className="text-orange-600">Pro</span>
-          </span>
-        </Link>
+  const pathname = usePathname();
+  const [searchQuery, setSearchQuery] = useState("");
+  const [basketCount, setBasketCount] = useState(0);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
-        <nav className="flex flex-wrap items-center justify-end gap-1 text-[12px] font-medium md:gap-2 md:text-sm">
-          {nav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={cn(
-                "rounded-lg px-2.5 py-1.5 text-zinc-400 transition hover:bg-zinc-100 hover:text-zinc-900 md:px-3",
-              )}
-            >
-              {item.label}
-            </Link>
-          ))}
-          <Link
-            href="/arama"
-            className="inline-flex items-center gap-1 rounded-lg border border-zinc-200 px-2.5 py-1.5 text-zinc-400 hover:border-zinc-300 hover:text-zinc-600 transition"
-          >
-            <Search className="size-3.5" />
-            <span className="hidden text-[11px] font-semibold md:inline">Ara</span>
+  useEffect(() => {
+    const update = () => {
+      try {
+        const basket = JSON.parse(localStorage.getItem("hirdavatpro_basket") || "[]");
+        setBasketCount(basket.length);
+      } catch { setBasketCount(0); }
+    };
+    update();
+    window.addEventListener("hirdavatpro_basket_change", update);
+    return () => window.removeEventListener("hirdavatpro_basket_change", update);
+  }, []);
+
+  useEffect(() => { setMobileOpen(false); }, [pathname]);
+
+  return (
+    <>
+      <header className="bg-surface/85 backdrop-blur-md border-b border-border-subtle fixed top-0 left-0 right-0 w-full z-50">
+        <nav className="flex items-center justify-between px-margin-desktop py-4 w-full max-w-max-width mx-auto">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-2 group decoration-none shrink-0">
+            <span className="text-2xl font-bold text-primary group-hover:opacity-90 transition-opacity">
+              Hırdavat<span className="text-secondary">Pro</span>
+            </span>
           </Link>
+
+          {/* Desktop Nav */}
+          <div className="hidden md:flex items-center space-x-gutter">
+            {navItems.map(item => {
+              const isActive = pathname === item.href || pathname.startsWith(item.href + "/");
+              return (
+                <Link key={item.href} href={item.href}
+                  className={`font-label-caps text-label-caps transition-all pb-1 decoration-none ${
+                    isActive ? "text-primary border-b-2 border-primary" : "text-secondary hover:text-primary"
+                  }`}>
+                  {item.label}
+                </Link>
+              );
+            })}
+          </div>
+
+          {/* Desktop Actions */}
+          <div className="hidden md:flex items-center gap-gutter">
+            <form onSubmit={e => { e.preventDefault(); if (searchQuery.trim()) window.location.href = `/arama?q=${encodeURIComponent(searchQuery)}`; }}
+              className="relative">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-secondary" />
+              <input type="text" value={searchQuery} onChange={e => setSearchQuery(e.target.value)}
+                placeholder="Teknik analiz ara..."
+                className="pl-9 pr-4 py-2 bg-surface-container-low border border-border-subtle rounded text-body-sm focus:outline-none focus:border-primary w-56 transition-colors" />
+            </form>
+            {basketCount > 0 && (
+              <Link href="/karsilastirma/sepet"
+                className="flex items-center gap-1.5 bg-primary text-white hover:bg-primary/90 px-3 py-1.5 rounded transition-all font-bold shadow-sm decoration-none active:scale-95">
+                <span className="material-symbols-outlined text-[18px]">compare_arrows</span>
+                <span className="font-label-caps text-[11px] tracking-wider">KARŞILAŞTIR ({basketCount})</span>
+              </Link>
+            )}
+          </div>
+
+          {/* Mobile: basket + hamburger */}
+          <div className="flex md:hidden items-center gap-3">
+            {basketCount > 0 && (
+              <Link href="/karsilastirma/sepet"
+                className="flex items-center gap-1 bg-primary text-white px-2.5 py-1.5 rounded text-[11px] font-bold decoration-none">
+                <span className="material-symbols-outlined text-[16px]">compare_arrows</span>
+                {basketCount}
+              </Link>
+            )}
+            <button onClick={() => setMobileOpen(o => !o)} aria-label="Menü"
+              className="p-2 rounded-lg border border-border-subtle text-secondary hover:text-primary hover:bg-surface-container transition-colors">
+              {mobileOpen ? <X className="size-5" /> : <Menu className="size-5" />}
+            </button>
+          </div>
         </nav>
-      </div>
-    </header>
+      </header>
+
+      {/* Mobile Menu Dropdown */}
+      {mobileOpen && (
+        <div className="fixed top-[65px] left-0 right-0 z-40 bg-surface border-b border-border-subtle shadow-lg md:hidden">
+          <div className="px-6 py-4 space-y-1">
+            {navItems.map(item => {
+              const isActive = pathname === item.href || pathname.startsWith(item.href + "/");
+              return (
+                <Link key={item.href} href={item.href}
+                  className={`block py-3 font-label-caps text-label-caps border-b border-border-subtle/50 last:border-0 decoration-none ${
+                    isActive ? "text-primary" : "text-secondary"
+                  }`}>
+                  {item.label}
+                </Link>
+              );
+            })}
+            <form onSubmit={e => { e.preventDefault(); if (searchQuery.trim()) { window.location.href = `/arama?q=${encodeURIComponent(searchQuery)}`; setMobileOpen(false); } }}
+              className="relative pt-3">
+              <Search className="absolute left-3 top-1/2 translate-y-[-25%] size-4 text-secondary" />
+              <input type="text" value={searchQuery} onChange={e => setSearchQuery(e.target.value)}
+                placeholder="Ara..."
+                className="w-full pl-9 pr-4 py-2.5 bg-surface-container-low border border-border-subtle rounded text-sm focus:outline-none focus:border-primary" />
+            </form>
+          </div>
+        </div>
+      )}
+    </>
   );
 }

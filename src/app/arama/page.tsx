@@ -1,102 +1,118 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
-import { Search, Package, BarChart3 } from "lucide-react";
-import { SEED_CATALOG } from "@/lib/products/seed-catalog";
+import { Search, Package, BarChart3, Loader2 } from "lucide-react";
 import { CATEGORY_LABELS } from "@/lib/products/types";
 import type { ProductCategory } from "@/lib/products/types";
 
+interface Product { id: string; brand: string; model: string; category: string; }
+
+function slugify(s: string) {
+  return s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/-+/g, "-").replace(/^-|-$/g, "");
+}
+
 export default function SearchPage() {
   const [query, setQuery] = useState("");
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("/api/products")
+      .then(r => r.json())
+      .then(data => setProducts(Array.isArray(data) ? data : []))
+      .finally(() => setLoading(false));
+  }, []);
 
   const results = useMemo(() => {
     const q = query.toLowerCase().trim();
     if (q.length < 2) return { products: [], pairs: [] };
-
     const words = q.split(/\s+/);
 
-    const products = SEED_CATALOG.filter(p => {
+    const matched = products.filter(p => {
       const text = `${p.brand} ${p.model} ${CATEGORY_LABELS[p.category as ProductCategory] || p.category}`.toLowerCase();
       return words.every(w => text.includes(w));
     }).slice(0, 20);
 
-    const pairs: { a: typeof SEED_CATALOG[0]; b: typeof SEED_CATALOG[0] }[] = [];
+    const pairs: { a: Product; b: Product }[] = [];
     if (q.includes("vs") || q.includes(" - ")) {
       const parts = q.split(/\s+vs\s+|\s+-\s+/);
       if (parts.length === 2) {
         const left = parts[0].trim();
         const right = parts[1].trim();
-        const leftMatches = SEED_CATALOG.filter(p => `${p.brand} ${p.model}`.toLowerCase().includes(left));
-        const rightMatches = SEED_CATALOG.filter(p => `${p.brand} ${p.model}`.toLowerCase().includes(right));
-        for (const a of leftMatches.slice(0, 3)) {
-          for (const b of rightMatches.slice(0, 3)) {
+        const leftM = products.filter(p => `${p.brand} ${p.model}`.toLowerCase().includes(left));
+        const rightM = products.filter(p => `${p.brand} ${p.model}`.toLowerCase().includes(right));
+        for (const a of leftM.slice(0, 3)) {
+          for (const b of rightM.slice(0, 3)) {
             if (a.category === b.category) pairs.push({ a, b });
           }
         }
       }
     }
 
-    return { products, pairs: pairs.slice(0, 6) };
-  }, [query]);
-
-  const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/-+/g, "-").replace(/^-|-$/g, "");
+    return { products: matched, pairs: pairs.slice(0, 6) };
+  }, [query, products]);
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-14 md:px-6 md:py-20">
-      <h1 className="font-heading text-3xl font-semibold tracking-tight text-zinc-900 md:text-4xl">
-        Ara<span className="text-orange-600">ma</span>
-      </h1>
-      <p className="mt-2 text-sm text-zinc-500">
+    <div className="mx-auto max-w-[1200px] px-6 py-16 md:py-20">
+      <p className="text-[12px] font-semibold uppercase tracking-wider text-secondary mb-1">Ürün & Karşılaştırma</p>
+      <h1 className="font-display-lg text-display-lg text-on-surface">Arama</h1>
+      <p className="mt-3 text-secondary font-body-lg">
         Ürün, marka veya &quot;bosch vs makita&quot; şeklinde karşılaştırma arayın
       </p>
 
-      <div className="mt-8 relative">
-        <Search className="absolute left-4 top-1/2 -translate-y-1/2 size-5 text-zinc-400" />
+      <div className="mt-10 relative">
+        <Search className="absolute left-4 top-1/2 -translate-y-1/2 size-5 text-secondary" />
         <input
           type="text"
           value={query}
           onChange={e => setQuery(e.target.value)}
           placeholder="Marka, model veya kategori ara..."
           autoFocus
-          className="w-full rounded-lg border border-zinc-300 bg-zinc-50 py-3.5 pl-12 pr-4 text-sm text-zinc-800 placeholder:text-zinc-400 focus:border-orange-400 focus:outline-none focus:ring-2 focus:ring-orange-100 transition"
+          className="w-full pl-12 pr-4 py-4 rounded-lg border border-border-subtle bg-white text-on-surface text-[15px] focus:outline-none focus:border-primary transition-colors"
         />
       </div>
 
-      {query.length < 2 && (
-        <div className="mt-12 text-center text-sm text-zinc-400">
-          En az 2 karakter yazın...
+      {loading && (
+        <div className="mt-16 flex justify-center">
+          <Loader2 className="size-6 animate-spin text-primary" />
         </div>
       )}
 
-      {query.length >= 2 && results.products.length === 0 && results.pairs.length === 0 && (
-        <div className="mt-12 text-center text-sm text-zinc-400">
+      {!loading && query.length < 2 && (
+        <div className="mt-16 text-center">
+          <p className="text-secondary font-body-lg mb-6">{products.length} ürün içinde ara</p>
+          <div className="flex flex-wrap justify-center gap-2">
+            {["Bosch", "Makita", "DeWalt", "Milwaukee", "Metabo", "Stihl"].map(b => (
+              <button key={b} onClick={() => setQuery(b)}
+                className="rounded-lg border border-border-subtle bg-white px-4 py-2 text-sm font-medium text-secondary hover:border-primary hover:text-primary transition-all">
+                {b}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {!loading && query.length >= 2 && results.products.length === 0 && results.pairs.length === 0 && (
+        <div className="mt-16 text-center text-secondary font-body-lg">
           &quot;{query}&quot; için sonuç bulunamadı.
         </div>
       )}
 
       {results.pairs.length > 0 && (
-        <div className="mt-8">
-          <h2 className="text-[10px] font-bold uppercase tracking-wider text-zinc-400 mb-3 flex items-center gap-2">
+        <div className="mt-10">
+          <p className="text-[12px] font-bold uppercase tracking-wider text-secondary mb-4 flex items-center gap-2">
             <BarChart3 className="size-3.5" /> Karşılaştırmalar
-          </h2>
-          <div className="grid gap-3 md:grid-cols-2">
+          </p>
+          <div className="grid gap-4 md:grid-cols-2">
             {results.pairs.map(({ a, b }, i) => {
-              const compSlug = `${slugify(a.brand + "-" + a.model)}-vs-${slugify(b.brand + "-" + b.model)}`;
+              const slug = `${slugify(a.brand + "-" + a.model)}-vs-${slugify(b.brand + "-" + b.model)}`;
               return (
-                <Link
-                  key={i}
-                  href={`/karsilastirma/${compSlug}`}
-                  className="group rounded-lg border border-zinc-200 bg-zinc-50 p-4 transition hover:border-zinc-300 hover:bg-zinc-100"
-                >
-                  <div className="flex items-center gap-2 text-sm font-medium text-zinc-800">
-                    <span>{a.brand} {a.model}</span>
-                    <span className="text-orange-600 font-bold">vs</span>
-                    <span>{b.brand} {b.model}</span>
-                  </div>
-                  <span className="mt-2 block text-[10px] text-zinc-400">
-                    {CATEGORY_LABELS[a.category as ProductCategory]}
-                  </span>
+                <Link key={i} href={`/karsilastirma/${slug}`}
+                  className="bg-white border border-border-subtle rounded p-5 hover:border-primary transition-colors flex items-center gap-2.5">
+                  <span className="text-sm font-semibold text-on-surface">{a.brand} {a.model}</span>
+                  <span className="bg-primary/10 text-primary px-2 py-0.5 text-[10px] rounded font-bold">VS</span>
+                  <span className="text-sm font-semibold text-on-surface">{b.brand} {b.model}</span>
                 </Link>
               );
             })}
@@ -105,22 +121,19 @@ export default function SearchPage() {
       )}
 
       {results.products.length > 0 && (
-        <div className="mt-8">
-          <h2 className="text-[10px] font-bold uppercase tracking-wider text-zinc-400 mb-3 flex items-center gap-2">
+        <div className="mt-10">
+          <p className="text-[12px] font-bold uppercase tracking-wider text-secondary mb-4 flex items-center gap-2">
             <Package className="size-3.5" /> Ürünler ({results.products.length})
-          </h2>
-          <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3">
+          </p>
+          <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {results.products.map(p => (
-              <Link
-                key={`${p.brand}-${p.model}`}
-                href={`/urun/${slugify(p.brand + "-" + p.model)}`}
-                className="group rounded-lg border border-zinc-200 bg-zinc-50 p-4 transition hover:border-zinc-300 hover:bg-zinc-100"
-              >
-                <p className="text-sm font-medium text-zinc-800 group-hover:text-orange-600 transition">
+              <Link key={p.id} href={`/urun/${slugify(p.brand + "-" + p.model)}`}
+                className="bg-white border border-border-subtle rounded p-4 hover:border-primary transition-colors group">
+                <p className="text-sm font-semibold text-on-surface group-hover:text-primary transition-colors">
                   {p.brand} {p.model}
                 </p>
-                <p className="mt-1 text-[11px] text-zinc-400">
-                  {CATEGORY_LABELS[p.category as ProductCategory]}
+                <p className="mt-1.5 text-[10px] font-bold uppercase tracking-wider text-secondary">
+                  {CATEGORY_LABELS[p.category as ProductCategory] || p.category}
                 </p>
               </Link>
             ))}

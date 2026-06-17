@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getComparisons, getProducts, productSlug } from "@/lib/products/store";
 import { getAllPosts } from "@/lib/blog/posts";
+import { prisma } from "@/lib/db";
 
 const BASE = "https://hirdavatpro.com";
 
@@ -10,6 +11,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const comparisons = await getComparisons();
   const products = await getProducts();
   const categories = [...new Set(products.map(p => p.category))];
+  const blogPosts = await prisma.blogPost.findMany({ where: { published: true }, select: { slug: true, updatedAt: true } });
 
   const staticPages: MetadataRoute.Sitemap = [
     { url: BASE, lastModified: new Date(), changeFrequency: "weekly", priority: 1.0 },
@@ -43,12 +45,29 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }));
 
-  const blogPages: MetadataRoute.Sitemap = getAllPosts().map(p => ({
-    url: `${BASE}/blog/${p.slug}`,
-    lastModified: new Date(p.publishedAt),
-    changeFrequency: "monthly" as const,
-    priority: 0.7,
-  }));
+  // Birleşim: hem dosya-tabanlı (statik rehberler) hem DB-tabanlı (CMS) blog yazıları, slug'a göre tekilleştir
+  const blogSlugSeen = new Set<string>();
+  const blogPages: MetadataRoute.Sitemap = [];
+  for (const p of getAllPosts()) {
+    if (blogSlugSeen.has(p.slug)) continue;
+    blogSlugSeen.add(p.slug);
+    blogPages.push({
+      url: `${BASE}/blog/${p.slug}`,
+      lastModified: new Date(p.publishedAt),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    });
+  }
+  for (const p of blogPosts) {
+    if (blogSlugSeen.has(p.slug)) continue;
+    blogSlugSeen.add(p.slug);
+    blogPages.push({
+      url: `${BASE}/blog/${p.slug}`,
+      lastModified: new Date(p.updatedAt),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    });
+  }
 
   return [...staticPages, ...categoryPages, ...productPages, ...comparisonPages, ...blogPages];
 }

@@ -1,26 +1,25 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { SiteHeader } from "@/components/site/SiteHeader";
 
-/** Cabinet / Satoshi hissi: temiz grotesk + teknik mono */
-const heading = IBM_Plex_Sans({
+const heading = Inter({
   variable: "--font-sans-heading",
   subsets: ["latin"],
-  weight: ["500", "600"],
+  weight: ["600", "700"],
 });
 
-const body = IBM_Plex_Sans({
+const body = Inter({
   variable: "--font-sans-body",
   subsets: ["latin"],
   weight: ["400", "500"],
 });
 
-const mono = IBM_Plex_Mono({
+const mono = JetBrains_Mono({
   variable: "--font-mono-ui",
   subsets: ["latin"],
-  weight: ["400", "500"],
+  weight: ["500", "700"],
 });
 
 export const metadata: Metadata = {
@@ -59,6 +58,33 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://hirdavatpro.com/#website",
+      url: "https://hirdavatpro.com",
+      name: "HırdavatPro",
+      description: "Türkiye'nin en kapsamlı hırdavat karşılaştırma ve teknik alet rehber sitesi.",
+      inLanguage: "tr-TR",
+      potentialAction: {
+        "@type": "SearchAction",
+        target: { "@type": "EntryPoint", urlTemplate: "https://hirdavatpro.com/arama?q={search_term_string}" },
+        "query-input": "required name=search_term_string",
+      },
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://hirdavatpro.com/#organization",
+      name: "HırdavatPro",
+      url: "https://hirdavatpro.com",
+      logo: { "@type": "ImageObject", url: "https://hirdavatpro.com/favicon.ico" },
+      sameAs: [],
+    },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -69,6 +95,13 @@ export default function RootLayout({
       lang="tr"
       className={`${heading.variable} ${body.variable} ${mono.variable} h-full scroll-smooth antialiased`}
     >
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+          rel="stylesheet"
+        />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      </head>
       <body className="flex min-h-full flex-col bg-[var(--background)] text-[var(--foreground)]">
         <SiteHeader />
         <main className="flex-1">{children}</main>

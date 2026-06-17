@@ -2,62 +2,67 @@ import Link from "next/link";
 
 export function SiteFooter() {
   return (
-    <footer className="mt-auto border-t border-zinc-200 bg-white/80">
-      <div className="mx-auto max-w-6xl px-4 py-10 md:px-6 md:py-12">
-        <div className="flex flex-col gap-8 md:flex-row md:justify-between md:gap-12">
-          <div className="max-w-md space-y-2">
-            <p className="font-heading text-sm font-semibold text-zinc-800">Hırdavat Pro</p>
-            <p className="text-[13px] leading-relaxed text-zinc-500">
-              Atölye ve şantiye kararlarını hızlandıran, teknik netlik öncelikli yardımcı araçlar. Satış vaadi değil;
-              doğru uç, doğru işlem, doğru güvenlik.
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-10 text-[13px]">
-            <div className="space-y-3">
-              <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-zinc-500">Keşfet</p>
-              <ul className="space-y-2 text-zinc-400">
-                <li>
-                  <Link href="/karsilastirma" className="hover:text-orange-600/90 transition">
-                    Karşılaştırmalar
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/blog" className="hover:text-orange-600/90 transition">
-                    Rehberler
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/arama" className="hover:text-orange-600/90 transition">
-                    Arama
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div className="space-y-3">
-              <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-zinc-500">Araçlar</p>
-              <ul className="space-y-2 text-zinc-400">
-                <li>
-                  <Link href="/araclar/matkap-ucu" className="hover:text-orange-600/90 transition">
-                    Matkap ucu seçimi
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/araclar/testere-secimi" className="hover:text-orange-600/90 transition">
-                    Testere seçimi
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div className="space-y-3">
-              <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-zinc-500">Yasal</p>
-              <p className="max-w-xs text-zinc-400 leading-relaxed">
-                Öneriler bilgilendirme amaçlıdır. Üretici katalogları, iş güvenliği ve yerel mevzuat her zaman önceliklidir.
-              </p>
-            </div>
-          </div>
+    <footer className="bg-on-secondary-fixed text-on-secondary w-full py-12 px-margin-desktop flex flex-col items-center justify-center mt-auto border-t border-border-subtle/10">
+      <div className="max-w-max-width w-full grid grid-cols-1 md:grid-cols-4 gap-12 mb-12 mx-auto">
+        {/* About Column */}
+        <div className="col-span-1 md:col-span-2 space-y-4">
+          <span className="font-headline-lg text-headline-lg text-primary-fixed block">
+            Hırdavat<span className="text-white">Pro</span>
+          </span>
+          <p className="text-secondary-fixed-dim font-body-sm max-w-sm leading-relaxed">
+            Endüstriyel hassasiyet ve mühendislik verileriyle donatılmış Türkiye&apos;nin en kapsamlı hırdavat analiz ve karşılaştırma platformu.
+          </p>
         </div>
-        <p className="mt-10 text-center text-[11px] text-zinc-400">
-          © {new Date().getFullYear()} hirdavatpro.com
+
+        {/* Kurumsal Column */}
+        <div>
+          <h4 className="font-label-caps text-label-caps text-white mb-6">KURUMSAL</h4>
+          <ul className="space-y-3 text-secondary-fixed-dim font-body-sm">
+            <li>
+              <Link href="/karsilastirma" className="hover:text-primary-fixed transition-colors decoration-none">
+                Karşılaştırmalar
+              </Link>
+            </li>
+            <li>
+              <Link href="/araclar" className="hover:text-primary-fixed transition-colors decoration-none">
+                Seçim Araçları
+              </Link>
+            </li>
+            <li>
+              <Link href="/blog" className="hover:text-primary-fixed transition-colors decoration-none">
+                Teknik Rehberler
+              </Link>
+            </li>
+          </ul>
+        </div>
+
+        {/* Keşfet Column */}
+        <div>
+          <h4 className="font-label-caps text-label-caps text-white mb-6">KEŞFET</h4>
+          <ul className="space-y-3 text-secondary-fixed-dim font-body-sm">
+            <li>
+              <Link href="/karsilastirma" className="hover:text-primary-fixed transition-colors decoration-none">
+                Karşılaştırmalar
+              </Link>
+            </li>
+            <li>
+              <Link href="/araclar" className="hover:text-primary-fixed transition-colors decoration-none">
+                Seçim Araçları
+              </Link>
+            </li>
+            <li>
+              <Link href="/blog" className="hover:text-primary-fixed transition-colors decoration-none">
+                Teknik Rehberler
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Copyright */}
+      <div className="w-full border-t border-on-secondary-fixed-variant/20 pt-8 text-center max-w-max-width mx-auto">
+        <p className="font-label-caps text-label-caps text-secondary-fixed-dim">
+          © {new Date().getFullYear()} HırdavatPro. Her Spesifikasyonda Endüstriyel Hassasiyet.
         </p>
       </div>
     </footer>

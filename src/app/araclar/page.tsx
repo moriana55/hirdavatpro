@@ -1,18 +1,25 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Disc3, Drill, Eraser, Grid3x3, HardHat, Layers, PaintBucket, Zap } from "lucide-react";
+import { ArrowRight, Disc3, Drill, Eraser, Grid3x3, HardHat, Layers, Map, PaintBucket, Sparkles, Zap } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Araçlar — Hırdavat Seçim Araçları",
-  description: "Matkap ucu, testere seçimi, vida & dübel eşleştirme, zımpara grit seçimi, beton karışım hesaplayıcı, kablo kesiti hesaplayıcı, fayans hesaplayıcı ve daha fazlası. Taban malzemesi ve işleme göre anlık teknik öneri.",
+  title: "Araçlar — Hırdavat Seçim & Hesaplama Araçları",
+  description: "Akıllı alet danışmanı, matkap ucu, testere seçimi, vida & dübel eşleştirme, zımpara grit seçimi, boya/beton/kablo/fayans hesaplayıcıları ve harita tasarımcısı. Taban malzemesi ve işleme göre anlık teknik öneri.",
 };
 
 const items = [
   {
+    href: "/araclar/akilli-secim",
+    title: "Akıllı Alet Danışmanı (Sihirbaz)",
+    desc: "Kullanım şartları, bütçe ve beklentilerinize en uygun endüstriyel aleti mühendislik gerekçeleriyle keşfedin.",
+    icon: Sparkles,
+    live: true,
+  },
+  {
     href: "/araclar/matkap-ucu",
-    title: "Matkap ucu seçimi",
+    title: "Matkap Ucu Seçimi",
     desc: "Ahşaptan betona: uç ailesi, darbe uyumu ve pratik notlar.",
     icon: Drill,
     live: true,
@@ -64,6 +71,13 @@ const items = [
     title: "Fayans & karo hesaplayıcı",
     desc: "Oda ölçüleri ve fayans boyutuna göre gereken fayans adedi, kutu sayısı ve derz uzunluğunu hesaplayın. Fire payı otomatik eklenir.",
     icon: Grid3x3,
+    live: true,
+  },
+  {
+    href: "/araclar/harita-tasarim",
+    title: "Harita & Zemin Tasarımcısı",
+    desc: "Nordic-minimalist zemin ve yerleşim planı tasarımcısı: ölçüleri girin, malzeme ve düzeni görselleştirin.",
+    icon: Map,
     live: true,
   },
 ] as const;

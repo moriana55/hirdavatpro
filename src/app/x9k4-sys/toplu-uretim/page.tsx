@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useCallback } from "react";
-import { Loader2, Play, Pause, RotateCcw, CheckCircle, XCircle, Package, ArrowRightLeft, Zap } from "lucide-react";
+import { Loader2, Pause, RotateCcw, CheckCircle, XCircle, Package, ArrowRightLeft, Zap, Plus } from "lucide-react";
 import { SEED_CATALOG, generatePairs } from "@/lib/products/seed-catalog";
 import { CATEGORY_LABELS, CATEGORY_GROUPS } from "@/lib/products/types";
 import type { ProductCategory } from "@/lib/products/types";
@@ -123,6 +123,38 @@ export default function BulkGeneratePage() {
     });
   }
 
+  const [manualBrand, setManualBrand] = useState("");
+  const [manualModel, setManualModel] = useState("");
+  const [manualCategory, setManualCategory] = useState<ProductCategory>("darbeli-matkap");
+  const [manualLoading, setManualLoading] = useState(false);
+  const [manualResult, setManualResult] = useState<{ type: "success" | "error"; msg: string } | null>(null);
+
+  async function addManualProduct(e: React.FormEvent) {
+    e.preventDefault();
+    if (!manualBrand.trim() || !manualModel.trim()) return;
+    setManualLoading(true);
+    setManualResult(null);
+    try {
+      const res = await fetch("/api/bulk-generate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "add-product", brand: manualBrand.trim(), model: manualModel.trim(), category: manualCategory }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setManualResult({ type: "success", msg: data.skipped ? "Zaten mevcut" : `Eklendi: ${data.product.priceRange || "fiyat yok"}` });
+        setManualBrand("");
+        setManualModel("");
+      } else {
+        setManualResult({ type: "error", msg: data.error || "Hata" });
+      }
+    } catch (err: any) {
+      setManualResult({ type: "error", msg: err.message });
+    } finally {
+      setManualLoading(false);
+    }
+  }
+
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 md:px-6">
       <div className="flex items-center justify-between mb-8">
@@ -148,6 +180,42 @@ export default function BulkGeneratePage() {
             </button>
           )}
         </div>
+      </div>
+
+      {/* Manuel Ürün Ekle */}
+      <div className="rounded-lg border border-zinc-200 bg-zinc-50 p-5 mb-6">
+        <h2 className="text-sm font-bold text-zinc-400 uppercase tracking-wider mb-3">Manuel Ürün Ekle</h2>
+        <form onSubmit={addManualProduct} className="flex flex-wrap gap-3 items-end">
+          <div className="flex flex-col gap-1">
+            <label className="text-[10px] font-bold text-zinc-400 uppercase tracking-wider">Marka</label>
+            <input value={manualBrand} onChange={e => setManualBrand(e.target.value)} placeholder="örn. Bosch"
+              className="rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-900 outline-none focus:border-orange-500 w-36" />
+          </div>
+          <div className="flex flex-col gap-1">
+            <label className="text-[10px] font-bold text-zinc-400 uppercase tracking-wider">Model</label>
+            <input value={manualModel} onChange={e => setManualModel(e.target.value)} placeholder="örn. GSB 13 RE"
+              className="rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-900 outline-none focus:border-orange-500 w-40" />
+          </div>
+          <div className="flex flex-col gap-1">
+            <label className="text-[10px] font-bold text-zinc-400 uppercase tracking-wider">Kategori</label>
+            <select value={manualCategory} onChange={e => setManualCategory(e.target.value as ProductCategory)}
+              className="rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-900 outline-none focus:border-orange-500 w-52">
+              {Object.entries(CATEGORY_LABELS).map(([val, label]) => (
+                <option key={val} value={val}>{label}</option>
+              ))}
+            </select>
+          </div>
+          <button type="submit" disabled={manualLoading || !manualBrand || !manualModel}
+            className="flex items-center gap-2 rounded-lg bg-orange-600 px-4 py-2 text-sm font-bold text-white hover:bg-orange-500 transition disabled:opacity-50">
+            {manualLoading ? <Loader2 className="size-4 animate-spin" /> : <Plus className="size-4" />}
+            Ekle & Üret
+          </button>
+          {manualResult && (
+            <span className={`text-xs font-semibold ${manualResult.type === "success" ? "text-green-600" : "text-red-500"}`}>
+              {manualResult.type === "success" ? "✓" : "✗"} {manualResult.msg}
+            </span>
+          )}
+        </form>
       </div>
 
       {/* Category Selection */}

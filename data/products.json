@@ -1,0 +1,2097 @@
+[
+  {
+    "id": "21d428ee-8788-4184-8547-096f900795b6",
+    "brand": "Bosch",
+    "model": "GSB 13 RE",
+    "category": "darbeli-matkap",
+    "specs": {
+      "Watt": "600W",
+      "Devir": "0-2800 rpm",
+      "Tork": "15 Nm",
+      "Ağırlık": "1.5 kg",
+      "Mandren": "1.5-13 mm",
+      "Darbe sayısı": "0-44800 bpm"
+    },
+    "priceRange": "₺1500-2500",
+    "createdAt": "2026-05-16T10:25:40.602Z"
+  },
+  {
+    "id": "bac84e76-3669-4294-883c-2d9279ce1331",
+    "brand": "Makita",
+    "model": "HP1630",
+    "category": "darbeli-matkap",
+    "specs": {
+      "Watt": "710W",
+      "Devir": "0-2800 rpm",
+      "Tork": "Belirtilmemiş",
+      "Ağırlık": "Belirtilmemiş",
+      "Mandren": "13 mm",
+      "Darbe sayısı": "0-44800 bpm"
+    },
+    "priceRange": "₺1500-2500",
+    "createdAt": "2026-05-16T10:25:48.786Z"
+  },
+  {
+    "id": "54a467dd-85d9-41f4-a5b2-03f8d5983a5b",
+    "brand": "Bosch",
+    "model": "GBH 2-28 F",
+    "category": "hilti",
+    "specs": {
+      "Güç": "880 W",
+      "Darbe Gücü": "3.2 J",
+      "Devir Sayısı": "0-900 dev/dk",
+      "Darbe Sayısı": "0-4000 darbe/dk",
+      "Maks. Delme Çapı (Beton)": "28 mm",
+      "Ağırlık": "2.9 kg",
+      "Tork Sınırlama": "✓ Var",
+      "Titreşim Önleyici": "✓ Vibration Control",
+      "SDS-Plus Mandren": "✓",
+      "Kablosuz Seçeneği": "✗ Yok",
+      "Garanti": "3 Yıl",
+      "Fiyat-Performans": "★★★★★"
+    },
+    "priceRange": "₺12.900",
+    "createdAt": "2026-05-16T10:51:18.065Z"
+  },
+  {
+    "id": "48919056-2270-4298-88f8-9047bfb686e5",
+    "brand": "Makita",
+    "model": "HR2631F",
+    "category": "hilti",
+    "specs": {
+      "Güç": "800 W",
+      "Darbe Gücü": "2.9 J",
+      "Devir Sayısı": "0-1200 dev/dk",
+      "Darbe Sayısı": "0-4600 darbe/dk",
+      "Maks. Delme Çapı (Beton)": "26 mm",
+      "Ağırlık": "2.7 kg",
+      "Tork Sınırlama": "✗ Yok",
+      "Titreşim Önleyici": "✓ AVT",
+      "SDS-Plus Mandren": "✓",
+      "Kablosuz Seçeneği": "✗ Yok",
+      "Garanti": "3 Yıl + 1 Yıl",
+      "Fiyat-Performans": "★★★★★"
+    },
+    "priceRange": "₺11.450",
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "14aea607-4859-44ff-ae4c-5cefcca24b30",
+    "brand": "DeWalt",
+    "model": "DCH273N",
+    "category": "hilti",
+    "specs": {
+      "Güç": "850 W",
+      "Darbe Gücü": "2.8 J",
+      "Devir Sayısı": "0-1100 dev/dk",
+      "Darbe Sayısı": "0-4200 darbe/dk",
+      "Maks. Delme Çapı (Beton)": "26 mm",
+      "Ağırlık": "3.1 kg",
+      "Tork Sınırlama": "✓ Var",
+      "Titreşim Önleyici": "✗ Yok",
+      "SDS-Plus Mandren": "✓",
+      "Kablosuz Seçeneği": "✓ Var (18V)",
+      "Garanti": "3 Yıl",
+      "Fiyat-Performans": "★★★★☆"
+    },
+    "priceRange": "₺14.200",
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "5534fcf9-dde1-4b32-a34b-29f2902d461e",
+    "brand": "Hilti",
+    "model": "TE 30-AVR",
+    "category": "hilti",
+    "specs": {
+      "Güç": "1200 W",
+      "Darbe Gücü": "5.0 J",
+      "Devir Sayısı": "0-680 dev/dk",
+      "Darbe Sayısı": "0-3200 darbe/dk",
+      "Maks. Delme Çapı (Beton)": "32 mm",
+      "Ağırlık": "4.2 kg",
+      "Tork Sınırlama": "✓ Var",
+      "Titreşim Önleyici": "✓ Active Torque Control",
+      "SDS-Plus Mandren": "✗ SDS-Max",
+      "Kablosuz Seçeneği": "✗ Yok",
+      "Garanti": "2 Yıl + Garanti",
+      "Fiyat-Performans": "★★★☆☆"
+    },
+    "priceRange": "₺24.500",
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "3a1a5600-02db-4555-901e-ef11db668e4f",
+    "brand": "Bosch",
+    "model": "GWS 9-115",
+    "category": "avuc-taslama",
+    "specs": {
+      "Güç": "900 W",
+      "Disk Çapı": "115 mm",
+      "Devir Sayısı": "11000 dev/dk",
+      "Ağırlık": "1.9 kg",
+      "Spindle Kilidi": "✓",
+      "Toz Koruması": "✓",
+      "Kablosuz": "✗",
+      "Garanti": "3 Yıl",
+      "Fiyat-Performans": "★★★★★"
+    },
+    "priceRange": "₺2.850",
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "9d101048-3f58-4cc0-84b8-04e5d819822a",
+    "brand": "Makita",
+    "model": "GA5030",
+    "category": "avuc-taslama",
+    "specs": {
+      "Güç": "720 W",
+      "Disk Çapı": "125 mm",
+      "Devir Sayısı": "11000 dev/dk",
+      "Ağırlık": "1.8 kg",
+      "Spindle Kilidi": "✓",
+      "Toz Koruması": "✓",
+      "Kablosuz": "✗",
+      "Garanti": "3 Yıl",
+      "Fiyat-Performans": "★★★★★"
+    },
+    "priceRange": "₺2.650",
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "ddbaf740-4eee-4f26-b1a4-b6c50e8cd0c3",
+    "brand": "DeWalt",
+    "model": "DWE4057",
+    "category": "avuc-taslama",
+    "specs": {
+      "Güç": "800 W",
+      "Disk Çapı": "115 mm",
+      "Devir Sayısı": "11800 dev/dk",
+      "Ağırlık": "2.0 kg",
+      "Spindle Kilidi": "✓",
+      "Toz Koruması": "✗",
+      "Kablosuz": "✗",
+      "Garanti": "3 Yıl",
+      "Fiyat-Performans": "★★★★☆"
+    },
+    "priceRange": "₺3.100",
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "1acbdbc3-c602-4054-9a38-6db3e13d5cf5",
+    "brand": "Bosch",
+    "model": "GSB 550 RE",
+    "category": "darbeli-matkap",
+    "specs": {
+      "Güç": "550 W",
+      "Maks. Tork": "2.5 Nm",
+      "Maks. Çap (Beton)": "10 mm",
+      "Devir Sayısı": "0-2800 dev/dk",
+      "Ağırlık": "1.5 kg",
+      "Darbeli": "✓",
+      "Hız Ayarı": "✗",
+      "Garanti": "2 Yıl",
+      "Fiyat-Performans": "★★★★★"
+    },
+    "priceRange": "₺1.850",
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "689723f7-ded7-49a6-bb77-473918b27f4f",
+    "brand": "Makita",
+    "model": "HP1631K",
+    "category": "darbeli-matkap",
+    "specs": {
+      "Güç": "710 W",
+      "Maks. Tork": "3.2 Nm",
+      "Maks. Çap (Beton)": "13 mm",
+      "Devir Sayısı": "0-3200 dev/dk",
+      "Ağırlık": "1.8 kg",
+      "Darbeli": "✓",
+      "Hız Ayarı": "✓",
+      "Garanti": "3 Yıl",
+      "Fiyat-Performans": "★★★★☆"
+    },
+    "priceRange": "₺2.100",
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "615ee2e9-421e-4b7a-a541-99e321ef0c5e",
+    "brand": "Knipex",
+    "model": "Cobra 250mm",
+    "category": "diger",
+    "specs": {
+      "Boy": "250 mm",
+      "Ağız Genişliği": "50 mm",
+      "Malzeme": "Krom Vanadyum",
+      "Ayar Pozisyonu": "25",
+      "Yüzey": "Fosfatlanmış",
+      "Garanti": "Ömür Boyu",
+      "Fiyat-Performans": "★★★★★"
+    },
+    "priceRange": "₺850",
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "4652b678-a4f4-4af3-894a-d39fa9ca06ba",
+    "brand": "Bahco",
+    "model": "Ergo 2971 G",
+    "category": "diger",
+    "specs": {
+      "Boy": "240 mm",
+      "Ağız Genişliği": "45 mm",
+      "Malzeme": "Krom Vanadyum",
+      "Ayar Pozisyonu": "20",
+      "Yüzey": "Kromlanmış",
+      "Garanti": "5 Yıl",
+      "Fiyat-Performans": "★★★★★"
+    },
+    "priceRange": "₺620",
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "312c6445-6663-44af-8cd3-90ebbbb74d15",
+    "brand": "Wiha",
+    "model": "SoftFinish 6'lı",
+    "category": "diger",
+    "specs": {
+      "Parça Sayısı": "6",
+      "Uç Tipi": "Phillips + Düz",
+      "Sap Malzemesi": "Kauçuk",
+      "Krom Kaplama": "✓",
+      "Manyetik Uç": "✓",
+      "Garanti": "Ömür Boyu",
+      "Fiyat-Performans": "★★★★★"
+    },
+    "priceRange": "₺450",
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "975b5323-53af-4f59-b2b6-6b340e090e01",
+    "brand": "Wera",
+    "model": "Kraftform 7'li",
+    "category": "diger",
+    "specs": {
+      "Parça Sayısı": "7",
+      "Uç Tipi": "Phillips + Düz + Torx",
+      "Sap Malzemesi": "Kraftform",
+      "Krom Kaplama": "✓",
+      "Manyetik Uç": "✓",
+      "Garanti": "Ömür Boyu",
+      "Fiyat-Performans": "★★★★☆"
+    },
+    "priceRange": "₺580",
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "ebfe4de2-4ab2-47e5-965f-03d77e215f57",
+    "brand": "Stanley",
+    "model": "JetCut 380mm",
+    "category": "el-testeresi",
+    "specs": {
+      "Bıçak Uzunluğu": "380 mm",
+      "Diş Sayısı": "7 TPI",
+      "Malzeme": "SK5 Çelik",
+      "Sertleştirilmiş Diş": "✓",
+      "Koruyucu Kılıf": "✓",
+      "Garanti": "3 Yıl",
+      "Fiyat-Performans": "★★★★★"
+    },
+    "priceRange": "₺320",
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "49abdf1c-a89f-4a94-8ad2-2b6abecefecb",
+    "brand": "Bahco",
+    "model": "XT 550mm",
+    "category": "el-testeresi",
+    "specs": {
+      "Bıçak Uzunluğu": "550 mm",
+      "Diş Sayısı": "4 TPI",
+      "Malzeme": "SK5 Çelik",
+      "Sertleştirilmiş Diş": "✓",
+      "Koruyucu Kılıf": "✓",
+      "Garanti": "5 Yıl",
+      "Fiyat-Performans": "★★★★★"
+    },
+    "priceRange": "₺420",
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "21b7b0c3-238a-4709-8e2a-c08c5d67fcca",
+    "brand": "Bosch",
+    "model": "GSR 18V-60",
+    "category": "vidalama",
+    "specs": {
+      "Voltaj": "18 V",
+      "Maks. Tork": "60 Nm",
+      "Devir Sayısı": "0-1900 dev/dk",
+      "Ağırlık": "1.2 kg",
+      "Fırçasız Motor": "✓",
+      "LED Işık": "✓",
+      "Garanti": "3 Yıl",
+      "Fiyat-Performans": "★★★★★"
+    },
+    "priceRange": "₺5.200",
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "534be88c-3e7e-4c66-9721-58ab92fba664",
+    "brand": "Makita",
+    "model": "DDF485",
+    "category": "vidalama",
+    "specs": {
+      "Voltaj": "18 V",
+      "Maks. Tork": "50 Nm",
+      "Devir Sayısı": "0-1700 dev/dk",
+      "Ağırlık": "1.1 kg",
+      "Fırçasız Motor": "✓",
+      "LED Işık": "✓",
+      "Garanti": "3 Yıl",
+      "Fiyat-Performans": "★★★★★"
+    },
+    "priceRange": "₺4.800",
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "dca31c43-8e89-4ce1-87cf-3249e8368a05",
+    "brand": "DeWalt",
+    "model": "DCD777",
+    "category": "vidalama",
+    "specs": {
+      "Voltaj": "18 V",
+      "Maks. Tork": "65 Nm",
+      "Devir Sayısı": "0-1600 dev/dk",
+      "Ağırlık": "1.3 kg",
+      "Fırçasız Motor": "✓",
+      "LED Işık": "✓",
+      "Garanti": "3 Yıl",
+      "Fiyat-Performans": "★★★★☆"
+    },
+    "priceRange": "₺5.500",
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "7f5cba28-92b0-4bdf-b573-f51b415b59e2",
+    "brand": "Einhell",
+    "model": "TE-AC 270/50",
+    "category": "diger",
+    "specs": {
+      "Güç": "1800 W",
+      "Tank Hacmi": "50 L",
+      "Basınç": "8 bar",
+      "Hava Debisi": "270 L/dk",
+      "Gürültü": "97 dB",
+      "Yağsız": "✗",
+      "Garanti": "2 Yıl",
+      "Fiyat-Performans": "★★★★★"
+    },
+    "priceRange": "₺4.200",
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "937b8316-9ea8-40dc-9313-8080dafffc56",
+    "brand": "Stanley",
+    "model": "DN200/10/5",
+    "category": "diger",
+    "specs": {
+      "Güç": "1100 W",
+      "Tank Hacmi": "10 L",
+      "Basınç": "8 bar",
+      "Hava Debisi": "180 L/dk",
+      "Gürültü": "76 dB",
+      "Yağsız": "✓",
+      "Garanti": "3 Yıl",
+      "Fiyat-Performans": "★★★★★"
+    },
+    "priceRange": "₺6.500",
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "d2ac5be8-dcb0-4583-94fe-dc67e34e13ce",
+    "brand": "Honda",
+    "model": "EU22i",
+    "category": "diger",
+    "specs": {
+      "Max Güç": "2200 W",
+      "Nominal Güç": "1800 W",
+      "Yakıt": "Benzin",
+      "Tank": "3.6 L",
+      "Ses Seviyesi": "53 dB",
+      "Invertör": "✓",
+      "Kilo": "21 kg",
+      "Garanti": "2 Yıl",
+      "Fiyat-Performans": "★★★★☆"
+    },
+    "priceRange": "₺18.500",
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "bb4e59b7-3d53-4a6e-a992-75c2fd2f0a5f",
+    "brand": "Hyundai",
+    "model": "HHY3000",
+    "category": "diger",
+    "specs": {
+      "Max Güç": "2800 W",
+      "Nominal Güç": "2500 W",
+      "Yakıt": "Benzin",
+      "Tank": "15 L",
+      "Ses Seviyesi": "68 dB",
+      "Invertör": "✗",
+      "Kilo": "42 kg",
+      "Garanti": "2 Yıl",
+      "Fiyat-Performans": "★★★★★"
+    },
+    "priceRange": "₺8.900",
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "4a32be8a-bf50-440f-9963-10cad03a940b",
+    "brand": "Lincoln",
+    "model": "Electric Invertec",
+    "category": "diger",
+    "specs": {
+      "Akım Aralığı": "10-160 A",
+      "Güç": "3.5 kW",
+      "Elektrod Çapı": "1.6-4.0 mm",
+      "Ağırlık": "4.5 kg",
+      "Fan Soğutma": "✓",
+      "Hot Start": "✓",
+      "Garanti": "3 Yıl",
+      "Fiyat-Performans": "★★★★☆"
+    },
+    "priceRange": "₺7.800",
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "ecb2708d-314d-4593-9717-b8b852a64097",
+    "brand": "Magmaweld",
+    "model": "Monostick 161",
+    "category": "diger",
+    "specs": {
+      "Akım Aralığı": "10-160 A",
+      "Güç": "3.2 kW",
+      "Elektrod Çapı": "1.6-3.2 mm",
+      "Ağırlık": "3.8 kg",
+      "Fan Soğutma": "✓",
+      "Hot Start": "✗",
+      "Garanti": "2 Yıl",
+      "Fiyat-Performans": "★★★★★"
+    },
+    "priceRange": "₺5.200",
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "fb71e18f-480d-4d57-9cf0-a03b7e90af4a",
+    "brand": "Fischer",
+    "model": "Duopower 8x40",
+    "category": "diger",
+    "specs": {
+      "Çap": "8 mm",
+      "Boy": "40 mm",
+      "Malzeme": "Naylon",
+      "Yük Kapasitesi": "50 kg",
+      "Vidalar Dahil": "✓",
+      "Kutu Adeti": "50",
+      "Fiyat-Performans": "★★★★★"
+    },
+    "priceRange": "₺85",
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "71e6a05a-7ac7-4784-aff8-151389720216",
+    "brand": "Tox",
+    "model": "Trika 6x36",
+    "category": "diger",
+    "specs": {
+      "Çap": "6 mm",
+      "Boy": "36 mm",
+      "Malzeme": "Naylon",
+      "Yük Kapasitesi": "35 kg",
+      "Vidalar Dahil": "✓",
+      "Kutu Adeti": "100",
+      "Fiyat-Performans": "★★★★★"
+    },
+    "priceRange": "₺65",
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "38dbcd8a-9a53-46f6-88a4-856cb2e66732",
+    "brand": "Soudal",
+    "model": "Flex 40 FC",
+    "category": "diger",
+    "specs": {
+      "Hacim": "310 ml",
+      "Sertleşme": "40 Shore A",
+      "Elastikiyet": "±25%",
+      "UV Dayanımı": "✓",
+      "Boya Tutma": "✓",
+      "Renk": "Beyaz/Gri",
+      "Fiyat-Performans": "★★★★★"
+    },
+    "priceRange": "₺120",
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "3989f637-fbfd-4e4a-8e7f-c2824a1d9a4a",
+    "brand": "Ömsel",
+    "model": "A100 Asetik",
+    "category": "diger",
+    "specs": {
+      "Hacim": "280 ml",
+      "Sertleşme": "25 Shore A",
+      "Elastikiyet": "±15%",
+      "UV Dayanımı": "✗",
+      "Boya Tutma": "✗",
+      "Renk": "Şeffaf",
+      "Fiyat-Performans": "★★★★☆"
+    },
+    "priceRange": "₺75",
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "a8058b51-3f79-4391-ad45-bc28743e11f9",
+    "brand": "Leica",
+    "model": "Disto D2",
+    "category": "diger",
+    "specs": {
+      "Menzil": "0.05-100 m",
+      "Hassasiyet": "±1.5 mm",
+      "Bluetooth": "✓",
+      "Hafıza": "10 ölçüm",
+      "Ekran": "2.0\" renkli",
+      "IP Koruma": "IP54",
+      "Garanti": "3 Yıl",
+      "Fiyat-Performans": "★★★★☆"
+    },
+    "priceRange": "₺5.800",
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "6af6d0fd-32ed-4136-8f11-c0c12f758756",
+    "brand": "Bosch",
+    "model": "GLM 50 C",
+    "category": "diger",
+    "specs": {
+      "Menzil": "0.05-50 m",
+      "Hassasiyet": "±1.5 mm",
+      "Bluetooth": "✓",
+      "Hafıza": "30 ölçüm",
+      "Ekran": "2.0\" renkli",
+      "IP Koruma": "IP54",
+      "Garanti": "3 Yıl",
+      "Fiyat-Performans": "★★★★★"
+    },
+    "priceRange": "₺4.200",
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "773314f0-9b19-41b9-b0d6-35b1653370dc",
+    "brand": "Stanley",
+    "model": "TLM165",
+    "category": "diger",
+    "specs": {
+      "Menzil": "0.1-50 m",
+      "Hassasiyet": "±2.0 mm",
+      "Bluetooth": "✗",
+      "Hafıza": "3 ölçüm",
+      "Ekran": "1.5\"",
+      "IP Koruma": "IP40",
+      "Garanti": "2 Yıl",
+      "Fiyat-Performans": "★★★★★"
+    },
+    "priceRange": "₺2.100",
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "023134b1-81a6-4f5a-870a-1ad119b985b7",
+    "brand": "Stabila",
+    "model": "96-2 60cm",
+    "category": "diger",
+    "specs": {
+      "Boy": "60 cm",
+      "Hassasiyet": "0.5 mm/m",
+      "Profil": "Alüminyum",
+      "Mıknatıs": "✓",
+      "Şok Emici": "✓",
+      "Garanti": "Ömür Boyu",
+      "Fiyat-Performans": "★★★★☆"
+    },
+    "priceRange": "₺650",
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "a925f924-3a8e-498c-b80e-9c6d8b68a065",
+    "brand": "Sola",
+    "model": "AZM 40cm",
+    "category": "diger",
+    "specs": {
+      "Boy": "40 cm",
+      "Hassasiyet": "1.0 mm/m",
+      "Profil": "Alüminyum",
+      "Mıknatıs": "✗",
+      "Şok Emici": "✗",
+      "Garanti": "5 Yıl",
+      "Fiyat-Performans": "★★★★★"
+    },
+    "priceRange": "₺280",
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "57375aae-91c6-4f4c-a79b-e8dbd8530e77",
+    "brand": "3M",
+    "model": "H700",
+    "category": "diger",
+    "specs": {
+      "Malzeme": "HDPE",
+      "Ayar Mekanizması": "Tekerlekli",
+      "Hava Kanalı": "✓",
+      "Yaka Koruma": "✗",
+      "Standart": "EN 397",
+      "Renk": "Beyaz/Sarı",
+      "Fiyat-Performans": "★★★★★"
+    },
+    "priceRange": "₺180",
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "01c10c0d-3dc9-4408-8c92-1134fd14cc25",
+    "brand": "Delta Plus",
+    "model": "Granite",
+    "category": "diger",
+    "specs": {
+      "Malzeme": "ABS",
+      "Ayar Mekanizması": "Tekerlekli",
+      "Hava Kanalı": "✓",
+      "Yaka Koruma": "✓",
+      "Standart": "EN 397",
+      "Renk": "Beyaz/Kırmızı",
+      "Fiyat-Performans": "★★★★☆"
+    },
+    "priceRange": "₺220",
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "b4e0840c-7276-4593-809e-8c139bf16c5e",
+    "brand": "Caterpillar",
+    "model": "CAT Holton S3",
+    "category": "diger",
+    "specs": {
+      "Burun": "Çelik",
+      "Taban": "Nitril Kauçuk",
+      "Su Geçirmez": "✓",
+      "Anti-statik": "✓",
+      "S1P/S3": "S3",
+      "Ağırlık": "650 gr",
+      "Garanti": "2 Yıl",
+      "Fiyat-Performans": "★★★★☆"
+    },
+    "priceRange": "₺1.450",
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "705dd644-08ba-4ca4-9b7c-6bf5418b569d",
+    "brand": "Kinetix",
+    "model": "Europa S1P",
+    "category": "diger",
+    "specs": {
+      "Burun": "Kompozit",
+      "Taban": "PU",
+      "Su Geçirmez": "✗",
+      "Anti-statik": "✓",
+      "S1P/S3": "S1P",
+      "Ağırlık": "480 gr",
+      "Garanti": "2 Yıl",
+      "Fiyat-Performans": "★★★★★"
+    },
+    "priceRange": "₺580",
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "d9ac313a-b462-4864-b133-fda91256cf63",
+    "brand": "Schneider",
+    "model": "Unica 3'lü Priz",
+    "category": "diger",
+    "specs": {
+      "Modül": "3",
+      "Nominal Akım": "16A",
+      "Topraklama": "✓",
+      "Koruma Kapağı": "✓",
+      "Montaj": "Gömme",
+      "Seri": "Unica",
+      "Garanti": "10 Yıl",
+      "Fiyat-Performans": "★★★★☆"
+    },
+    "priceRange": "₺320",
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "83cf58c7-854f-4548-8810-423e8c2519e0",
+    "brand": "Legrand",
+    "model": "Silinium Anahtar",
+    "category": "diger",
+    "specs": {
+      "Modül": "1",
+      "Nominal Akım": "10A",
+      "Topraklama": "✗",
+      "Koruma Kapağı": "✗",
+      "Montaj": "Gömme",
+      "Seri": "Silinium",
+      "Garanti": "5 Yıl",
+      "Fiyat-Performans": "★★★★★"
+    },
+    "priceRange": "₺185",
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "88f01dd5-5ed6-448d-96e0-46191956e62a",
+    "brand": "NKT",
+    "model": "NYY 3x2.5",
+    "category": "diger",
+    "specs": {
+      "İletken Sayısı": "3",
+      "Kesit": "2.5 mm²",
+      "İzolasyon": "PVC",
+      "Kılıf": "PVC",
+      "Kullanım": "Dış/Dahili",
+      "Rulo": "100 m",
+      "Garanti": "2 Yıl",
+      "Fiyat-Performans": "★★★★★"
+    },
+    "priceRange": "₺1.850",
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "4c1e56ff-a16b-46d9-abce-f742aae09d6b",
+    "brand": "MMK",
+    "model": "CYKY 3x1.5",
+    "category": "diger",
+    "specs": {
+      "İletken Sayısı": "3",
+      "Kesit": "1.5 mm²",
+      "İzolasyon": "PVC",
+      "Kılıf": "PVC",
+      "Kullanım": "Dahili",
+      "Rulo": "100 m",
+      "Garanti": "2 Yıl",
+      "Fiyat-Performans": "★★★★★"
+    },
+    "priceRange": "₺1.200",
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "5402d644-59fd-4330-9dab-ec066b6ddf64",
+    "brand": "Kronberg",
+    "model": "Ø250mm × 3.20mm / 24 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "250",
+      "Kalınlık": "3.20",
+      "Delik": "30",
+      "Diş Sayısı": "24",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "7c9a1e16-627e-4052-a103-74f086f2416c",
+    "brand": "Kronberg",
+    "model": "Ø300mm × 3.20mm / 28 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "300",
+      "Kalınlık": "3.20",
+      "Delik": "30",
+      "Diş Sayısı": "28",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "36d1f140-68c8-4af9-9284-7109b40b13f8",
+    "brand": "Kronberg",
+    "model": "Ø320mm × 3.20mm / 32 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "320",
+      "Kalınlık": "3.20",
+      "Delik": "30",
+      "Diş Sayısı": "32",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "1db2126c-76e9-4ede-956a-1d4e7e2b996f",
+    "brand": "Kronberg",
+    "model": "Ø350mm × 3.50mm / 32 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "350",
+      "Kalınlık": "3.50",
+      "Delik": "30",
+      "Diş Sayısı": "32",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "92fa42f6-2be8-4175-a57d-25085de1e4ac",
+    "brand": "Kronberg",
+    "model": "Ø400mm × 3.50mm / 36 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "400",
+      "Kalınlık": "3.50",
+      "Delik": "30",
+      "Diş Sayısı": "36",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "fc2b229a-5546-4fb2-86b8-3adae6367426",
+    "brand": "Kronberg",
+    "model": "Ø450mm × 4.00mm / 40 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "450",
+      "Kalınlık": "4.00",
+      "Delik": "30",
+      "Diş Sayısı": "40",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "00198787-4cc1-43c6-8454-4aa0dabb1f52",
+    "brand": "Kronberg",
+    "model": "Ø500mm × 4.00mm / 44 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "500",
+      "Kalınlık": "4.00",
+      "Delik": "30",
+      "Diş Sayısı": "44",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "d2567aef-41b7-4a03-94f9-ab0d04a3918e",
+    "brand": "Kronberg",
+    "model": "Ø550mm × 4.00mm / 40 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "550",
+      "Kalınlık": "4.00",
+      "Delik": "30",
+      "Diş Sayısı": "40",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "d1712d1c-ce23-470f-8f54-e3c63506061f",
+    "brand": "Kronberg",
+    "model": "Ø600mm × 4.20mm / 54 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "600",
+      "Kalınlık": "4.20",
+      "Delik": "30",
+      "Diş Sayısı": "54",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "2cbcc450-c992-43ca-9ce2-aac31f8dde3e",
+    "brand": "Kronberg",
+    "model": "Ø250mm × 2.40mm / 40 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "250",
+      "Kalınlık": "2.40",
+      "Delik": "30",
+      "Diş Sayısı": "40",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "1734e653-2f46-48a8-b038-81fcd71d51b7",
+    "brand": "Kronberg",
+    "model": "Ø250mm × 3.20mm / 48 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "250",
+      "Kalınlık": "3.20",
+      "Delik": "30",
+      "Diş Sayısı": "48",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "aa6d5c2a-6ae6-4ed8-a08f-7c52e17813be",
+    "brand": "Kronberg",
+    "model": "Ø250mm × 3.20mm / 60 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "250",
+      "Kalınlık": "3.20",
+      "Delik": "30",
+      "Diş Sayısı": "60",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "48317c20-0b47-42a5-b2ad-c4b1a025eb08",
+    "brand": "Kronberg",
+    "model": "Ø300mm × 3.20mm / 48 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "300",
+      "Kalınlık": "3.20",
+      "Delik": "30",
+      "Diş Sayısı": "48",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "99ec0d38-ebe1-4c99-8727-5ff327d97722",
+    "brand": "Kronberg",
+    "model": "Ø300mm × 3.20mm / 60 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "300",
+      "Kalınlık": "3.20",
+      "Delik": "30",
+      "Diş Sayısı": "60",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "122105b2-648d-4fa1-b5f8-b3275f9536ab",
+    "brand": "Kronberg",
+    "model": "Ø300mm × 3.20mm / 72 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "300",
+      "Kalınlık": "3.20",
+      "Delik": "30",
+      "Diş Sayısı": "72",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "d8ff0002-e707-4873-8c55-364990ef94d2",
+    "brand": "Kronberg",
+    "model": "Ø350mm × 3.50mm / 54 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "350",
+      "Kalınlık": "3.50",
+      "Delik": "30",
+      "Diş Sayısı": "54",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "98bc5a60-5a49-4318-b4cd-60c5b5f6722c",
+    "brand": "Kronberg",
+    "model": "Ø350mm × 3.50mm / 72 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "350",
+      "Kalınlık": "3.50",
+      "Delik": "30",
+      "Diş Sayısı": "72",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "3f84acfd-7b12-414d-8f40-1d0694afe0b4",
+    "brand": "Kronberg",
+    "model": "Ø400mm × 3.50mm / 60 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "400",
+      "Kalınlık": "3.50",
+      "Delik": "30",
+      "Diş Sayısı": "60",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "3c193ad0-c310-4513-ad92-bcd0e9f77aa0",
+    "brand": "Kronberg",
+    "model": "Ø450mm × 4.00mm / 66 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "450",
+      "Kalınlık": "4.00",
+      "Delik": "30",
+      "Diş Sayısı": "66",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "c76d76cf-987c-4d4f-bfaf-125e2ccaf615",
+    "brand": "Kronberg",
+    "model": "Ø500mm × 4.00mm / 72 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "500",
+      "Kalınlık": "4.00",
+      "Delik": "30",
+      "Diş Sayısı": "72",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "815b5341-41d1-4d61-a0a8-098348b1943b",
+    "brand": "ONCI",
+    "model": "Ø250mm × 2.20mm / 24 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "250",
+      "Kalınlık": "2.20",
+      "Delik": "30",
+      "Diş Sayısı": "24",
+      "Marka": "ONCI"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "57b0c90d-ea44-4620-88f7-70eeabc9db6e",
+    "brand": "ONCI",
+    "model": "Ø250mm × 3.20mm / 24 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "250",
+      "Kalınlık": "3.20",
+      "Delik": "30",
+      "Diş Sayısı": "24",
+      "Marka": "ONCI"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "f83861e0-2eab-4711-a372-64082d5a5ef8",
+    "brand": "ONCI",
+    "model": "Ø300mm × 2.50mm / 28 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "300",
+      "Kalınlık": "2.50",
+      "Delik": "30",
+      "Diş Sayısı": "28",
+      "Marka": "ONCI"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "9520042b-f1e8-4f6b-9626-639ec453a798",
+    "brand": "ONCI",
+    "model": "Ø300mm × 3.20mm / 28 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "300",
+      "Kalınlık": "3.20",
+      "Delik": "30",
+      "Diş Sayısı": "28",
+      "Marka": "ONCI"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "9ee63549-ed56-41af-9ea0-15466f171e8a",
+    "brand": "ONCI",
+    "model": "Ø350mm × 3.60mm / 32 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "350",
+      "Kalınlık": "3.60",
+      "Delik": "30",
+      "Diş Sayısı": "32",
+      "Marka": "ONCI"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "2820d54a-aef3-4ff3-83c9-20a6f8ccb2df",
+    "brand": "ONCI",
+    "model": "Ø400mm × 3.60mm / 36 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "400",
+      "Kalınlık": "3.60",
+      "Delik": "30",
+      "Diş Sayısı": "36",
+      "Marka": "ONCI"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "4efbbd7f-cb59-4615-9d36-54b1e3b2963d",
+    "brand": "ONCI",
+    "model": "Ø450mm × 4.00mm / 36 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "450",
+      "Kalınlık": "4.00",
+      "Delik": "30",
+      "Diş Sayısı": "36",
+      "Marka": "ONCI"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "9cbbc0cf-d534-41ba-9669-520816511f92",
+    "brand": "ONCI",
+    "model": "Ø500mm × 4.00mm / 40 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "500",
+      "Kalınlık": "4.00",
+      "Delik": "30",
+      "Diş Sayısı": "40",
+      "Marka": "ONCI"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "f570c752-c57a-4d8d-a70d-759d34b5fc43",
+    "brand": "ONCI",
+    "model": "Ø250mm × 3.20mm / 48 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "250",
+      "Kalınlık": "3.20",
+      "Delik": "30",
+      "Diş Sayısı": "48",
+      "Marka": "ONCI"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "a91586ef-8e62-4b9f-9b1b-7362a531ab53",
+    "brand": "ONCI",
+    "model": "Ø250mm × 2.20mm / 60 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "250",
+      "Kalınlık": "2.20",
+      "Delik": "30",
+      "Diş Sayısı": "60",
+      "Marka": "ONCI"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "dd74649d-3322-4f3a-ab7e-e4c7178607f7",
+    "brand": "ONCI",
+    "model": "Ø250mm × 3.20mm / 60 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "250",
+      "Kalınlık": "3.20",
+      "Delik": "30",
+      "Diş Sayısı": "60",
+      "Marka": "ONCI"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "ec33bc62-f39e-45c1-bdf9-90f63bcd8a40",
+    "brand": "ONCI",
+    "model": "Ø300mm × 3.20mm / 48 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "300",
+      "Kalınlık": "3.20",
+      "Delik": "30",
+      "Diş Sayısı": "48",
+      "Marka": "ONCI"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "8790adc1-aefe-4743-acb6-bfe10d1b9f7b",
+    "brand": "ONCI",
+    "model": "Ø300mm × 3.20mm / 60 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "300",
+      "Kalınlık": "3.20",
+      "Delik": "30",
+      "Diş Sayısı": "60",
+      "Marka": "ONCI"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "4d945828-15c1-4b84-a348-ad40da3211cf",
+    "brand": "ONCI",
+    "model": "Ø300mm × 3.20mm / 72 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "300",
+      "Kalınlık": "3.20",
+      "Delik": "30",
+      "Diş Sayısı": "72",
+      "Marka": "ONCI"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "22bffad0-0c7d-455e-9ee7-737f421e5bcc",
+    "brand": "Kronberg",
+    "model": "Ø160mm × 2.60mm / 24 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "160",
+      "Kalınlık": "2.60",
+      "Delik": "20-30",
+      "Diş Sayısı": "24",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "92466f45-a21d-4ae5-8897-f78791df7192",
+    "brand": "Kronberg",
+    "model": "Ø160mm × 2.60mm / 48 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "160",
+      "Kalınlık": "2.60",
+      "Delik": "20-30",
+      "Diş Sayısı": "48",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "8211d4df-abfb-43cb-9d1b-ae97e7cf19ef",
+    "brand": "Kronberg",
+    "model": "Ø180mm × 2.40mm / 24 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "180",
+      "Kalınlık": "2.40",
+      "Delik": "20-30",
+      "Diş Sayısı": "24",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "7cc40052-f8a3-4b2c-a2ea-4454a1ebe60f",
+    "brand": "Kronberg",
+    "model": "Ø180mm × 2.40mm / 48 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "180",
+      "Kalınlık": "2.40",
+      "Delik": "20-30",
+      "Diş Sayısı": "48",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "61fb3a4d-ea0e-4edf-9c57-07da9a1e4fc2",
+    "brand": "Kronberg",
+    "model": "Ø190mm × 2.40mm / 24 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "190",
+      "Kalınlık": "2.40",
+      "Delik": "20-30",
+      "Diş Sayısı": "24",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "5df54d3e-a566-404c-90dd-ee3fd594c683",
+    "brand": "Kronberg",
+    "model": "Ø190mm × 2.40mm / 48 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "190",
+      "Kalınlık": "2.40",
+      "Delik": "20-30",
+      "Diş Sayısı": "48",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "8e5bd08f-5d11-474d-b83b-0edd9377718a",
+    "brand": "Kronberg",
+    "model": "Ø200mm × 2.80mm / 48 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "200",
+      "Kalınlık": "2.80",
+      "Delik": "30",
+      "Diş Sayısı": "48",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "bb0bba24-9899-4925-a162-a0dd4afb2295",
+    "brand": "Kronberg",
+    "model": "Ø210mm × 2.80mm / 30 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "210",
+      "Kalınlık": "2.80",
+      "Delik": "30",
+      "Diş Sayısı": "30",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "ed262371-2838-4e34-8f46-17de9fe8e922",
+    "brand": "Kronberg",
+    "model": "Ø210mm × 2.80mm / 48 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "210",
+      "Kalınlık": "2.80",
+      "Delik": "30",
+      "Diş Sayısı": "48",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "f480d604-989c-432a-8f6f-ec0cacb2dabe",
+    "brand": "Kronberg",
+    "model": "Ø125mm × 3.1/4.3mm / 24 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "125",
+      "Kalınlık": "3.1/4.3",
+      "Delik": "20",
+      "Diş Sayısı": "24",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "4c26d455-1b1b-4661-8b96-f536f630cf67",
+    "brand": "Kronberg",
+    "model": "Ø200mm × 3.20mm / 64 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "200",
+      "Kalınlık": "3.20",
+      "Delik": "30",
+      "Diş Sayısı": "64",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "bdfe7da4-beb7-4a37-aa2e-b40e68012ebc",
+    "brand": "Kronberg",
+    "model": "Ø250mm × 3.20mm / 80 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "250",
+      "Kalınlık": "3.20",
+      "Delik": "30",
+      "Diş Sayısı": "80",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "3c5889ce-e02f-4985-a386-ce577ef9a623",
+    "brand": "Kronberg",
+    "model": "Ø300mm × 3.20mm / 96 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "300",
+      "Kalınlık": "3.20",
+      "Delik": "30",
+      "Diş Sayısı": "96",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "eb0dc134-c7b6-4b14-9da1-ab2c4a51b252",
+    "brand": "Kronberg",
+    "model": "Ø350mm × 3.60mm / 108 Diş",
+    "category": "daire-testere-bicagi",
+    "specs": {
+      "Çap": "350",
+      "Kalınlık": "3.60",
+      "Delik": "30",
+      "Diş Sayısı": "108",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "915df4df-f449-4de4-a984-aba3c68da1d0",
+    "brand": "Kronberg",
+    "model": "Ø190mm × 2.80mm / 54 Diş",
+    "category": "diger",
+    "specs": {
+      "Çap": "190",
+      "Kalınlık": "2.80",
+      "Delik": "30",
+      "Diş Sayısı": "54",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "ec872f18-1660-413e-930e-4190b50fe2fc",
+    "brand": "Kronberg",
+    "model": "Ø200mm × 2.00mm / 64 Diş",
+    "category": "diger",
+    "specs": {
+      "Çap": "200",
+      "Kalınlık": "2.00",
+      "Delik": "32",
+      "Diş Sayısı": "64",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "276807ca-402f-464a-aced-2e704d1f7568",
+    "brand": "Kronberg",
+    "model": "Ø200mm × 3.00mm / 64 Diş",
+    "category": "diger",
+    "specs": {
+      "Çap": "200",
+      "Kalınlık": "3.00",
+      "Delik": "30",
+      "Diş Sayısı": "64",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "a0b68e52-3a03-4189-b8bc-19c4e217acfb",
+    "brand": "Kronberg",
+    "model": "Ø230mm × 3.20mm / 72 Diş",
+    "category": "diger",
+    "specs": {
+      "Çap": "230",
+      "Kalınlık": "3.20",
+      "Delik": "30",
+      "Diş Sayısı": "72",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "1eddcdbc-1d6d-4d0a-8fda-8561dcf3be5f",
+    "brand": "Kronberg",
+    "model": "Ø275mm × 2.40mm / 48 Diş",
+    "category": "diger",
+    "specs": {
+      "Çap": "275",
+      "Kalınlık": "2.40",
+      "Delik": "30",
+      "Diş Sayısı": "48",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "2ab77b36-4df6-40fc-9285-a87fe0e56426",
+    "brand": "Kronberg",
+    "model": "Ø355mm × 2.20mm / 50 Diş",
+    "category": "diger",
+    "specs": {
+      "Çap": "355",
+      "Kalınlık": "2.20",
+      "Delik": "30",
+      "Diş Sayısı": "50",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "4cc80a6c-07fa-460e-be19-fc16745e3965",
+    "brand": "Kronberg",
+    "model": "Ø350mm × 3.40mm / 108 Diş",
+    "category": "diger",
+    "specs": {
+      "Çap": "350",
+      "Kalınlık": "3.40",
+      "Delik": "32",
+      "Diş Sayısı": "108",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "92df1e8a-257f-4729-a25b-0e25525b7253",
+    "brand": "Kronberg",
+    "model": "Ø400mm × 4.00mm / 108 Diş",
+    "category": "diger",
+    "specs": {
+      "Çap": "400",
+      "Kalınlık": "4.00",
+      "Delik": "30",
+      "Diş Sayısı": "108",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "49be5b82-ee9f-487f-b60d-306cfffca678",
+    "brand": "Kronberg",
+    "model": "Ø400mm × 3.80mm / 120 Diş",
+    "category": "diger",
+    "specs": {
+      "Çap": "400",
+      "Kalınlık": "3.80",
+      "Delik": "30-32",
+      "Diş Sayısı": "120",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "cf057cad-de96-4d1c-9002-c67ebacd31e2",
+    "brand": "Kronberg",
+    "model": "Ø420mm × 3.80mm / 120 Diş",
+    "category": "diger",
+    "specs": {
+      "Çap": "420",
+      "Kalınlık": "3.80",
+      "Delik": "30-32",
+      "Diş Sayısı": "120",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "51ecfb31-786e-40d9-85d4-da7123a0ce7c",
+    "brand": "Kronberg",
+    "model": "Ø450mm × 4.00mm / 72 Diş",
+    "category": "diger",
+    "specs": {
+      "Çap": "450",
+      "Kalınlık": "4.00",
+      "Delik": "30",
+      "Diş Sayısı": "72",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "4eb3996c-f119-4b4b-b381-f6ac94ea7bfb",
+    "brand": "Kronberg",
+    "model": "Ø450mm × 3.80mm / 120 Diş",
+    "category": "diger",
+    "specs": {
+      "Çap": "450",
+      "Kalınlık": "3.80",
+      "Delik": "32",
+      "Diş Sayısı": "120",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "652a8694-05e2-4359-b9c7-e032dd5725a0",
+    "brand": "Kronberg",
+    "model": "Ø450mm × 4.00mm / 132 Diş",
+    "category": "diger",
+    "specs": {
+      "Çap": "450",
+      "Kalınlık": "4.00",
+      "Delik": "32",
+      "Diş Sayısı": "132",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "ad656e28-5fa5-46b8-90d6-881bdfb35dde",
+    "brand": "Kronberg",
+    "model": "Ø500mm × 4.00mm / 120 Diş",
+    "category": "diger",
+    "specs": {
+      "Çap": "500",
+      "Kalınlık": "4.00",
+      "Delik": "32",
+      "Diş Sayısı": "120",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "69890368-7269-45ca-a50a-c11a37096fa5",
+    "brand": "Kronberg",
+    "model": "Ø550mm × 4.00mm / 68 Diş",
+    "category": "diger",
+    "specs": {
+      "Çap": "550",
+      "Kalınlık": "4.00",
+      "Delik": "50",
+      "Diş Sayısı": "68",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "dbd60aeb-2ba9-46e2-a1a0-7ff62224dd47",
+    "brand": "Kronberg",
+    "model": "Ø550mm × 4.40mm / 128 Diş",
+    "category": "diger",
+    "specs": {
+      "Çap": "550",
+      "Kalınlık": "4.40",
+      "Delik": "30",
+      "Diş Sayısı": "128",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "a6716764-ee9b-4e76-a0da-7f7757e8ada6",
+    "brand": "ONCI",
+    "model": "Ø180mm × 3.00mm / 58 Diş",
+    "category": "diger",
+    "specs": {
+      "Çap": "180",
+      "Kalınlık": "3.00",
+      "Delik": "30",
+      "Diş Sayısı": "58",
+      "Marka": "ONCI"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "89c7392a-4057-417f-914c-8548e6873052",
+    "brand": "ONCI",
+    "model": "Ø210mm × 3.00mm / 64 Diş",
+    "category": "diger",
+    "specs": {
+      "Çap": "210",
+      "Kalınlık": "3.00",
+      "Delik": "30",
+      "Diş Sayısı": "64",
+      "Marka": "ONCI"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "93e50ea8-dfc2-4211-b4bc-b252df21c0c1",
+    "brand": "ONCI",
+    "model": "Ø250mm × 2.20mm / 80 Diş",
+    "category": "diger",
+    "specs": {
+      "Çap": "250",
+      "Kalınlık": "2.20",
+      "Delik": "32",
+      "Diş Sayısı": "80",
+      "Marka": "ONCI"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "c97f75d6-a69f-4fea-a504-f9ec08966d54",
+    "brand": "ONCI",
+    "model": "Ø250mm × 3.20mm / 80 Diş",
+    "category": "diger",
+    "specs": {
+      "Çap": "250",
+      "Kalınlık": "3.20",
+      "Delik": "32",
+      "Diş Sayısı": "80",
+      "Marka": "ONCI"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "039b81a1-a056-4fe1-8d04-c0bb048e4eb4",
+    "brand": "ONCI",
+    "model": "Ø300mm × 2.50mm / 96 Diş",
+    "category": "diger",
+    "specs": {
+      "Çap": "300",
+      "Kalınlık": "2.50",
+      "Delik": "32",
+      "Diş Sayısı": "96",
+      "Marka": "ONCI"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "1337b24a-adf8-4dda-89c8-8cf869628976",
+    "brand": "ONCI",
+    "model": "Ø300mm × 3.20mm / 96 Diş",
+    "category": "diger",
+    "specs": {
+      "Çap": "300",
+      "Kalınlık": "3.20",
+      "Delik": "30-32",
+      "Diş Sayısı": "96",
+      "Marka": "ONCI"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "f8335a03-d547-4a85-be0c-a4f8e72f321c",
+    "brand": "ONCI",
+    "model": "Ø350mm × 3.20mm / 108 Diş",
+    "category": "diger",
+    "specs": {
+      "Çap": "350",
+      "Kalınlık": "3.20",
+      "Delik": "32",
+      "Diş Sayısı": "108",
+      "Marka": "ONCI"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "f362378a-cdff-4a51-8030-e5108a8d8e50",
+    "brand": "ONCI",
+    "model": "Ø400mm × 2.60mm / 108 Diş",
+    "category": "diger",
+    "specs": {
+      "Çap": "400",
+      "Kalınlık": "2.60",
+      "Delik": "30",
+      "Diş Sayısı": "108",
+      "Marka": "ONCI"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "9180da59-9b3b-44e4-9a53-6acee6be87fc",
+    "brand": "ONCI",
+    "model": "Ø400mm × 3.60mm / 120 Diş",
+    "category": "diger",
+    "specs": {
+      "Çap": "400",
+      "Kalınlık": "3.60",
+      "Delik": "32",
+      "Diş Sayısı": "120",
+      "Marka": "ONCI"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "369f0c48-ff13-46d7-85d9-8c96279a6617",
+    "brand": "ONCI",
+    "model": "Ø400mm × 3.80mm / 120 Diş",
+    "category": "diger",
+    "specs": {
+      "Çap": "400",
+      "Kalınlık": "3.80",
+      "Delik": "30-32",
+      "Diş Sayısı": "120",
+      "Marka": "ONCI"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "7eb30f32-da5c-4f93-a50b-5171fe7e134f",
+    "brand": "ONCI",
+    "model": "Ø420mm × 3.20mm / 72 Diş",
+    "category": "diger",
+    "specs": {
+      "Çap": "420",
+      "Kalınlık": "3.20",
+      "Delik": "32",
+      "Diş Sayısı": "72",
+      "Marka": "ONCI"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "4435d888-041a-4809-91f0-39d28c19706d",
+    "brand": "ONCI",
+    "model": "Ø420mm × 3.80mm / 72 Diş",
+    "category": "diger",
+    "specs": {
+      "Çap": "420",
+      "Kalınlık": "3.80",
+      "Delik": "30",
+      "Diş Sayısı": "72",
+      "Marka": "ONCI"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "99fa62d0-7af9-4630-a50f-3da7aa335d20",
+    "brand": "ONCI",
+    "model": "Ø450mm × 4.00mm / 108 Diş",
+    "category": "diger",
+    "specs": {
+      "Çap": "450",
+      "Kalınlık": "4.00",
+      "Delik": "32",
+      "Diş Sayısı": "108",
+      "Marka": "ONCI"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "bc086ccd-0bbd-4e67-b8a3-fd6caec8e823",
+    "brand": "ONCI",
+    "model": "Ø500mm × 4.00mm / 120 Diş",
+    "category": "diger",
+    "specs": {
+      "Çap": "500",
+      "Kalınlık": "4.00",
+      "Delik": "30-32",
+      "Diş Sayısı": "120",
+      "Marka": "ONCI"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "7b78362e-22be-4e62-9258-172ac2a352fc",
+    "brand": "ONCI",
+    "model": "Ø550mm × 4.40mm / 68 Diş",
+    "category": "diger",
+    "specs": {
+      "Çap": "550",
+      "Kalınlık": "4.40",
+      "Delik": "50",
+      "Diş Sayısı": "68",
+      "Marka": "ONCI"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "172c3c3a-3c4b-4d15-b171-ca1f0b97e6a7",
+    "brand": "Kronberg",
+    "model": "Ø180mm × 2.20mm / 34 Diş",
+    "category": "diger",
+    "specs": {
+      "Çap": "180",
+      "Kalınlık": "2.20",
+      "Delik": "20",
+      "Diş Sayısı": "34",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "f78b6faf-b777-4b30-9c91-6acf5bbbf13a",
+    "brand": "Kronberg",
+    "model": "Ø190mm × 2.20mm / 38 Diş",
+    "category": "diger",
+    "specs": {
+      "Çap": "190",
+      "Kalınlık": "2.20",
+      "Delik": "20",
+      "Diş Sayısı": "38",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "333f7821-78f8-44c2-9d52-a4b3efcf2918",
+    "brand": "Kronberg",
+    "model": "Ø200mm × 1.80mm / 68 Diş",
+    "category": "diger",
+    "specs": {
+      "Çap": "200",
+      "Kalınlık": "1.80",
+      "Delik": "32",
+      "Diş Sayısı": "68",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "da181a73-23aa-49b9-8a50-58dfd5180fe3",
+    "brand": "Kronberg",
+    "model": "Ø210mm × 2.20mm / 40 Diş",
+    "category": "diger",
+    "specs": {
+      "Çap": "210",
+      "Kalınlık": "2.20",
+      "Delik": "30",
+      "Diş Sayısı": "40",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "03c57370-1042-46e0-9363-f6f7578b4b22",
+    "brand": "Kronberg",
+    "model": "Ø230mm × 2.20mm / 44 Diş",
+    "category": "diger",
+    "specs": {
+      "Çap": "230",
+      "Kalınlık": "2.20",
+      "Delik": "30",
+      "Diş Sayısı": "44",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "a3a88501-5758-4575-86e3-02c44dbba451",
+    "brand": "Kronberg",
+    "model": "Ø250mm × 2.20mm / 48 Diş",
+    "category": "diger",
+    "specs": {
+      "Çap": "250",
+      "Kalınlık": "2.20",
+      "Delik": "30",
+      "Diş Sayısı": "48",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "77f47ddb-adc9-471b-b89b-5cefba264ea4",
+    "brand": "Kronberg",
+    "model": "Ø305mm × 2.20mm / 60 Diş",
+    "category": "diger",
+    "specs": {
+      "Çap": "305",
+      "Kalınlık": "2.20",
+      "Delik": "25.4",
+      "Diş Sayısı": "60",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "d54242ef-e11f-494d-9c5a-ae5441e9cfd7",
+    "brand": "Kronberg",
+    "model": "Ø305mm × 2.20mm / 72 Diş",
+    "category": "diger",
+    "specs": {
+      "Çap": "305",
+      "Kalınlık": "2.20",
+      "Delik": "25.4",
+      "Diş Sayısı": "72",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "912ad407-03e0-4c0f-bd39-58cdd62fa1b3",
+    "brand": "Kronberg",
+    "model": "Ø305mm × 2.20mm / 80 Diş",
+    "category": "diger",
+    "specs": {
+      "Çap": "305",
+      "Kalınlık": "2.20",
+      "Delik": "25.4",
+      "Diş Sayısı": "80",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "45e887bc-0153-4b19-8f49-6e4a0addb39f",
+    "brand": "Kronberg",
+    "model": "Ø355mm × 2.40mm / 72 Diş",
+    "category": "diger",
+    "specs": {
+      "Çap": "355",
+      "Kalınlık": "2.40",
+      "Delik": "25.4",
+      "Diş Sayısı": "72",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "00cca498-743f-424f-9f64-c0cf01301a93",
+    "brand": "Kronberg",
+    "model": "Ø355mm × 2.40mm / 84 Diş",
+    "category": "diger",
+    "specs": {
+      "Çap": "355",
+      "Kalınlık": "2.40",
+      "Delik": "25.4",
+      "Diş Sayısı": "84",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "f67e9220-1081-406b-a972-18ce14534b47",
+    "brand": "Kronberg",
+    "model": "Ø355mm × 2.40mm / 90 Diş",
+    "category": "diger",
+    "specs": {
+      "Çap": "355",
+      "Kalınlık": "2.40",
+      "Delik": "25.4",
+      "Diş Sayısı": "90",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "ca28ce37-6f26-4ff5-8001-a7d4c1efc2ca",
+    "brand": "Kronberg",
+    "model": "Ø400mm × 2.60mm / 108 Diş",
+    "category": "diger",
+    "specs": {
+      "Çap": "400",
+      "Kalınlık": "2.60",
+      "Delik": "32",
+      "Diş Sayısı": "108",
+      "Marka": "Kronberg"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "4454f8ca-657e-429a-bee3-a4435f61ad0b",
+    "brand": "ONCI",
+    "model": "Ø200mm × 2.00mm / 64 Diş",
+    "category": "diger",
+    "specs": {
+      "Çap": "200",
+      "Kalınlık": "2.00",
+      "Delik": "30",
+      "Diş Sayısı": "64",
+      "Marka": "ONCI"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  },
+  {
+    "id": "0dcbfb66-670a-488c-afdd-86564fc30392",
+    "brand": "ONCI",
+    "model": "Ø200mm × 3.00mm / 64 Diş",
+    "category": "diger",
+    "specs": {
+      "Çap": "200",
+      "Kalınlık": "3.00",
+      "Delik": "30",
+      "Diş Sayısı": "64",
+      "Marka": "ONCI"
+    },
+    "createdAt": "2026-05-16T10:51:18.066Z"
+  }
+]

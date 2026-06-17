@@ -1,5 +1,5 @@
 generator client {
-  provider = "prisma-client"
+  provider = "prisma-client-js"
   output   = "../src/generated/prisma"
 }
 
@@ -12,7 +12,7 @@ model Product {
   brand     String
   model     String
   category  String
-  specs     Json     @default("{}")
+  specs     Json
   priceRange String? @map("price_range")
   imageUrl  String?  @map("image_url")
   sourceUrl String?  @map("source_url")
@@ -41,4 +41,21 @@ model Comparison {
   @@index([productA])
   @@index([productB])
   @@map("comparisons")
+}
+
+model BlogPost {
+  id         String   @id @default(cuid())
+  title      String
+  slug       String   @unique
+  excerpt    String   @default("")
+  content    String   @default("")
+  category   String   @default("")
+  coverImage String?  @map("cover_image")
+  readTime   String   @default("5 dk")
+  published  Boolean  @default(false)
+  createdAt  DateTime @default(now()) @map("created_at")
+  updatedAt  DateTime @updatedAt @map("updated_at")
+
+  @@index([published])
+  @@map("blog_posts")
 }

@@ -43,6 +43,58 @@ model Comparison {
   @@map("comparisons")
 }
 
+// ── Usta eşleştirme (Feature 3) ──
+model Craftsman {
+  id        String   @id @default(cuid())
+  name      String
+  city      String
+  trades    String[] // meslekler: ["elektrik", "tesisat", ...]
+  phone     String
+  email     String?
+  about     String   @default("")
+  rating    Float    @default(0)
+  jobsDone  Int      @default(0) @map("jobs_done")
+  verified  Boolean  @default(false)
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@index([city])
+  @@index([verified])
+  @@map("craftsmen")
+}
+
+// Usta başvuruları — admin onayı bekleyen (verified=false ile Craftsman'a taşınır).
+model CraftsmanApplication {
+  id        String   @id @default(cuid())
+  name      String
+  city      String
+  trades    String[]
+  phone     String
+  email     String?
+  about     String   @default("")
+  status    String   @default("pending") // pending | approved | rejected
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@index([status])
+  @@map("craftsman_applications")
+}
+
+// ── B2B teklif talepleri (Feature 5) ──
+model B2BQuote {
+  id          String   @id @default(cuid())
+  companyName String   @map("company_name")
+  contactName String   @map("contact_name")
+  email       String
+  phone       String
+  taxNumber   String?  @map("tax_number") // vergi no — cari hesap stub
+  items       Json     // [{ query, brand?, model?, productId?, qty }]
+  note        String   @default("")
+  status      String   @default("new") // new | quoted | won | lost
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  @@index([status])
+  @@map("b2b_quotes")
+}
+
 model BlogPost {
   id         String   @id @default(cuid())
   title      String

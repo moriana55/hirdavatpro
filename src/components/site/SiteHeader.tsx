@@ -6,8 +6,12 @@ import { useState, useEffect } from "react";
 import { Menu, X, Search } from "lucide-react";
 
 const navItems = [
+  { href: "/proje-sihirbazi", label: "Proje Sihirbazı" },
+  { href: "/gorsel-arama", label: "Görsel Arama" },
+  { href: "/usta-bul", label: "Usta Bul" },
   { href: "/karsilastirma", label: "Karşılaştırmalar" },
   { href: "/araclar", label: "Seçim Araçları" },
+  { href: "/b2b", label: "B2B" },
   { href: "/blog", label: "Rehberler" },
   { href: "/arama", label: "Ara" },
 ] as const;

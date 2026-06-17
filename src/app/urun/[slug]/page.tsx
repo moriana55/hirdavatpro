@@ -8,6 +8,7 @@ import { CompareButton } from "@/components/karsilastirma/CompareButton";
 import { UrunYorumlariClient } from "@/components/urun/UrunYorumlariClient";
 import { AletAkuSimulasyonClient } from "@/components/urun/AletAkuSimulasyonClient";
 import { YedekParcaKatalogClient } from "@/components/urun/YedekParcaKatalogClient";
+import { UyumlulukSection } from "@/components/urun/UyumlulukSection";
 
 const getCompatibilityGuide = (category: string, specs: Record<string, any>) => {
   const isDrill = ["darbeli-matkap", "kirici-delici", "vidalama"].includes(category);
@@ -205,7 +206,8 @@ export default async function ProductDetailPage({ params }: Props) {
   }
 
   // Aynı kategorideki benzer aletler
-  const sameCategory = (await getProducts())
+  const allProducts = await getProducts();
+  const sameCategory = allProducts
     .filter(p => p.category === product.category && p.id !== product.id)
     .slice(0, 4);
 
@@ -472,6 +474,9 @@ export default async function ProductDetailPage({ params }: Props) {
           brand={product.brand}
           model={product.model}
         />
+
+        {/* Muadil / Uyumluluk Motoru (Feature 4) */}
+        <UyumlulukSection product={product} allProducts={allProducts} />
 
         {/* Mühendislik Uyumluluk Rehberi (Özellik 5) */}
         <section className="mt-16 pt-10 border-t border-border-subtle">

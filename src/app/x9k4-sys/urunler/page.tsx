@@ -1,11 +1,27 @@
 "use client";
 
 import { useEffect, useState, useMemo } from "react";
-import { Sparkles, Trash2, ArrowRightLeft, Loader2, Search, ChevronDown, Image as ImageIcon, Upload, FileWarning } from "lucide-react";
+import { Sparkles, Trash2, ArrowRightLeft, Loader2, Search, ChevronDown, Image as ImageIcon, Upload, FileWarning, Download, CheckCircle2, XCircle, ScanBarcode } from "lucide-react";
 import type { Product, ProductCategory } from "@/lib/products/types";
 import { CATEGORY_LABELS } from "@/lib/products/types";
 
-type Tab = "ekle" | "csv" | "liste" | "karsilastir";
+type Tab = "ekle" | "csv" | "gorsel" | "liste" | "karsilastir";
+
+type CatalogResult = {
+  title: string;
+  brand: string;
+  imageUrl?: string;
+  gallery: string[];
+  specs: Record<string, string>;
+  sourceUrl?: string;
+};
+
+type BulkReport = {
+  scanned: number;
+  totalMissing: number;
+  matched: { id: string; label: string; source: string }[];
+  unmatched: { id: string; label: string; reason: string }[];
+};
 
 type ImportResult = {
   success: boolean;
@@ -53,6 +69,18 @@ export default function AdminProductsPage() {
   const [csvFileName, setCsvFileName] = useState("");
   const [csvLoading, setCsvLoading] = useState(false);
   const [importResult, setImportResult] = useState<ImportResult | null>(null);
+
+  // Resmî görsel/spec çekme (Icecat + affiliate fallback)
+  const [catEan, setCatEan] = useState("");
+  const [catBrand, setCatBrand] = useState("");
+  const [catModel, setCatModel] = useState("");
+  const [catTargetId, setCatTargetId] = useState("");
+  const [catLoading, setCatLoading] = useState(false);
+  const [catSaving, setCatSaving] = useState(false);
+  const [catResult, setCatResult] = useState<{ source: string; result: CatalogResult } | null>(null);
+  const [catNotice, setCatNotice] = useState<string | null>(null);
+  const [bulkCatLoading, setBulkCatLoading] = useState(false);
+  const [bulkReport, setBulkReport] = useState<BulkReport | null>(null);
 
   useEffect(() => {
     fetch("/api/products")
@@ -185,6 +213,87 @@ export default function AdminProductsPage() {
     }
   }
 
+  async function handleCatalogFetch(e: React.FormEvent) {
+    e.preventDefault();
+    if (!catEan.trim() && !(catBrand.trim() && catModel.trim())) {
+      msg("err", "EAN ya da marka+model girin");
+      return;
+    }
+    setCatLoading(true);
+    setCatResult(null);
+    setCatNotice(null);
+    try {
+      const res = await fetch("/api/products/catalog-fetch", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ mode: "preview", ean: catEan, brand: catBrand, model: catModel }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setCatResult({ source: data.source, result: data.result });
+      } else {
+        setCatNotice(data.message || "Eşleşme bulunamadı.");
+      }
+    } catch (err: any) {
+      msg("err", err.message || "Hata");
+    } finally {
+      setCatLoading(false);
+    }
+  }
+
+  async function handleCatalogSave() {
+    if (!catTargetId) { msg("err", "Önce kaydedilecek ürünü seçin"); return; }
+    setCatSaving(true);
+    try {
+      const res = await fetch("/api/products/catalog-fetch", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ mode: "save", productId: catTargetId, ean: catEan, brand: catBrand, model: catModel }),
+      });
+      const data = await res.json();
+      if (data.success && data.product) {
+        setProducts(prev => prev.map(p => p.id === data.product.id ? data.product : p));
+        msg("ok", `✓ ${data.product.brand} ${data.product.model} güncellendi (${data.source})`);
+        setCatResult(null);
+        setCatTargetId("");
+      } else {
+        msg("err", data.error || data.message || "Kaydedilemedi");
+      }
+    } catch (err: any) {
+      msg("err", err.message || "Hata");
+    } finally {
+      setCatSaving(false);
+    }
+  }
+
+  async function handleBulkCatalog() {
+    setBulkCatLoading(true);
+    setBulkReport(null);
+    setCatNotice(null);
+    try {
+      const res = await fetch("/api/products/catalog-fetch", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ mode: "bulk" }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setBulkReport(data);
+        if (data.matched?.length) {
+          const fresh = await fetch("/api/products").then(r => r.json());
+          setProducts(fresh);
+        }
+        msg("ok", `${data.matched?.length || 0}/${data.scanned} ürün eşleşti`);
+      } else {
+        setCatNotice(data.message || "Toplu çekme yapılamadı.");
+      }
+    } catch (err: any) {
+      msg("err", err.message || "Hata");
+    } finally {
+      setBulkCatLoading(false);
+    }
+  }
+
   async function handleCompare(e: React.FormEvent) {
     e.preventDefault();
     if (!selA || !selB || selA === selB) return;
@@ -222,6 +331,7 @@ export default function AdminProductsPage() {
   const TABS: { id: Tab; label: string }[] = [
     { id: "ekle", label: "Ürün Ekle" },
     { id: "csv", label: "CSV İçe Aktar" },
+    { id: "gorsel", label: "Resmî Görsel/Spec" },
     { id: "liste", label: `Liste (${products.length})` },
     { id: "karsilastir", label: "Karşılaştırma Üret" },
   ];
@@ -425,6 +535,158 @@ export default function AdminProductsPage() {
               )}
             </div>
           )}
+        </div>
+      )}
+
+      {/* TAB: RESMÎ GÖRSEL/SPEC (Icecat + affiliate fallback) */}
+      {tab === "gorsel" && (
+        <div className="space-y-6">
+          {/* Tekli çekme */}
+          <div className="rounded-xl border border-zinc-200 bg-zinc-50 p-6">
+            <h2 className="text-sm font-bold text-zinc-700 mb-1 flex items-center gap-2">
+              <ScanBarcode className="size-4 text-orange-600" /> Resmî Görsel & Teknik Özellik Çek
+            </h2>
+            <p className="text-xs text-zinc-400 mb-4">
+              Icecat Open Catalog&apos;tan üretici onaylı görsel + spec çeker. <strong>EAN/barkod</strong> ya da <strong>marka + model</strong> ile eşleştir. Bağlı değilse dürüst uyarı verir, uydurmaz.
+            </p>
+            <form onSubmit={handleCatalogFetch} className="space-y-3">
+              <div className="flex flex-wrap gap-3 items-end">
+                <div className="flex flex-col gap-1">
+                  <label className="text-[10px] font-bold text-zinc-400 uppercase tracking-wider">EAN / Barkod</label>
+                  <input value={catEan} onChange={e => setCatEan(e.target.value)}
+                    placeholder="örn. 3165140842471"
+                    className="rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-900 outline-none focus:border-orange-500 w-52 font-mono" />
+                </div>
+                <span className="text-xs text-zinc-400 pb-2.5">veya</span>
+                <div className="flex flex-col gap-1">
+                  <label className="text-[10px] font-bold text-zinc-400 uppercase tracking-wider">Marka</label>
+                  <input value={catBrand} onChange={e => setCatBrand(e.target.value)}
+                    placeholder="örn. Bosch"
+                    className="rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-900 outline-none focus:border-orange-500 w-36" />
+                </div>
+                <div className="flex flex-col gap-1">
+                  <label className="text-[10px] font-bold text-zinc-400 uppercase tracking-wider">Model / MPN</label>
+                  <input value={catModel} onChange={e => setCatModel(e.target.value)}
+                    placeholder="örn. GSB 13 RE"
+                    className="rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-900 outline-none focus:border-orange-500 w-44" />
+                </div>
+                <button type="submit" disabled={catLoading}
+                  className="flex items-center gap-2 rounded-lg bg-orange-600 px-4 py-2 text-sm font-bold text-white hover:bg-orange-500 transition disabled:opacity-50">
+                  {catLoading ? <Loader2 className="size-4 animate-spin" /> : <Download className="size-4" />}
+                  {catLoading ? "Çekiliyor..." : "Çek & Önizle"}
+                </button>
+              </div>
+            </form>
+
+            {catNotice && (
+              <div className="mt-4 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-700 flex items-start gap-2">
+                <FileWarning className="size-4 mt-0.5 shrink-0" /> {catNotice}
+              </div>
+            )}
+
+            {catResult && (
+              <div className="mt-5 rounded-xl border border-zinc-200 bg-white p-5">
+                <div className="flex items-center justify-between mb-4">
+                  <p className="text-xs font-bold text-zinc-500 uppercase tracking-wider">Önizleme</p>
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full border bg-zinc-100 text-zinc-600 border-zinc-300">
+                    Kaynak: {catResult.source === "icecat" ? "Icecat" : "Affiliate Feed"}
+                  </span>
+                </div>
+                <div className="flex flex-wrap gap-5">
+                  <div className="shrink-0">
+                    {catResult.result.imageUrl ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={catResult.result.imageUrl} alt="" className="w-40 h-40 rounded-lg object-contain border border-zinc-100 bg-white" />
+                    ) : (
+                      <div className="w-40 h-40 rounded-lg bg-zinc-100 flex items-center justify-center">
+                        <ImageIcon className="size-6 text-zinc-300" />
+                      </div>
+                    )}
+                    {catResult.result.gallery.length > 1 && (
+                      <p className="text-[10px] text-zinc-400 mt-1.5 text-center">+{catResult.result.gallery.length - 1} ek görsel</p>
+                    )}
+                  </div>
+                  <div className="flex-1 min-w-48">
+                    {catResult.result.title && <p className="text-sm font-semibold text-zinc-800 mb-2">{catResult.result.title}</p>}
+                    {Object.keys(catResult.result.specs).length > 0 ? (
+                      <div className="space-y-1 max-h-44 overflow-auto pr-2">
+                        {Object.entries(catResult.result.specs).slice(0, 30).map(([k, v]) => (
+                          <div key={k} className="flex justify-between gap-3 text-xs border-b border-zinc-50 py-1">
+                            <span className="text-zinc-500">{k}</span>
+                            <span className="text-zinc-800 font-medium text-right">{v}</span>
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <p className="text-xs text-zinc-400">Teknik özellik bulunamadı (yalnızca görsel).</p>
+                    )}
+                  </div>
+                </div>
+
+                {/* Ürüne kaydet */}
+                <div className="mt-5 pt-4 border-t border-zinc-100 flex flex-wrap items-end gap-3">
+                  <div className="flex flex-col gap-1 flex-1 min-w-56">
+                    <label className="text-[10px] font-bold text-zinc-400 uppercase tracking-wider">Kaydedilecek Ürün</label>
+                    <select value={catTargetId} onChange={e => setCatTargetId(e.target.value)}
+                      className="rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-900 outline-none focus:border-orange-500">
+                      <option value="">Ürün seç...</option>
+                      {products.map(p => <option key={p.id} value={p.id}>{p.brand} {p.model}{p.imageUrl ? "" : " — görselsiz"}</option>)}
+                    </select>
+                  </div>
+                  <button onClick={handleCatalogSave} disabled={catSaving || !catTargetId}
+                    className="flex items-center gap-2 rounded-lg bg-orange-600 px-4 py-2 text-sm font-bold text-white hover:bg-orange-500 transition disabled:opacity-50">
+                    {catSaving ? <Loader2 className="size-4 animate-spin" /> : <CheckCircle2 className="size-4" />}
+                    Ürüne Kaydet
+                  </button>
+                </div>
+                <p className="text-[11px] text-zinc-400 mt-2">Mevcut görsel/spec ezilmez — yalnızca eksik alanlar ve yeni özellikler eklenir.</p>
+              </div>
+            )}
+          </div>
+
+          {/* Toplu çekme */}
+          <div className="rounded-xl border border-zinc-200 bg-zinc-50 p-6">
+            <h2 className="text-sm font-bold text-zinc-700 mb-1">Toplu Otomatik Görsel Çekme</h2>
+            <p className="text-xs text-zinc-400 mb-4">
+              Görseli olmayan ürünler için EAN / marka+model ile otomatik dener (tek seferde en fazla 50). Eşleşenler otomatik kaydedilir.
+            </p>
+            <button onClick={handleBulkCatalog} disabled={bulkCatLoading}
+              className="flex items-center gap-2 rounded-lg bg-zinc-800 px-4 py-2 text-sm font-bold text-white hover:bg-zinc-700 transition disabled:opacity-50">
+              {bulkCatLoading ? <Loader2 className="size-4 animate-spin" /> : <Download className="size-4" />}
+              {bulkCatLoading ? "Taranıyor..." : "Eksik Görselleri Tara & Çek"}
+            </button>
+
+            {bulkReport && (
+              <div className="mt-5 space-y-4">
+                <div className="flex flex-wrap gap-2">
+                  <span className="text-[11px] font-bold px-2.5 py-1 rounded-full border bg-zinc-100 text-zinc-700 border-zinc-300">Tarandı: {bulkReport.scanned}</span>
+                  <span className="text-[11px] font-bold px-2.5 py-1 rounded-full border bg-zinc-100 text-zinc-700 border-zinc-300">Görselsiz toplam: {bulkReport.totalMissing}</span>
+                  <span className="text-[11px] font-bold px-2.5 py-1 rounded-full border bg-emerald-100 text-emerald-700 border-emerald-300">Eşleşen: {bulkReport.matched.length}</span>
+                  <span className="text-[11px] font-bold px-2.5 py-1 rounded-full border bg-amber-100 text-amber-700 border-amber-300">Eşleşmeyen: {bulkReport.unmatched.length}</span>
+                </div>
+                {bulkReport.matched.length > 0 && (
+                  <div>
+                    <p className="text-xs font-bold text-emerald-600 uppercase tracking-wider mb-2 flex items-center gap-1.5"><CheckCircle2 className="size-3.5" /> Eşleşenler</p>
+                    <div className="space-y-1 max-h-40 overflow-auto">
+                      {bulkReport.matched.map(m => (
+                        <div key={m.id} className="text-xs text-emerald-700 flex gap-2"><span className="font-semibold">{m.label}</span><span className="text-emerald-400">{m.source}</span></div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                {bulkReport.unmatched.length > 0 && (
+                  <div>
+                    <p className="text-xs font-bold text-amber-600 uppercase tracking-wider mb-2 flex items-center gap-1.5"><XCircle className="size-3.5" /> Eşleşmeyenler</p>
+                    <div className="space-y-1 max-h-40 overflow-auto">
+                      {bulkReport.unmatched.map(m => (
+                        <div key={m.id} className="text-xs text-amber-700 flex gap-2"><span className="font-semibold">{m.label}</span><span className="text-amber-400 truncate">{m.reason}</span></div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
         </div>
       )}
 

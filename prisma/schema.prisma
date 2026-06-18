@@ -15,6 +15,10 @@ model Product {
   specs     Json
   priceRange String? @map("price_range")
   imageUrl  String?  @map("image_url")
+  // Resmî katalog eşleştirme alanları (Icecat / affiliate feed).
+  ean       String?  // GTIN/EAN barkodu — birincil eşleştirme anahtarı
+  mpn       String?  // üretici parça no (MPN) — marka+model alternatifi
+  gallery   Json?    // ek görsel URL'leri (string[]) — resmî katalogdan
   sourceUrl String?  @map("source_url")
   createdAt DateTime @default(now()) @map("created_at")
 

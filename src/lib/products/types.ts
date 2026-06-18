@@ -6,6 +6,12 @@ export interface Product {
   specs: Record<string, string | number>;
   priceRange?: string;
   imageUrl?: string;
+  /** GTIN/EAN barkodu — resmî katalog (Icecat) eşleştirme anahtarı. */
+  ean?: string;
+  /** Üretici parça no (MPN) — marka+model alternatif eşleştirme. */
+  mpn?: string;
+  /** Ek görsel URL'leri (resmî katalogdan). */
+  gallery?: string[];
   sourceUrl?: string;
   createdAt: string;
 }

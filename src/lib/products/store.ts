@@ -90,6 +90,9 @@ export async function saveProduct(product: Omit<Product, "id" | "createdAt"> & {
       specs: product.specs as any,
       priceRange: product.priceRange,
       imageUrl: product.imageUrl,
+      ean: product.ean,
+      mpn: product.mpn,
+      gallery: (product.gallery ?? undefined) as any,
       sourceUrl: product.sourceUrl,
     },
     create: {
@@ -99,7 +102,51 @@ export async function saveProduct(product: Omit<Product, "id" | "createdAt"> & {
       specs: product.specs as any,
       priceRange: product.priceRange,
       imageUrl: product.imageUrl,
+      ean: product.ean,
+      mpn: product.mpn,
+      gallery: (product.gallery ?? undefined) as any,
       sourceUrl: product.sourceUrl,
+    },
+  });
+  return toProduct(row);
+}
+
+// Resmî katalog (Icecat / affiliate feed) verisini MEVCUT ürüne işler.
+// saveProduct'ın aksine alanları EZMEZ: yalnızca verilen ve anlamlı olanları yazar,
+// specs mevcut spec'lerle birleştirilir (yeni anahtarlar eklenir, mevcutlar korunur).
+export async function mergeCatalogData(
+  id: string,
+  data: {
+    imageUrl?: string;
+    gallery?: string[];
+    specs?: Record<string, string | number>;
+    ean?: string;
+    mpn?: string;
+    sourceUrl?: string;
+  }
+): Promise<Product> {
+  const existing = await prisma.product.findUnique({ where: { id } });
+  if (!existing) throw new Error("Ürün bulunamadı.");
+  const current = toProduct(existing);
+
+  // Specs birleştir: mevcut anahtarlar korunur, yeni anahtarlar eklenir.
+  const mergedSpecs = { ...current.specs, ...(data.specs ?? {}) };
+
+  // Galeri birleştir + tekilleştir.
+  const mergedGallery = Array.from(
+    new Set([...(current.gallery ?? []), ...(data.gallery ?? [])])
+  ).filter(Boolean);
+
+  const row = await prisma.product.update({
+    where: { id },
+    data: {
+      // Görsel yoksa yeni gelen görseli yaz; varsa koru.
+      imageUrl: current.imageUrl || data.imageUrl || undefined,
+      gallery: (mergedGallery.length ? mergedGallery : undefined) as any,
+      specs: mergedSpecs as any,
+      ean: current.ean || data.ean || undefined,
+      mpn: current.mpn || data.mpn || undefined,
+      sourceUrl: current.sourceUrl || data.sourceUrl || undefined,
     },
   });
   return toProduct(row);
@@ -107,6 +154,19 @@ export async function saveProduct(product: Omit<Product, "id" | "createdAt"> & {
 
 export async function deleteProduct(id: string) {
   await prisma.product.delete({ where: { id } });
+}
+
+// Görseli olmayan ürünler — toplu içe aktarma için.
+export async function getProductsWithoutImage(): Promise<Product[]> {
+  try {
+    const rows = await prisma.product.findMany({
+      where: { OR: [{ imageUrl: null }, { imageUrl: "" }] },
+      orderBy: { createdAt: "desc" },
+    });
+    return rows.map(toProduct);
+  } catch {
+    return fileProducts().filter((p) => !p.imageUrl);
+  }
 }
 
 // ── Comparisons ──
@@ -153,6 +213,15 @@ export function generateSlug(a: Pick<Product, "brand" | "model">, b: Pick<Produc
 
 // ── Mappers ──
 
+function safeParseArray(raw: string): string[] | undefined {
+  try {
+    const v = JSON.parse(raw);
+    return Array.isArray(v) ? v.filter((x) => typeof x === "string") : undefined;
+  } catch {
+    return undefined;
+  }
+}
+
 function toProduct(row: any): Product {
   return {
     id: row.id,
@@ -162,6 +231,13 @@ function toProduct(row: any): Product {
     specs: (typeof row.specs === "string" ? JSON.parse(row.specs) : row.specs) || {},
     priceRange: row.priceRange ?? undefined,
     imageUrl: row.imageUrl ?? undefined,
+    ean: row.ean ?? undefined,
+    mpn: row.mpn ?? undefined,
+    gallery: Array.isArray(row.gallery)
+      ? (row.gallery as string[])
+      : typeof row.gallery === "string"
+        ? safeParseArray(row.gallery)
+        : undefined,
     sourceUrl: row.sourceUrl ?? undefined,
     createdAt: row.createdAt instanceof Date ? row.createdAt.toISOString() : row.createdAt,
   };

@@ -330,14 +330,28 @@ export default async function ProductDetailPage({ params }: Props) {
             </div>
 
             <div className="space-y-4 border-t border-border-subtle pt-8">
-
-              
+              <div className="flex flex-col sm:flex-row gap-3">
+                <a
+                  href="#nereden-alinir"
+                  className="flex-1 bg-primary text-on-primary py-4 px-6 flex items-center justify-center gap-2.5 font-bold hover:bg-primary-container active:scale-[0.98] transition-all rounded decoration-none shadow-sm font-label-caps text-label-caps text-center"
+                >
+                  <span className="material-symbols-outlined text-[20px]">storefront</span>
+                  NEREDEN ALINIR
+                </a>
+                <Link
+                  href="/karsilastirma/sepet"
+                  className="flex-1 bg-compare-action text-white py-4 px-6 flex items-center justify-center gap-2.5 font-bold hover:brightness-95 active:scale-[0.98] transition-all rounded decoration-none shadow-sm font-label-caps text-label-caps text-center"
+                >
+                  <span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'wght' 600" }}>compare_arrows</span>
+                  KARŞILAŞTIR
+                </Link>
+              </div>
               <Link
-                href="/karsilastirma/sepet"
-                className="w-full md:w-auto bg-compare-action text-white py-4 px-12 flex items-center justify-center gap-3 font-bold hover:scale-[1.02] active:scale-[0.98] transition-all rounded decoration-none shadow-sm font-label-caps text-label-caps text-center"
+                href="/b2b"
+                className="w-full border border-border-subtle text-on-surface py-3 px-6 flex items-center justify-center gap-2 font-bold hover:border-primary hover:text-primary transition-all rounded decoration-none font-label-caps text-label-caps text-center"
               >
-                <span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'wght' 600" }}>compare_arrows</span>
-                KARŞILAŞTIRMA SEPETİMİ GÖR
+                <span className="material-symbols-outlined text-[18px]">request_quote</span>
+                TOPLU ALIM İÇİN TEKLİF İSTE
               </Link>
               <p className="font-body-sm text-body-sm text-on-secondary-container italic flex items-center gap-2">
                 <span className="material-symbols-outlined text-sm">info</span>
@@ -480,7 +494,9 @@ export default async function ProductDetailPage({ params }: Props) {
         <UyumlulukSection product={product} allProducts={allProducts} />
 
         {/* Fiyat & Stok Karşılaştır (Feature 9) — çok kaynaklı (STUB veri) */}
-        <FiyatKarsilastirClient productId={product.id} slug={slug} />
+        <div id="nereden-alinir" className="scroll-mt-32">
+          <FiyatKarsilastirClient productId={product.id} slug={slug} />
+        </div>
 
         {/* Mühendislik Uyumluluk Rehberi (Özellik 5) */}
         <section className="mt-16 pt-10 border-t border-border-subtle">

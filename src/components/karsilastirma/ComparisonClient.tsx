@@ -230,8 +230,8 @@ export function ComparisonClient({
 
       {/* Dynamic Verdict / Analysis */}
       {comparison.verdict && (
-        <div className="mt-12 rounded-2xl bg-gradient-to-r from-[rgba(234,88,12,0.06)] to-[rgba(234,88,12,0.02)] border border-[rgba(234,88,12,0.12)] px-6 py-5">
-          <p className="text-[11px] font-semibold uppercase tracking-wider text-[var(--accent)] mb-1.5 font-bold font-label-caps">Sonuç / Verdict</p>
+        <div className="mt-12 rounded-2xl bg-gradient-to-r from-[rgba(164,55,0,0.07)] to-[rgba(164,55,0,0.02)] border-l-4 border-l-primary border border-[rgba(164,55,0,0.12)] px-6 py-5">
+          <p className="text-[11px] font-semibold uppercase tracking-wider text-[var(--accent)] mb-1.5 font-bold font-label-caps">Editör Sonucu</p>
           <p className="text-[15px] font-medium text-on-surface leading-relaxed">{comparison.verdict}</p>
         </div>
       )}

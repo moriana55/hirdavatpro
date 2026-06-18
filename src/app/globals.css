@@ -1,24 +1,26 @@
 @import "tailwindcss" source("../");
 
 :root {
-  --background: #f8fafb;
-  --foreground: #191c1d;
-  --muted: #546067;
-  --muted-faint: #8f7066;
-  --surface: #f8fafb;
-  --surface-2: #eceeef;
-  --border: #CFD8DC;
+  --background: #f7f8f9;
+  --foreground: #14181b;
+  --muted: #4d5860;
+  --muted-faint: #7c8893;
+  --surface: #f7f8f9;
+  --surface-2: #eceef0;
+  --border: #d2d8dd;
   --accent: #a43700;
   --accent-hover: #cd4700;
-  --compare: #00C853;
-  --warning: #FFA000;
-  --slate: #455A64;
-  --diff-highlight: #FFF8E1;
+  --tech: #0e7490;
+  --tech-soft: #e6f3f6;
+  --compare: #00A848;
+  --warning: #C77700;
+  --slate: #3d4b54;
+  --diff-highlight: #FFF6E0;
 }
 
 @theme {
-  --color-on-secondary-container: #5a666d;
-  --color-surface-container: #eceeef;
+  --color-on-secondary-container: #4d5860;
+  --color-surface-container: #eceef0;
   --color-tertiary-fixed: #cee5ff;
   --color-on-primary-fixed: #380d00;
   --color-surface-container-highest: #e1e3e4;
@@ -35,11 +37,11 @@
   --color-inverse-on-surface: #eff1f2;
   --color-on-secondary: #ffffff;
   --color-on-tertiary: #ffffff;
-  --color-slate-gray: #455A64;
+  --color-slate-gray: #3d4b54;
   --color-on-tertiary-fixed: #001d32;
-  --color-on-surface: #191c1d;
-  --color-surface-dim: #d8dadb;
-  --color-secondary: #546067;
+  --color-on-surface: #14181b;
+  --color-surface-dim: #d6d9db;
+  --color-secondary: #4d5860;
   --color-primary: #a43700;
   --color-on-primary-container: #fffbff;
   --color-error: #ba1a1a;
@@ -47,24 +49,26 @@
   --color-primary-fixed: #ffdbcf;
   --color-surface-bright: #f8fafb;
   --color-success-vibrant: #2E7D32;
-  --color-on-surface-variant: #5a4138;
+  --color-on-surface-variant: #4a555d;
   --color-on-primary-fixed-variant: #802a00;
   --color-on-secondary-fixed-variant: #3c494f;
-  --color-on-background: #191c1d;
+  --color-on-background: #14181b;
   --color-tertiary-container: #007abc;
-  --color-warning-amber: #FFA000;
-  --color-outline: #8f7066;
+  --color-warning-amber: #C77700;
+  --color-outline: #7c8893;
   --color-on-primary: #ffffff;
   --color-error-container: #ffdad6;
-  --color-border-subtle: #CFD8DC;
+  --color-border-subtle: #d2d8dd;
   --color-on-tertiary-container: #fdfcff;
   --color-primary-fixed-dim: #ffb59a;
   --color-secondary-container: #d7e4ec;
   --color-surface: #f8fafb;
   --color-primary-container: #cd4700;
   --color-on-secondary-fixed: #111d23;
-  --color-outline-variant: #e3bfb2;
+  --color-outline-variant: #c9d0d6;
   --color-surface-tint: #a83900;
+  --color-tech: #0e7490;
+  --color-tech-soft: #e6f3f6;
   --color-secondary-fixed: #d7e4ec;
   --color-surface-container-high: #e6e8e9;
   --color-on-error-container: #93000a;
@@ -146,6 +150,94 @@ body {
   font-size: 13px;
   font-weight: 500;
   line-height: 18px;
+}
+
+/* Heading family helper used across blog, tools, comparisons & admin */
+.font-heading {
+  font-family: var(--font-sans-heading), var(--font-sans-body), system-ui, sans-serif;
+  letter-spacing: -0.01em;
+}
+
+/* Missing scales referenced across product, b2b & tool pages */
+.font-headline-md, .text-headline-md {
+  font-family: var(--font-sans-heading), var(--font-sans-body), sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 36px;
+  letter-spacing: -0.01em;
+}
+.font-headline-sm, .text-headline-sm {
+  font-family: var(--font-sans-heading), var(--font-sans-body), sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 30px;
+  letter-spacing: -0.01em;
+}
+.font-title-sm, .text-title-sm {
+  font-family: var(--font-sans-heading), var(--font-sans-body), sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+/* ------------------------------------------------------------------
+   Reusable surface components (referenced in blog, araclar, kategori)
+   ------------------------------------------------------------------ */
+.card {
+  background: var(--color-surface-container-lowest);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+}
+.card-hover {
+  display: block;
+  background: var(--color-surface-container-lowest);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+}
+.card-hover:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 6px 20px -8px rgba(20, 24, 27, 0.18);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius);
+  font-family: var(--font-mono-ui), monospace;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+}
+.badge-accent {
+  background: var(--color-primary-fixed);
+  color: var(--color-on-primary-fixed-variant);
+  border-color: rgba(164, 55, 0, 0.18);
+}
+.badge-tech {
+  background: var(--color-tech-soft);
+  color: var(--color-tech);
+  border-color: rgba(14, 116, 144, 0.22);
+}
+
+/* ------------------------------------------------------------------
+   Accessibility: consistent, visible focus ring on interactive nodes
+   ------------------------------------------------------------------ */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 2px;
 }
 
 /* Custom Design System Components and Animations */

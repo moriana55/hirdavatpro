@@ -52,15 +52,16 @@ export function FiyatKarsilastirClient({ productId, slug }: { productId: string;
     <section className="mt-16 pt-10 border-t border-border-subtle">
       <div className="flex items-center justify-between flex-wrap gap-3 mb-2">
         <div className="flex items-center gap-3">
-          <span className="material-symbols-outlined text-primary text-[28px]">price_check</span>
+          <span className="material-symbols-outlined text-primary text-[28px]">storefront</span>
           <div>
-            <h2 className="font-headline-sm text-headline-sm font-bold text-on-surface">Fiyat & Stok Karşılaştır</h2>
-            <p className="text-secondary text-body-sm mt-0.5">Bu aleti farklı kaynaklarda kıyaslayın.</p>
+            <span className="badge badge-accent mb-1.5">Nereden Alınır</span>
+            <h2 className="font-headline-sm text-headline-sm font-bold text-on-surface">Fiyat &amp; Stok Karşılaştır</h2>
+            <p className="text-secondary text-body-sm mt-0.5">Bu aleti farklı mağazalarda kıyaslayın, en uygun kaynağa gidin.</p>
           </div>
         </div>
         <button
           onClick={load}
-          className="bg-primary text-white py-2.5 px-5 rounded font-label-caps text-label-caps font-bold hover:bg-primary/95 transition-all flex items-center gap-2"
+          className="bg-primary text-white py-2.5 px-5 rounded font-label-caps text-label-caps font-bold hover:bg-primary-container transition-all flex items-center gap-2"
         >
           <span className="material-symbols-outlined text-[18px]">{open ? "expand_less" : "compare"}</span>
           {open ? "GİZLE" : "FİYATLARI GETİR"}
@@ -122,9 +123,9 @@ export function FiyatKarsilastirClient({ productId, slug }: { productId: string;
                               href={buildAffiliateHref({ url: s.url, retailer: s.source, productId, slug })}
                               target="_blank"
                               rel="nofollow noopener noreferrer"
-                              className="text-primary font-bold text-[12px] hover:underline inline-flex items-center gap-1"
+                              className="inline-flex items-center gap-1 rounded bg-primary/10 px-3 py-1.5 font-label-caps text-[11px] font-bold text-primary hover:bg-primary hover:text-white transition-colors whitespace-nowrap"
                             >
-                              Git <span className="material-symbols-outlined text-[14px]">open_in_new</span>
+                              MAĞAZAYA GİT <span className="material-symbols-outlined text-[14px]">open_in_new</span>
                             </a>
                           </td>
                         </tr>

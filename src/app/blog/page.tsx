@@ -52,8 +52,8 @@ export default async function BlogPage() {
   const posts: BlogCard[] = [...dbPosts, ...filePosts];
 
   return (
-    <div className="mx-auto max-w-[1200px] px-6 py-16 md:py-20">
-      <p className="text-[12px] font-semibold uppercase tracking-wider text-[var(--muted-faint)] mb-1">Alet Seçim & Kullanım</p>
+    <div className="mx-auto max-w-[1200px] px-6 pt-32 pb-16 md:pb-20">
+      <span className="badge badge-accent mb-3">Alet Seçim &amp; Kullanım</span>
       <h1 className="font-heading text-[36px] font-bold text-[var(--foreground)] md:text-[44px]">
         Rehberler
       </h1>

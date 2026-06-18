@@ -8,18 +8,21 @@ const heading = Inter({
   variable: "--font-sans-heading",
   subsets: ["latin"],
   weight: ["600", "700"],
+  display: "swap",
 });
 
 const body = Inter({
   variable: "--font-sans-body",
   subsets: ["latin"],
   weight: ["400", "500"],
+  display: "swap",
 });
 
 const mono = JetBrains_Mono({
   variable: "--font-mono-ui",
   subsets: ["latin"],
   weight: ["500", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -79,7 +82,12 @@ const jsonLd = {
       "@id": "https://hirdavatpro.com/#organization",
       name: "HırdavatPro",
       url: "https://hirdavatpro.com",
-      logo: { "@type": "ImageObject", url: "https://hirdavatpro.com/favicon.ico" },
+      logo: {
+        "@type": "ImageObject",
+        url: "https://hirdavatpro.com/opengraph-image",
+        width: 1200,
+        height: 630,
+      },
       sameAs: [],
     },
   ],

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { HaritaTasarimClient } from "@/components/araclar/HaritaTasarimClient";
+import HaritaTasarimLoader from "./HaritaTasarimLoader";
 
 export const metadata: Metadata = {
   title: "Nordic Minimalist Harita Tasarımcısı — HırdavatPro",
@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function HaritaTasarimPage() {
-  return <HaritaTasarimClient />;
+  return <HaritaTasarimLoader />;
 }

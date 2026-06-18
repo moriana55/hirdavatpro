@@ -1,9 +1,24 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { getProducts, getComparisons, productSlug } from "@/lib/products/store";
 import { CATEGORY_LABELS } from "@/lib/products/types";
 import { CompareButton } from "@/components/karsilastirma/CompareButton";
 
 export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = {
+  title: "Hırdavat Pro — Endüstriyel Alet Karşılaştırma & Teknik Rehber",
+  description:
+    "Matkap, avuç taşlama, testere, kaynak makinesi ve el aletlerini teknik spec bazlı tarafsız karşılaştırın. Bosch, Makita, DeWalt, Milwaukee, Stihl modelleri ve uzman seçim araçları.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    url: "/",
+    title: "Hırdavat Pro — Endüstriyel Alet Karşılaştırma & Teknik Rehber",
+    description:
+      "Teknik spec bazlı, tarafsız hırdavat karşılaştırmaları ve profesyonel seçim araçları.",
+  },
+};
 
 export default async function Home() {
   const products = await getProducts();
@@ -58,10 +73,15 @@ export default async function Home() {
           {/* Hero Image & Feature Card */}
           <div className="relative">
             <div className="bg-white p-2 border border-border-subtle rounded-lg shadow-sm overflow-hidden">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                alt="Endüstriyel Analiz"
+                alt="Endüstriyel hırdavat ve profesyonel elektrikli alet teknik analizi"
                 className="w-full h-[400px] object-cover rounded"
                 src="https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=1200&q=80"
+                width={1200}
+                height={400}
+                fetchPriority="high"
+                decoding="async"
               />
             </div>
             {featuredProduct && (
@@ -110,10 +130,15 @@ export default async function Home() {
                 <div key={p.id} className="bg-white border border-border-subtle group hover:shadow-md transition-shadow flex flex-col justify-between rounded overflow-hidden">
                   <div>
                     <div className="aspect-square overflow-hidden relative bg-white p-6 flex items-center justify-center border-b border-border-subtle/50">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
-                        alt={`${p.brand} ${p.model}`}
+                        alt={`${p.brand} ${p.model} ${CATEGORY_LABELS[p.category] ?? ""} teknik özellikleri`}
                         className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-500"
                         src={p.imageUrl || "https://images.unsplash.com/photo-1572981779307-38b8cabb2407?auto=format&fit=crop&w=400&q=80"}
+                        width={400}
+                        height={400}
+                        loading="lazy"
+                        decoding="async"
                       />
                       <CompareButton productId={p.id} />
                     </div>

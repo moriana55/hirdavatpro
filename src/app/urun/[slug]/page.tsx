@@ -291,10 +291,15 @@ export default async function ProductDetailPage({ params }: Props) {
           {/* Product Image */}
           <div className="lg:col-span-5 bg-white border border-border-subtle p-8 rounded-lg relative">
             <div className="aspect-square w-full relative group flex items-center justify-center">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                alt={`${product.brand} ${product.model}`}
+                alt={`${product.brand} ${product.model} ${catLabel} ürün görseli`}
                 className="max-h-full max-w-full object-contain"
                 src={imageUrl}
+                width={640}
+                height={640}
+                fetchPriority="high"
+                decoding="async"
               />
               <div className="absolute top-4 left-4">
                 <span className="bg-white/80 backdrop-blur-sm p-2 rounded border border-border-subtle flex items-center justify-center text-secondary text-[20px] select-none" title="Teknik Görünüm">
@@ -588,13 +593,8 @@ export default async function ProductDetailPage({ params }: Props) {
               description: `${product.brand} ${product.model} ${catLabel} teknik özellikleri ve incelemesi.`,
               brand: { "@type": "Brand", name: product.brand },
               category: catLabel,
-              ...(product.priceRange && {
-                offers: {
-                  "@type": "AggregateOffer",
-                  priceCurrency: "TRY",
-                  availability: "https://schema.org/InStock",
-                },
-              }),
+              // Not: Bu bir affiliate/karşılaştırma sitesidir, satış yapılmaz.
+              // Bilerek "offers"/fiyat işaretlenmez — Google'a mağaza sinyali verilmez.
             }),
           }}
         />

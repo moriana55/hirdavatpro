@@ -76,7 +76,8 @@ export default async function BlogPage() {
             >
               {g.coverImage && (
                 <div className="w-full h-44 overflow-hidden">
-                  <img src={g.coverImage} alt={g.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={g.coverImage} alt={g.title} width={400} height={176} loading="lazy" decoding="async" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
                 </div>
               )}
               <div className="p-6 flex flex-col flex-1">

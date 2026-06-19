@@ -92,7 +92,7 @@ const items = [
 
 export default function AraclarPage() {
   return (
-    <div className="mx-auto max-w-max-width px-margin-mobile py-14 md:px-margin-desktop md:py-20 pt-32 md:pt-32">
+    <div className="mx-auto max-w-max-width px-margin-mobile py-14 md:px-margin-desktop md:py-20 pt-32">
       <nav className="flex flex-wrap items-center gap-2 font-label-caps text-label-caps text-secondary">
         <Link href="/" className="transition hover:text-primary decoration-none font-bold">
           Ana sayfa

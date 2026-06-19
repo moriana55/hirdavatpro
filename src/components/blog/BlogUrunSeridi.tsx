@@ -18,7 +18,7 @@ export function BlogUrunSeridi({ products }: { products: ShoppableProduct[] }) {
 
   const addToBasket = (id: string) => {
     try {
-      let basket: string[] = JSON.parse(localStorage.getItem("hirdavatpro_basket") || "[]");
+      const basket: string[] = JSON.parse(localStorage.getItem("hirdavatpro_basket") || "[]");
       if (basket.includes(id)) { showToast("Bu alet zaten sepette."); return; }
       if (basket.length >= 3) { showToast("Karşılaştırma sepeti dolu (maks 3)."); return; }
       basket.push(id);

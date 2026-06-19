@@ -4,6 +4,7 @@ import type { ProductCategory } from "@/lib/products/types";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { ComparisonClient } from "@/components/karsilastirma/ComparisonClient";
+import { VideoEmbed } from "@/components/urun/VideoEmbed";
 import type { Product } from "@/lib/products/types";
 
 export const dynamic = "force-dynamic";
@@ -80,6 +81,14 @@ export default async function ComparisonDetailPage({ params }: Props) {
         categoryLabel={catLabel}
         markdownContentHtml={markdownContentHtml}
       />
+
+      {/* İnceleme Videoları — her iki ürün için (video varsa gösterilir) */}
+      {(a.youtubeUrl || a.instagramUrl || b.youtubeUrl || b.instagramUrl) && (
+        <div className="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop pb-16">
+          <VideoEmbed youtubeUrl={a.youtubeUrl} instagramUrl={a.instagramUrl} title={`${a.brand} ${a.model}`} />
+          <VideoEmbed youtubeUrl={b.youtubeUrl} instagramUrl={b.instagramUrl} title={`${b.brand} ${b.model}`} />
+        </div>
+      )}
     </>
   );
 }

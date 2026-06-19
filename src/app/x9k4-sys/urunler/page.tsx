@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useState, useMemo } from "react";
-import { Sparkles, Trash2, ArrowRightLeft, Loader2, Search, ChevronDown, Image as ImageIcon, Upload, FileWarning, Download, CheckCircle2, XCircle, ScanBarcode } from "lucide-react";
+import { Sparkles, Trash2, ArrowRightLeft, Loader2, Search, ChevronDown, Image as ImageIcon, Upload, FileWarning, Download, CheckCircle2, XCircle, ScanBarcode, Link2, Video as Youtube, Camera as Instagram, X } from "lucide-react";
 import type { Product, ProductCategory } from "@/lib/products/types";
 import { CATEGORY_LABELS } from "@/lib/products/types";
 
-type Tab = "ekle" | "csv" | "gorsel" | "liste" | "karsilastir";
+type Tab = "ekle" | "csv" | "gorsel" | "medya" | "liste" | "karsilastir";
 
 type CatalogResult = {
   title: string;
@@ -81,6 +81,31 @@ export default function AdminProductsPage() {
   const [catNotice, setCatNotice] = useState<string | null>(null);
   const [bulkCatLoading, setBulkCatLoading] = useState(false);
   const [bulkReport, setBulkReport] = useState<BulkReport | null>(null);
+
+  // Görsel & Video (medya) sekmesi
+  const [mediaTargetId, setMediaTargetId] = useState("");
+  const [mediaSourceUrl, setMediaSourceUrl] = useState(""); // kaynak görsel URL'i (indir & barındır)
+  const [mediaUploading, setMediaUploading] = useState(false);
+  const [mediaYoutube, setMediaYoutube] = useState("");
+  const [mediaInstagram, setMediaInstagram] = useState("");
+  const [mediaSaving, setMediaSaving] = useState(false);
+
+  const mediaProduct = useMemo(
+    () => products.find(p => p.id === mediaTargetId),
+    [products, mediaTargetId]
+  );
+
+  // Seçilen ürün değişince video alanlarını forma yükle.
+  useEffect(() => {
+    if (mediaProduct) {
+      setMediaYoutube(mediaProduct.youtubeUrl ?? "");
+      setMediaInstagram(mediaProduct.instagramUrl ?? "");
+    } else {
+      setMediaYoutube("");
+      setMediaInstagram("");
+    }
+    setMediaSourceUrl("");
+  }, [mediaProduct]);
 
   useEffect(() => {
     fetch("/api/products")
@@ -294,6 +319,113 @@ export default function AdminProductsPage() {
     }
   }
 
+  // ── Görsel & Video (medya) ──
+
+  // Kaynak URL'den görseli indir + kendi deponda barındır + ürüne yaz.
+  async function handleHostFromUrl() {
+    if (!mediaTargetId) { msg("err", "Önce ürün seçin"); return; }
+    if (!mediaSourceUrl.trim()) { msg("err", "Kaynak görsel URL'i girin"); return; }
+    setMediaUploading(true);
+    try {
+      const res = await fetch("/api/x9k4-sys/upload-image", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ sourceUrl: mediaSourceUrl.trim(), productId: mediaTargetId }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Görsel barındırılamadı");
+      if (data.product) {
+        setProducts(prev => prev.map(p => p.id === data.product.id ? data.product : p));
+      } else {
+        // Ürüne yazılamadıysa en azından imageUrl'i lokalde güncelle.
+        setProducts(prev => prev.map(p => p.id === mediaTargetId ? { ...p, imageUrl: data.url } : p));
+      }
+      setMediaSourceUrl("");
+      msg("ok", "Görsel indirildi ve kendi deponda barındırıldı");
+    } catch (e: any) {
+      msg("err", e.message || "Hata");
+    } finally {
+      setMediaUploading(false);
+    }
+  }
+
+  // Dosya yükle + kendi deponda barındır + ürüne yaz.
+  async function handleUploadFile(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    e.target.value = ""; // aynı dosya tekrar seçilebilsin
+    if (!file) return;
+    if (!mediaTargetId) { msg("err", "Önce ürün seçin"); return; }
+    setMediaUploading(true);
+    try {
+      const fd = new FormData();
+      fd.append("file", file);
+      fd.append("productId", mediaTargetId);
+      const res = await fetch("/api/x9k4-sys/upload-image", { method: "POST", body: fd });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Görsel yüklenemedi");
+      if (data.product) {
+        setProducts(prev => prev.map(p => p.id === data.product.id ? data.product : p));
+      } else {
+        setProducts(prev => prev.map(p => p.id === mediaTargetId ? { ...p, imageUrl: data.url } : p));
+      }
+      msg("ok", "Görsel yüklendi ve barındırıldı");
+    } catch (err: any) {
+      msg("err", err.message || "Hata");
+    } finally {
+      setMediaUploading(false);
+    }
+  }
+
+  // Ürünün barındırılan görselini kaldır (imageUrl temizle).
+  async function handleRemoveImage() {
+    if (!mediaTargetId) return;
+    setMediaUploading(true);
+    try {
+      const res = await fetch("/api/x9k4-sys/product-media", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ productId: mediaTargetId, removeImage: true }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Kaldırılamadı");
+      if (data.product) {
+        setProducts(prev => prev.map(p => p.id === data.product.id ? data.product : p));
+      }
+      msg("ok", "Görsel kaldırıldı");
+    } catch (e: any) {
+      msg("err", e.message || "Hata");
+    } finally {
+      setMediaUploading(false);
+    }
+  }
+
+  // YouTube / Instagram URL'lerini ürüne kaydet.
+  async function handleSaveMediaUrls() {
+    if (!mediaTargetId) { msg("err", "Önce ürün seçin"); return; }
+    setMediaSaving(true);
+    try {
+      const res = await fetch("/api/x9k4-sys/product-media", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          productId: mediaTargetId,
+          youtubeUrl: mediaYoutube.trim(),
+          instagramUrl: mediaInstagram.trim(),
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Kaydedilemedi");
+      if (data.product) {
+        setProducts(prev => prev.map(p => p.id === data.product.id ? data.product : p));
+      }
+      msg("ok", "Video/embed bağlantıları kaydedildi");
+    } catch (e: any) {
+      msg("err", e.message || "Hata");
+    } finally {
+      setMediaSaving(false);
+    }
+  }
+
   async function handleCompare(e: React.FormEvent) {
     e.preventDefault();
     if (!selA || !selB || selA === selB) return;
@@ -332,6 +464,7 @@ export default function AdminProductsPage() {
     { id: "ekle", label: "Ürün Ekle" },
     { id: "csv", label: "CSV İçe Aktar" },
     { id: "gorsel", label: "Resmî Görsel/Spec" },
+    { id: "medya", label: "Görsel & Video" },
     { id: "liste", label: `Liste (${products.length})` },
     { id: "karsilastir", label: "Karşılaştırma Üret" },
   ];
@@ -687,6 +820,126 @@ export default function AdminProductsPage() {
               </div>
             )}
           </div>
+        </div>
+      )}
+
+      {/* TAB: GÖRSEL & VİDEO (Akakçe usulü barındırma + YouTube/Instagram embed) */}
+      {tab === "medya" && (
+        <div className="space-y-6">
+          {/* Ürün seç */}
+          <div className="rounded-xl border border-zinc-200 bg-zinc-50 p-6">
+            <h2 className="text-sm font-bold text-zinc-700 mb-1 flex items-center gap-2">
+              <ImageIcon className="size-4 text-orange-600" /> Görsel & Video Yönetimi
+            </h2>
+            <p className="text-xs text-zinc-400 mb-4">
+              Kaynak görsel URL&apos;ini yapıştır ya da dosya yükle — sistem görseli indirip <strong>kendi deponda barındırır</strong> (Akakçe usulü, hotlink değil). Ayrıca YouTube/Instagram inceleme bağlantısı ekleyebilirsin.
+            </p>
+            <div className="flex flex-col gap-1 max-w-md">
+              <label className="text-[10px] font-bold text-zinc-400 uppercase tracking-wider">Ürün</label>
+              <div className="relative">
+                <select value={mediaTargetId} onChange={e => setMediaTargetId(e.target.value)}
+                  className="w-full appearance-none rounded-lg border border-zinc-200 bg-white pl-3 pr-8 py-2 text-sm text-zinc-900 outline-none focus:border-orange-500">
+                  <option value="">Ürün seç...</option>
+                  {products.map(p => <option key={p.id} value={p.id}>{p.brand} {p.model}{p.imageUrl ? "" : " — görselsiz"}</option>)}
+                </select>
+                <ChevronDown className="absolute right-2.5 top-1/2 -translate-y-1/2 size-4 text-zinc-400 pointer-events-none" />
+              </div>
+            </div>
+          </div>
+
+          {mediaProduct && (
+            <>
+              {/* GÖRSEL — barındır */}
+              <div className="rounded-xl border border-zinc-200 bg-white p-6">
+                <h3 className="text-sm font-bold text-zinc-700 mb-4 flex items-center gap-2">
+                  <Download className="size-4 text-orange-600" /> Ürün Görseli (kendi deponda barındırılır)
+                </h3>
+                <div className="flex flex-wrap gap-6">
+                  {/* Önizleme */}
+                  <div className="shrink-0">
+                    {mediaProduct.imageUrl ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={mediaProduct.imageUrl} alt="" className="w-40 h-40 rounded-lg object-contain border border-zinc-100 bg-white" />
+                    ) : (
+                      <div className="w-40 h-40 rounded-lg bg-zinc-100 flex items-center justify-center">
+                        <ImageIcon className="size-6 text-zinc-300" />
+                      </div>
+                    )}
+                    {mediaProduct.imageUrl && (
+                      <button onClick={handleRemoveImage} disabled={mediaUploading}
+                        className="mt-2 w-40 flex items-center justify-center gap-1.5 rounded-lg border border-red-200 bg-white px-3 py-1.5 text-xs font-bold text-red-500 hover:bg-red-50 transition disabled:opacity-50">
+                        <X className="size-3.5" /> Görseli Kaldır
+                      </button>
+                    )}
+                  </div>
+
+                  {/* Eylemler */}
+                  <div className="flex-1 min-w-64 space-y-4">
+                    {/* Kaynak URL'den indir */}
+                    <div>
+                      <label className="text-[10px] font-bold text-zinc-400 uppercase tracking-wider flex items-center gap-1 mb-1">
+                        <Link2 className="size-3" /> Kaynak URL&apos;den indir & barındır
+                      </label>
+                      <div className="flex gap-2">
+                        <input value={mediaSourceUrl} onChange={e => setMediaSourceUrl(e.target.value)}
+                          placeholder="https://magaza.com/urun-gorseli.jpg"
+                          className="flex-1 rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-900 outline-none focus:border-orange-500" />
+                        <button onClick={handleHostFromUrl} disabled={mediaUploading || !mediaSourceUrl.trim()}
+                          className="flex items-center gap-2 rounded-lg bg-orange-600 px-4 py-2 text-sm font-bold text-white hover:bg-orange-500 transition disabled:opacity-50 whitespace-nowrap">
+                          {mediaUploading ? <Loader2 className="size-4 animate-spin" /> : <Download className="size-4" />}
+                          İndir & Barındır
+                        </button>
+                      </div>
+                      <p className="text-[11px] text-zinc-400 mt-1">Görsel indirilip kendi sunucumuza kaydedilir; kaynak link değişse/silinse de görsel kalıcı olur.</p>
+                    </div>
+
+                    {/* Dosya yükle */}
+                    <div>
+                      <label className="text-[10px] font-bold text-zinc-400 uppercase tracking-wider flex items-center gap-1 mb-1">
+                        <Upload className="size-3" /> Bilgisayardan dosya yükle
+                      </label>
+                      <label className="inline-flex items-center gap-2 rounded-lg border border-zinc-300 bg-white px-4 py-2 text-sm font-bold text-zinc-700 cursor-pointer hover:border-orange-500 transition">
+                        <Upload className="size-4" />
+                        Dosya Seç (JPG/PNG/WebP, max 8MB)
+                        <input type="file" accept="image/jpeg,image/png,image/webp,image/gif,image/avif" onChange={handleUploadFile} className="hidden" disabled={mediaUploading} />
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* VİDEO / EMBED */}
+              <div className="rounded-xl border border-zinc-200 bg-white p-6">
+                <h3 className="text-sm font-bold text-zinc-700 mb-4 flex items-center gap-2">
+                  <Youtube className="size-4 text-orange-600" /> İnceleme Videosu & Sosyal Medya
+                </h3>
+                <div className="space-y-4 max-w-2xl">
+                  <div className="flex flex-col gap-1">
+                    <label className="text-[10px] font-bold text-zinc-400 uppercase tracking-wider flex items-center gap-1">
+                      <Youtube className="size-3" /> YouTube URL
+                    </label>
+                    <input value={mediaYoutube} onChange={e => setMediaYoutube(e.target.value)}
+                      placeholder="https://www.youtube.com/watch?v=..."
+                      className="rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-900 outline-none focus:border-orange-500" />
+                  </div>
+                  <div className="flex flex-col gap-1">
+                    <label className="text-[10px] font-bold text-zinc-400 uppercase tracking-wider flex items-center gap-1">
+                      <Instagram className="size-3" /> Instagram URL (opsiyonel)
+                    </label>
+                    <input value={mediaInstagram} onChange={e => setMediaInstagram(e.target.value)}
+                      placeholder="https://www.instagram.com/p/..."
+                      className="rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-900 outline-none focus:border-orange-500" />
+                  </div>
+                  <p className="text-[11px] text-zinc-400">Boş bırakıp kaydedersen ilgili bağlantı temizlenir. Videolar ürün ve karşılaştırma sayfalarında resmî embed ile gösterilir.</p>
+                  <button onClick={handleSaveMediaUrls} disabled={mediaSaving}
+                    className="flex items-center gap-2 rounded-lg bg-orange-600 px-4 py-2 text-sm font-bold text-white hover:bg-orange-500 transition disabled:opacity-50">
+                    {mediaSaving ? <Loader2 className="size-4 animate-spin" /> : <CheckCircle2 className="size-4" />}
+                    Video Bağlantılarını Kaydet
+                  </button>
+                </div>
+              </div>
+            </>
+          )}
         </div>
       )}
 

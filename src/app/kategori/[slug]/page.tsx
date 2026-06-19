@@ -1,4 +1,4 @@
-import { getProducts, getComparisons } from "@/lib/products/store";
+import { getProducts, getComparisons, productSlug } from "@/lib/products/store";
 import { CATEGORY_LABELS, CATEGORY_GROUPS } from "@/lib/products/types";
 import type { ProductCategory } from "@/lib/products/types";
 import { notFound } from "next/navigation";
@@ -49,7 +49,7 @@ export default async function CategoryPage({ params }: Props) {
 
   return (
     <>
-      {/* Schema.org Structured Data */}
+      {/* Schema.org: BreadcrumbList */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -64,6 +64,28 @@ export default async function CategoryPage({ params }: Props) {
           }),
         }}
       />
+
+      {/* Schema.org: ItemList — kategorideki ürünler (rich result için).
+          Affiliate/karşılaştırma sitesi olduğumuz için fiyat/offer işaretlemiyoruz. */}
+      {products.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ItemList",
+              name: `${label} — Ürün Listesi`,
+              numberOfItems: products.length,
+              itemListElement: products.slice(0, 50).map((p, i) => ({
+                "@type": "ListItem",
+                position: i + 1,
+                url: `https://hirdavatpro.com/urun/${productSlug(p)}`,
+                name: `${p.brand} ${p.model}`,
+              })),
+            }),
+          }}
+        />
+      )}
 
       <CategoryClient
         slug={slug}

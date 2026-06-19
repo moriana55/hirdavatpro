@@ -81,7 +81,7 @@ export function AkilliSecimWizardClient({ allProducts }: AkilliSecimWizardClient
   const matchedRecommendations = useMemo(() => {
     if (step !== 4 || !usage || !category || !budget) return [];
 
-    let filtered = allProducts.filter((p) => {
+    const filtered = allProducts.filter((p) => {
       // Kategori Filtresi
       if (category === "matkap") {
         return ["darbeli-matkap", "kirici-delici", "vidalama"].includes(p.category);
@@ -96,7 +96,7 @@ export function AkilliSecimWizardClient({ allProducts }: AkilliSecimWizardClient
     // Her ürün için puanlama yapalım
     const scoredProducts = filtered.map((p) => {
       let score = 0;
-      let reasons: string[] = [];
+      const reasons: string[] = [];
 
       // 1. Motor Tipi Puanlaması (Brushless - Kömürsüz)
       const isBrushless = Object.entries(p.specs).some(([k, v]) => {

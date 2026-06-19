@@ -14,29 +14,7 @@ export function SiteFooter() {
           </p>
         </div>
 
-        {/* Kurumsal Column */}
-        <div>
-          <h4 className="font-label-caps text-label-caps text-white mb-6">KURUMSAL</h4>
-          <ul className="space-y-3 text-secondary-fixed-dim font-body-sm">
-            <li>
-              <Link href="/karsilastirma" className="hover:text-primary-fixed transition-colors decoration-none">
-                Karşılaştırmalar
-              </Link>
-            </li>
-            <li>
-              <Link href="/araclar" className="hover:text-primary-fixed transition-colors decoration-none">
-                Seçim Araçları
-              </Link>
-            </li>
-            <li>
-              <Link href="/blog" className="hover:text-primary-fixed transition-colors decoration-none">
-                Teknik Rehberler
-              </Link>
-            </li>
-          </ul>
-        </div>
-
-        {/* Keşfet Column */}
+        {/* Keşfet Column — ana içerik akışları */}
         <div>
           <h4 className="font-label-caps text-label-caps text-white mb-6">KEŞFET</h4>
           <ul className="space-y-3 text-secondary-fixed-dim font-body-sm">
@@ -53,6 +31,33 @@ export function SiteFooter() {
             <li>
               <Link href="/blog" className="hover:text-primary-fixed transition-colors decoration-none">
                 Teknik Rehberler
+              </Link>
+            </li>
+            <li>
+              <Link href="/arama" className="hover:text-primary-fixed transition-colors decoration-none">
+                Ürün Arama
+              </Link>
+            </li>
+          </ul>
+        </div>
+
+        {/* Planlama & B2B Column — lead-gen ve proje araçları */}
+        <div>
+          <h4 className="font-label-caps text-label-caps text-white mb-6">PLANLAMA &amp; B2B</h4>
+          <ul className="space-y-3 text-secondary-fixed-dim font-body-sm">
+            <li>
+              <Link href="/proje-sihirbazi" className="hover:text-primary-fixed transition-colors decoration-none">
+                Proje Sihirbazı
+              </Link>
+            </li>
+            <li>
+              <Link href="/projelerim" className="hover:text-primary-fixed transition-colors decoration-none">
+                Projelerim
+              </Link>
+            </li>
+            <li>
+              <Link href="/b2b" className="hover:text-primary-fixed transition-colors decoration-none">
+                Kurumsal Teklif İste
               </Link>
             </li>
           </ul>

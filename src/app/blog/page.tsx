@@ -29,12 +29,25 @@ type BlogCard = {
 };
 
 export default async function BlogPage() {
-  // Birleşim: DB-tabanlı CMS yazıları + dosya-tabanlı statik rehberler, slug'a göre tekilleştir
-  const dbPosts = await prisma.blogPost.findMany({
-    where: { published: true },
-    orderBy: { createdAt: "desc" },
-    select: { id: true, title: true, slug: true, excerpt: true, category: true, coverImage: true, readTime: true, createdAt: true },
-  });
+  // Birleşim: DB-tabanlı CMS yazıları + dosya-tabanlı statik rehberler, slug'a göre tekilleştir.
+  // DB erişilemez / şema göçü yapılmamışsa (bağlantı/şema hatası) sayfa 500 atmamalı:
+  // dosya-tabanlı rehberlerle render etmeye devam ederiz (store.ts ile aynı dayanıklılık deseni).
+  let dbPosts: Array<{
+    id: string; title: string; slug: string; excerpt: string | null;
+    category: string; coverImage: string | null; readTime: string;
+  }> = [];
+  try {
+    dbPosts = await prisma.blogPost.findMany({
+      where: { published: true },
+      orderBy: { createdAt: "desc" },
+      select: { id: true, title: true, slug: true, excerpt: true, category: true, coverImage: true, readTime: true, createdAt: true },
+    });
+  } catch (e) {
+    if (process.env.NODE_ENV !== "production") {
+      const err = e as { code?: string };
+      console.warn(`[blog] DB okunamadı (${err?.code ?? "bağlantı/şema hatası"}), dosya rehberleri kullanılıyor.`);
+    }
+  }
 
   const seen = new Set(dbPosts.map(p => p.slug));
   const filePosts: BlogCard[] = getAllPosts()
@@ -52,7 +65,7 @@ export default async function BlogPage() {
   const posts: BlogCard[] = [...dbPosts, ...filePosts];
 
   return (
-    <div className="mx-auto max-w-[1200px] px-6 pt-32 pb-16 md:pb-20">
+    <div className="mx-auto max-w-max-width px-margin-mobile md:px-margin-desktop pt-32 pb-16 md:pb-20">
       <span className="badge badge-accent mb-3">Alet Seçim &amp; Kullanım</span>
       <h1 className="font-heading text-[36px] font-bold text-[var(--foreground)] md:text-[44px]">
         Rehberler

@@ -13,6 +13,10 @@ export interface Product {
   /** Ek görsel URL'leri (resmî katalogdan). */
   gallery?: string[];
   sourceUrl?: string;
+  /** YouTube inceleme videosu — tam URL ya da video id. */
+  youtubeUrl?: string;
+  /** Instagram gönderi/reel URL'i (opsiyonel). */
+  instagramUrl?: string;
   createdAt: string;
 }
 

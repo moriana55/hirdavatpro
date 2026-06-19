@@ -156,7 +156,7 @@ export function ProjelerimClient() {
 
   const addItemsToBasket = (items: SavedItem[]) => {
     try {
-      let basket: string[] = JSON.parse(localStorage.getItem("hirdavatpro_basket") || "[]");
+      const basket: string[] = JSON.parse(localStorage.getItem("hirdavatpro_basket") || "[]");
       let added = 0;
       for (const it of items) {
         if (!it.productId || basket.includes(it.productId)) continue;

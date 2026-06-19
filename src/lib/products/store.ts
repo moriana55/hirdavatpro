@@ -36,11 +36,25 @@ function fileComparisons(): Comparison[] {
 
 // ── Read helpers (cached per request via Next.js) ──
 
+// DB okuma hatalarını yutarak (bağlantı yok / un-migrated sütun = P2022) JSON
+// fallback'e düşmemizi sağlar. Böylece DB erişilemez ya da göçü yapılmamış olsa
+// bile sayfa 500 atmadan render edilir. Geliştirmede sebebi loglarız.
+function logDbFallback(scope: string, e: unknown) {
+  if (process.env.NODE_ENV !== "production") {
+    const err = e as { code?: string; message?: string };
+    console.warn(
+      `[store] ${scope}: DB okunamadı (${err?.code ?? "bağlantı/şema hatası"}), JSON fallback kullanılıyor.`
+    );
+  }
+}
+
 export async function getProducts(): Promise<Product[]> {
   try {
     const rows = await prisma.product.findMany({ orderBy: { createdAt: "desc" } });
     if (rows.length) return rows.map(toProduct);
-  } catch {}
+  } catch (e) {
+    logDbFallback("getProducts", e);
+  }
   return fileProducts();
 }
 
@@ -48,7 +62,9 @@ export async function getProductById(id: string): Promise<Product | undefined> {
   try {
     const row = await prisma.product.findUnique({ where: { id } });
     if (row) return toProduct(row);
-  } catch {}
+  } catch (e) {
+    logDbFallback("getProductById", e);
+  }
   return fileProducts().find(p => p.id === id);
 }
 
@@ -56,7 +72,9 @@ export async function getProductsByCategory(category: string): Promise<Product[]
   try {
     const rows = await prisma.product.findMany({ where: { category }, orderBy: { brand: "asc" } });
     if (rows.length) return rows.map(toProduct);
-  } catch {}
+  } catch (e) {
+    logDbFallback("getProductsByCategory", e);
+  }
   return fileProducts().filter(p => p.category === category);
 }
 
@@ -64,7 +82,9 @@ export async function getProductBySlug(slug: string): Promise<Product | undefine
   try {
     const products = await prisma.product.findMany();
     if (products.length) return products.map(toProduct).find(p => productSlug(p) === slug);
-  } catch {}
+  } catch (e) {
+    logDbFallback("getProductBySlug", e);
+  }
   return fileProducts().find(p => productSlug(p) === slug);
 }
 
@@ -72,7 +92,9 @@ export async function getProductByBrandModel(brand: string, model: string): Prom
   try {
     const row = await prisma.product.findUnique({ where: { brand_model: { brand, model } } });
     if (row) return toProduct(row);
-  } catch {}
+  } catch (e) {
+    logDbFallback("getProductByBrandModel", e);
+  }
   return fileProducts().find(p => p.brand === brand && p.model === model);
 }
 
@@ -94,6 +116,8 @@ export async function saveProduct(product: Omit<Product, "id" | "createdAt"> & {
       mpn: product.mpn,
       gallery: (product.gallery ?? undefined) as any,
       sourceUrl: product.sourceUrl,
+      youtubeUrl: product.youtubeUrl,
+      instagramUrl: product.instagramUrl,
     },
     create: {
       brand: product.brand,
@@ -106,6 +130,8 @@ export async function saveProduct(product: Omit<Product, "id" | "createdAt"> & {
       mpn: product.mpn,
       gallery: (product.gallery ?? undefined) as any,
       sourceUrl: product.sourceUrl,
+      youtubeUrl: product.youtubeUrl,
+      instagramUrl: product.instagramUrl,
     },
   });
   return toProduct(row);
@@ -156,6 +182,27 @@ export async function deleteProduct(id: string) {
   await prisma.product.delete({ where: { id } });
 }
 
+// Ürünün medya alanlarını (barındırılan görsel + video/embed) günceller.
+// Yalnızca verilen alanlar yazılır; undefined geçilen alanlara dokunulmaz.
+// Görsel pipeline (image-storage) ve admin video formu burayı kullanır.
+export async function updateProductMedia(
+  id: string,
+  data: {
+    imageUrl?: string | null;
+    youtubeUrl?: string | null;
+    instagramUrl?: string | null;
+  }
+): Promise<Product> {
+  const patch: Record<string, unknown> = {};
+  // imageUrl: string yaz, null → temizle, undefined → dokunma.
+  if (data.imageUrl !== undefined) patch.imageUrl = data.imageUrl ?? null;
+  // null gönderilirse alan temizlenir (kaldır); undefined ise dokunulmaz.
+  if (data.youtubeUrl !== undefined) patch.youtubeUrl = data.youtubeUrl ?? null;
+  if (data.instagramUrl !== undefined) patch.instagramUrl = data.instagramUrl ?? null;
+  const row = await prisma.product.update({ where: { id }, data: patch });
+  return toProduct(row);
+}
+
 // Görseli olmayan ürünler — toplu içe aktarma için.
 export async function getProductsWithoutImage(): Promise<Product[]> {
   try {
@@ -164,7 +211,8 @@ export async function getProductsWithoutImage(): Promise<Product[]> {
       orderBy: { createdAt: "desc" },
     });
     return rows.map(toProduct);
-  } catch {
+  } catch (e) {
+    logDbFallback("getProductsWithoutImage", e);
     return fileProducts().filter((p) => !p.imageUrl);
   }
 }
@@ -175,7 +223,9 @@ export async function getComparisons(): Promise<Comparison[]> {
   try {
     const rows = await prisma.comparison.findMany({ orderBy: { createdAt: "desc" } });
     if (rows.length) return rows.map(toComparison);
-  } catch {}
+  } catch (e) {
+    logDbFallback("getComparisons", e);
+  }
   return fileComparisons();
 }
 
@@ -183,7 +233,9 @@ export async function getComparisonBySlug(slug: string): Promise<Comparison | un
   try {
     const row = await prisma.comparison.findUnique({ where: { slug } });
     if (row) return toComparison(row);
-  } catch {}
+  } catch (e) {
+    logDbFallback("getComparisonBySlug", e);
+  }
   return fileComparisons().find(c => c.slug === slug);
 }
 
@@ -239,6 +291,8 @@ function toProduct(row: any): Product {
         ? safeParseArray(row.gallery)
         : undefined,
     sourceUrl: row.sourceUrl ?? undefined,
+    youtubeUrl: row.youtubeUrl ?? undefined,
+    instagramUrl: row.instagramUrl ?? undefined,
     createdAt: row.createdAt instanceof Date ? row.createdAt.toISOString() : row.createdAt,
   };
 }

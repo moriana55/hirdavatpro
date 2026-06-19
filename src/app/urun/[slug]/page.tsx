@@ -10,6 +10,7 @@ import { AletAkuSimulasyonClient } from "@/components/urun/AletAkuSimulasyonClie
 import { YedekParcaKatalogClient } from "@/components/urun/YedekParcaKatalogClient";
 import { UyumlulukSection } from "@/components/urun/UyumlulukSection";
 import { FiyatKarsilastirClient } from "@/components/urun/FiyatKarsilastirClient";
+import { VideoEmbed } from "@/components/urun/VideoEmbed";
 
 const getCompatibilityGuide = (category: string, specs: Record<string, any>) => {
   const isDrill = ["darbeli-matkap", "kirici-delici", "vidalama"].includes(category);
@@ -479,6 +480,13 @@ export default async function ProductDetailPage({ params }: Props) {
             </div>
           </div>
         )}
+
+        {/* İnceleme Videosu — YouTube/Instagram resmî embed (video varsa gösterilir) */}
+        <VideoEmbed
+          youtubeUrl={product.youtubeUrl}
+          instagramUrl={product.instagramUrl}
+          title={`${product.brand} ${product.model}`}
+        />
 
         {/* Endüstriyel Performans Simülatörü */}
         <AletAkuSimulasyonClient

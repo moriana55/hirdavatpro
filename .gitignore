@@ -45,3 +45,6 @@ next-env.d.ts
 
 # local sqlite (dev only)
 *.db
+
+# runtime barındırılan ürün görselleri (image-storage.ts → public/uploads)
+/public/uploads

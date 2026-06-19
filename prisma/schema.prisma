@@ -20,6 +20,9 @@ model Product {
   mpn       String?  // üretici parça no (MPN) — marka+model alternatifi
   gallery   Json?    // ek görsel URL'leri (string[]) — resmî katalogdan
   sourceUrl String?  @map("source_url")
+  // İnceleme/medya embed alanları (opsiyonel, additive — bkz. Feature: video embed).
+  youtubeUrl   String? @map("youtube_url")   // YouTube inceleme videosu (tam URL ya da id)
+  instagramUrl String? @map("instagram_url") // Instagram gönderi/reel URL'i (opsiyonel)
   createdAt DateTime @default(now()) @map("created_at")
 
   comparisonsA Comparison[] @relation("ProductA")

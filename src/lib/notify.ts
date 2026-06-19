@@ -18,7 +18,7 @@ const ADMIN_EMAIL = process.env.ADMIN_NOTIFY_EMAIL || "admin@hirdavatpro.com";
 export async function notifyAdmin(n: AdminNotification): Promise<{ delivered: boolean }> {
   // Gerçek sağlayıcı yoksa graceful fallback: logla, çağıran akışı bozma.
   try {
-    // eslint-disable-next-line no-console
+     
     console.log(
       `[notifyAdmin → ${ADMIN_EMAIL}] ${n.subject}\n${n.body}` +
         (n.meta ? `\nmeta: ${JSON.stringify(n.meta)}` : "")

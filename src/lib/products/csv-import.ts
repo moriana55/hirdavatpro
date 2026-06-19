@@ -162,7 +162,7 @@ export function parseProductCsv(text: string): ParseResult {
     seen.add(dupKey);
 
     // Specs JSON (opsiyonel).
-    let specs: Record<string, string | number> = {};
+    const specs: Record<string, string | number> = {};
     const specsRaw = get("specs");
     if (specsRaw) {
       try {

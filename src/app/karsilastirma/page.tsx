@@ -8,6 +8,12 @@ export const metadata: Metadata = {
   title: "Hırdavat & Alet Karşılaştırmaları — Tüm Kategoriler",
   description: "Bosch vs Makita, DeWalt vs Milwaukee ve yüzlerce endüstriyel alet karşılaştırması. Matkap, taşlama, testere, kaynak makinesi, el aleti ve daha fazlası.",
   alternates: { canonical: "https://hirdavatpro.com/karsilastirma" },
+  openGraph: {
+    title: "Hırdavat & Alet Karşılaştırmaları — Tüm Kategoriler",
+    description: "Teknik spec bazlı, tarafsız hırdavat karşılaştırmaları. Bosch, Makita, DeWalt, Milwaukee ve daha fazlası.",
+    type: "website",
+    url: "https://hirdavatpro.com/karsilastirma",
+  },
 };
 
 export const dynamic = "force-dynamic";

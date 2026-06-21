@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { Search, Copy, Check, Info, FileText, ChevronRight } from "lucide-react";
+import { Search, Copy, Check, Info, FileText } from "lucide-react";
 
 type Props = {
   category: string;
@@ -377,7 +377,7 @@ export function YedekParcaKatalogClient({ category, brand, model }: Props) {
           <div className="mt-4 bg-[#FFF8E1]/5 border border-[#FFE082]/10 rounded-xl p-3.5 flex gap-2.5 items-start">
             <span className="material-symbols-outlined text-[#FFE082] text-[18px] shrink-0 mt-0.5">verified</span>
             <p className="text-slate-400 text-[10px] leading-relaxed">
-              <strong>Yedek Parça Orijinallik Garantisi:</strong> Listelenen tüm parçalar %100 orijinal **{brand}** fabrikasyon yedek parçalarıdır. Sanayide yetkili servislerden tedarik etmek veya sipariş oluşturmak için yukarıdaki **OEM Kodu**'nu kopyalamanız yeterlidir.
+              <strong>Yedek Parça Orijinallik Garantisi:</strong> Listelenen tüm parçalar %100 orijinal **{brand}** fabrikasyon yedek parçalarıdır. Sanayide yetkili servislerden tedarik etmek veya sipariş oluşturmak için yukarıdaki **OEM Kodu**&apos;nu kopyalamanız yeterlidir.
             </p>
           </div>
 

@@ -122,7 +122,7 @@ export function FiyatKarsilastirClient({ productId, slug }: { productId: string;
                             <a
                               href={buildAffiliateHref({ url: s.url, retailer: s.source, productId, slug })}
                               target="_blank"
-                              rel="nofollow noopener noreferrer"
+                              rel="sponsored nofollow noopener noreferrer"
                               className="inline-flex items-center gap-1 rounded bg-primary/10 px-3 py-1.5 font-label-caps text-[11px] font-bold text-primary hover:bg-primary hover:text-white transition-colors whitespace-nowrap"
                             >
                               MAĞAZAYA GİT <span className="material-symbols-outlined text-[14px]">open_in_new</span>

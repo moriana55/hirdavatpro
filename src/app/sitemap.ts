@@ -11,7 +11,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const comparisons = await getComparisons();
   const products = await getProducts();
   const categories = [...new Set(products.map(p => p.category))];
-  const blogPosts = await prisma.blogPost.findMany({ where: { published: true }, select: { slug: true, updatedAt: true } });
+  // DB erişilemezse (bağlantı/şema hatası) sitemap'i bozma — dosya-tabanlı
+  // blog yazıları yine eklenir. getProducts/getComparisons zaten JSON'a düşüyor.
+  let blogPosts: { slug: string; updatedAt: Date }[] = [];
+  try {
+    blogPosts = await prisma.blogPost.findMany({ where: { published: true }, select: { slug: true, updatedAt: true } });
+  } catch (err) {
+    console.warn("[sitemap] blogPost DB okunamadı, dosya-tabanlı yazılarla devam:", err);
+  }
 
   const staticPages: MetadataRoute.Sitemap = [
     { url: BASE, lastModified: new Date(), changeFrequency: "weekly", priority: 1.0 },

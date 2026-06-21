@@ -19,10 +19,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const b = await getProductById(comparison.productB);
   if (!a || !b) return {};
   const title = `${a.brand} ${a.model} vs ${b.brand} ${b.model} — Teknik Karşılaştırma`;
+  const desc = comparison.verdict || `${a.brand} ${a.model} ve ${b.brand} ${b.model} teknik karşılaştırması. Hangisi daha iyi?`;
+  const canonical = `https://hirdavatpro.com/karsilastirma/${slug}`;
   return {
     title,
-    description: comparison.verdict || `${a.brand} ${a.model} ve ${b.brand} ${b.model} teknik karşılaştırması. Hangisi daha iyi?`,
-    openGraph: { title, description: comparison.verdict },
+    description: desc,
+    alternates: { canonical },
+    openGraph: { title, description: desc, type: "article", url: canonical },
   };
 }
 
@@ -67,6 +70,9 @@ export default async function ComparisonDetailPage({ params }: Props) {
             headline: `${a.brand} ${a.model} vs ${b.brand} ${b.model} Karşılaştırması`,
             description: comparison.verdict,
             datePublished: comparison.createdAt,
+            dateModified: comparison.createdAt,
+            mainEntityOfPage: `https://hirdavatpro.com/karsilastirma/${slug}`,
+            author: { "@type": "Organization", name: "Hırdavat Pro" },
             publisher: { "@type": "Organization", name: "Hırdavat Pro", url: "https://hirdavatpro.com" },
           }),
         }}

@@ -276,8 +276,24 @@ export default async function ProductDetailPage({ params }: Props) {
 
   return (
     <article className="bg-background min-h-screen pt-32 pb-16">
+      {/* Schema.org: BreadcrumbList (görünür breadcrumb ile eşleşir) */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Ana Sayfa", item: "https://hirdavatpro.com" },
+              { "@type": "ListItem", position: 2, name: catLabel, item: `https://hirdavatpro.com/kategori/${product.category}` },
+              { "@type": "ListItem", position: 3, name: `${product.brand} ${product.model}`, item: `https://hirdavatpro.com/urun/${slug}` },
+            ],
+          }),
+        }}
+      />
+
       <div className="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop">
-        
+
         {/* Breadcrumb */}
         <nav className="flex items-center gap-2 mb-8 text-secondary font-body-sm text-body-sm">
           <Link href="/" className="hover:text-primary transition-colors decoration-none font-bold">Ana Sayfa</Link>

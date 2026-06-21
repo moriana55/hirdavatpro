@@ -1,5 +1,14 @@
+import type { Metadata } from "next";
 import { getProducts } from "@/lib/products/store";
 import { ComparisonBasketClient } from "@/components/karsilastirma/ComparisonBasketClient";
+
+export const metadata: Metadata = {
+  title: "Karşılaştırma Sepeti",
+  description: "Seçtiğiniz hırdavat ürünlerini yan yana teknik spec bazında karşılaştırın.",
+  alternates: { canonical: "https://hirdavatpro.com/karsilastirma/sepet" },
+  // Kişiye özel (localStorage) sepet sayfası — indekslenmez, ince/yinelenen içerik önlemi.
+  robots: { index: false, follow: true },
+};
 
 export const dynamic = "force-dynamic";
 

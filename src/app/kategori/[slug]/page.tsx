@@ -15,7 +15,7 @@ function isValidCategory(slug: string): slug is ProductCategory {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  if (!isValidCategory(slug)) return {};
+  if (!isValidCategory(slug)) return { title: "Kategori bulunamadı", robots: { index: false, follow: false } };
   const label = CATEGORY_LABELS[slug];
   const title = `${label} Karşılaştırma & İnceleme — En İyi ${label} 2026`;
   const desc = `${label} kategorisindeki tüm ürünler ve karşılaştırmalar. Teknik spec bazlı, tarafsız karşılaştırmalarla doğru ${label.toLowerCase()} seçimi yapın.`;

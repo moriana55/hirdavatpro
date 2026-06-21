@@ -18,7 +18,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = getPostBySlug(slug);
-  if (!post) return {};
+  if (!post) return { title: "Yazı bulunamadı", robots: { index: false, follow: false } };
   const title = `${post.title} | Hırdavat Pro Rehber`;
   return {
     title,

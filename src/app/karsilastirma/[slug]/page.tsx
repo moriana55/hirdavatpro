@@ -14,10 +14,10 @@ type Props = { params: Promise<{ slug: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const comparison = await getComparisonBySlug(slug);
-  if (!comparison) return {};
+  if (!comparison) return { title: "Karşılaştırma bulunamadı", robots: { index: false, follow: false } };
   const a = await getProductById(comparison.productA);
   const b = await getProductById(comparison.productB);
-  if (!a || !b) return {};
+  if (!a || !b) return { title: "Karşılaştırma bulunamadı", robots: { index: false, follow: false } };
   const title = `${a.brand} ${a.model} vs ${b.brand} ${b.model} — Teknik Karşılaştırma`;
   const desc = comparison.verdict || `${a.brand} ${a.model} ve ${b.brand} ${b.model} teknik karşılaştırması. Hangisi daha iyi?`;
   const canonical = `https://hirdavatpro.com/karsilastirma/${slug}`;

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Zap, Weight, Thermometer, Cable, ShieldAlert, Sparkles, Activity } from "lucide-react";
+import { Zap, Thermometer, Cable, ShieldAlert, Sparkles, Activity } from "lucide-react";
 
 type Props = {
   category: string;

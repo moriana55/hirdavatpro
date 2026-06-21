@@ -361,7 +361,7 @@ export function HaritaTasarimClient() {
 
             {/* Custom Mapbox Style URL */}
             <div>
-              <label className="text-[11px] font-semibold text-secondary block mb-1">Özel Mapbox Studio Stil URL'i (Opsiyonel)</label>
+              <label className="text-[11px] font-semibold text-secondary block mb-1">Özel Mapbox Studio Stil URL&apos;i (Opsiyonel)</label>
               <input
                 type="text"
                 value={customStyleUrl}
@@ -370,7 +370,7 @@ export function HaritaTasarimClient() {
                 className="w-full px-3 py-2 bg-white border border-border-subtle rounded text-xs font-mono focus:outline-none focus:border-primary text-on-background"
               />
               <p className="text-[9px] text-slate-gray mt-1">
-                *Mapbox Studio'da tasarladığınız tamamen kişiselleştirilmiş harita stillerini buraya yapıştırıp yükleyebilirsiniz.
+                *Mapbox Studio&apos;da tasarladığınız tamamen kişiselleştirilmiş harita stillerini buraya yapıştırıp yükleyebilirsiniz.
               </p>
             </div>
 
@@ -417,7 +417,7 @@ export function HaritaTasarimClient() {
               </button>
             </form>
             <p className="text-[9px] text-secondary leading-relaxed">
-              *Varsayılan olarak hesabınızın sınırsız test lisansı devrededir. Başka bir Mapbox hesabının stilini veya limitlerini kullanmak isterseniz yeni **Access Token**'ı buraya kaydedebilirsiniz.
+              *Varsayılan olarak hesabınızın sınırsız test lisansı devrededir. Başka bir Mapbox hesabının stilini veya limitlerini kullanmak isterseniz yeni **Access Token**&apos;ı buraya kaydedebilirsiniz.
             </p>
           </div>
 

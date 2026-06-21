@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getCompatibility, findEquivalents } from "@/lib/compatibility";
-import type { Product, ProductCategory } from "@/lib/products/types";
+import type { Product } from "@/lib/products/types";
 import { CATEGORY_LABELS } from "@/lib/products/types";
 
 const productSlug = (p: Pick<Product, "brand" | "model">) =>

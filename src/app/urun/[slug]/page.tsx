@@ -177,7 +177,7 @@ type Props = { params: Promise<{ slug: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const product = await getProductBySlug(slug);
-  if (!product) return {};
+  if (!product) return { title: "Ürün bulunamadı", robots: { index: false, follow: false } };
   const title = `${product.brand} ${product.model} — Teknik Özellikler & Karşılaştırma`;
   const desc = `${product.brand} ${product.model} teknik özellikleri, fiyat aralığı ve rakipleriyle karşılaştırması. ${CATEGORY_LABELS[product.category] || product.category} kategorisinde detaylı inceleme.`;
   return {

@@ -56,7 +56,6 @@ function hesapla(params: {
     alan_m2 -= l_en * l_boy;
   }
 
-  const fayans_alan_m2 = ((fayans_en / 100) + (derz / 1000)) * ((fayans_boy / 100) + (derz / 1000));
   const fayans_net_alan = (fayans_en / 100) * (fayans_boy / 100);
 
   const fayans_adedi_net = Math.ceil(alan_m2 / fayans_net_alan);

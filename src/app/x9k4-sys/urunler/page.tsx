@@ -513,7 +513,7 @@ export default function AdminProductsPage() {
           {/* Tekli ekleme */}
           <div className="rounded-xl border border-zinc-200 bg-zinc-50 p-6">
             <h2 className="text-sm font-bold text-zinc-700 mb-1">Tekli Ürün Ekle</h2>
-            <p className="text-xs text-zinc-400 mb-4">Marka + model gir, AI teknik spec'leri otomatik çeker.</p>
+            <p className="text-xs text-zinc-400 mb-4">Marka + model gir, AI teknik spec&apos;leri otomatik çeker.</p>
             <form onSubmit={handleAIAdd} className="flex flex-wrap gap-3 items-end">
               <div className="flex flex-col gap-1">
                 <label className="text-[10px] font-bold text-zinc-400 uppercase tracking-wider">Marka</label>

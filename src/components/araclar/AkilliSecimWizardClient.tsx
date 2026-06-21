@@ -3,7 +3,6 @@
 import { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
 import type { Product } from "@/lib/products/types";
-import { CATEGORY_LABELS } from "@/lib/products/types";
 import { ProductImage } from "@/components/ui/ProductImage";
 
 interface AkilliSecimWizardClientProps {

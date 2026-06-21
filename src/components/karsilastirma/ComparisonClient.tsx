@@ -3,7 +3,6 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
 import type { Product, Comparison } from "@/lib/products/types";
-import { CATEGORY_LABELS } from "@/lib/products/types";
 import { ComparisonShareBar } from "@/components/karsilastirma/ComparisonShareBar";
 import { ProductImage } from "@/components/ui/ProductImage";
 
@@ -269,7 +268,7 @@ export function ComparisonClient({
           <div>
             <h4 className="font-title-md text-title-md mb-2 font-bold">Hangi Veri Daha Önemli?</h4>
             <p className="text-secondary font-body-sm leading-relaxed">
-              Ağır işlerde tork (Nm) değeri en kritik veridir. Sürekli kullanım için motor tipinin "Kömürsüz" olması ısınmayı azaltır ve pil ömrünü %30 artırır.
+              Ağır işlerde tork (Nm) değeri en kritik veridir. Sürekli kullanım için motor tipinin &quot;Kömürsüz&quot; olması ısınmayı azaltır ve pil ömrünü %30 artırır.
             </p>
           </div>
         </div>

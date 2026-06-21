@@ -29,6 +29,24 @@ const FETCH_TIMEOUT_MS = 15_000;
 const BROWSER_UA =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36";
 
+// SSRF savunması: iç/özel/loopback/link-local hedeflere indirme yapma.
+// (Route admin korumalı olsa da derinlemesine savunma.)
+function isBlockedHost(hostname: string): boolean {
+  const h = hostname.toLowerCase().replace(/^\[|\]$/g, "");
+  if (h === "localhost" || h.endsWith(".localhost") || h === "0.0.0.0") return true;
+  if (h === "::1" || h.startsWith("fc") || h.startsWith("fd") || h.startsWith("fe80")) return true;
+  // IPv4 özel/loopback/link-local + cloud metadata (169.254.169.254)
+  const m = h.match(/^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/);
+  if (m) {
+    const [a, b] = [Number(m[1]), Number(m[2])];
+    if (a === 10 || a === 127 || a === 0) return true;
+    if (a === 169 && b === 254) return true; // link-local + metadata
+    if (a === 172 && b >= 16 && b <= 31) return true;
+    if (a === 192 && b === 168) return true;
+  }
+  return false;
+}
+
 // Yerel disk hedefi (Hostinger varsayılanı).
 const UPLOAD_SUBDIR = path.join("uploads", "products");
 const PUBLIC_DIR = path.join(process.cwd(), "public");
@@ -135,6 +153,9 @@ export async function storeImageFromUrl(
   }
   if (parsed.protocol !== "http:" && parsed.protocol !== "https:") {
     throw new Error("Yalnızca http/https kaynaklar desteklenir.");
+  }
+  if (isBlockedHost(parsed.hostname)) {
+    throw new Error("Bu kaynak adresine erişime izin verilmiyor.");
   }
 
   const controller = new AbortController();

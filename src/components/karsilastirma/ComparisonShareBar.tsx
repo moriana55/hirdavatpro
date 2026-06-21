@@ -195,6 +195,7 @@ export function ComparisonShareBar({ shareTitle, shareText, leadContext, leadSou
                 <input
                   type="email"
                   required
+                  aria-label="E-posta adresiniz"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="ornek@eposta.com"

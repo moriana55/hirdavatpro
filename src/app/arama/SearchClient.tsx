@@ -16,12 +16,23 @@ export default function SearchClient() {
   const [query, setQuery] = useState("");
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState(false);
 
   useEffect(() => {
-    fetch("/api/products")
-      .then(r => r.json())
-      .then(data => setProducts(Array.isArray(data) ? data : []))
-      .finally(() => setLoading(false));
+    let cancelled = false;
+    (async () => {
+      try {
+        const r = await fetch("/api/products");
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        const data = await r.json();
+        if (!cancelled) setProducts(Array.isArray(data) ? data : []);
+      } catch {
+        if (!cancelled) setLoadError(true);
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    })();
+    return () => { cancelled = true; };
   }, []);
 
   const results = useMemo(() => {
@@ -79,7 +90,19 @@ export default function SearchClient() {
         </div>
       )}
 
-      {!loading && query.length < 2 && (
+      {!loading && loadError && (
+        <div className="mt-16 text-center">
+          <p className="text-secondary font-body-lg">Katalog şu an yüklenemedi.</p>
+          <button
+            onClick={() => window.location.reload()}
+            className="mt-4 rounded-lg border border-border-subtle bg-white px-4 py-2 text-sm font-medium text-primary hover:border-primary transition-all"
+          >
+            Tekrar dene
+          </button>
+        </div>
+      )}
+
+      {!loading && !loadError && query.length < 2 && (
         <div className="mt-16 text-center">
           <p className="text-secondary font-body-lg mb-6">{products.length} ürün içinde ara</p>
           <div className="flex flex-wrap justify-center gap-2">
@@ -93,7 +116,7 @@ export default function SearchClient() {
         </div>
       )}
 
-      {!loading && query.length >= 2 && results.products.length === 0 && results.pairs.length === 0 && (
+      {!loading && !loadError && query.length >= 2 && results.products.length === 0 && results.pairs.length === 0 && (
         <div className="mt-16 text-center text-secondary font-body-lg">
           &quot;{query}&quot; için sonuç bulunamadı.
         </div>

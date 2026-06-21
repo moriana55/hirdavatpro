@@ -35,3 +35,18 @@ export function reqString(
   if (trimmed.length > maxLen) return { ok: false, error: `${field} en fazla ${maxLen} karakter olabilir` };
   return { ok: true, value: trimmed };
 }
+
+// Yalnızca http/https URL'leri kabul et; aksi halde (javascript:, data:, vs) null.
+// Depoda saklanıp sonra <img src>/<a href> olarak render edilen alanlar için.
+export function safeHttpUrl(value: unknown, maxLen = 2000): string | null {
+  if (typeof value !== "string") return null;
+  const trimmed = value.trim();
+  if (!trimmed || trimmed.length > maxLen) return null;
+  try {
+    const u = new URL(trimmed);
+    if (u.protocol !== "http:" && u.protocol !== "https:") return null;
+    return trimmed;
+  } catch {
+    return null;
+  }
+}

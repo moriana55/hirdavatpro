@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { isAuthorized } from "@/lib/auth";
 import { rateLimit, getClientIp } from "@/lib/rate-limit";
-import { safeJson, reqString, badRequest } from "@/lib/validation";
+import { safeJson, reqString, badRequest, safeHttpUrl } from "@/lib/validation";
 import {
   fetchFromIcecat,
   isIcecatConfigured,
@@ -189,11 +189,11 @@ export async function POST(req: NextRequest) {
     if (!existing) return badRequest("Ürün bulunamadı.");
     try {
       const updated = await mergeCatalogData(productId, {
-        imageUrl: found.result.imageUrl,
+        imageUrl: safeHttpUrl(found.result.imageUrl) ?? undefined,
         gallery: found.result.gallery,
         specs: found.result.specs,
         ean: lookup.ean,
-        sourceUrl: found.result.sourceUrl,
+        sourceUrl: safeHttpUrl(found.result.sourceUrl) ?? undefined,
       });
       return NextResponse.json({ success: true, mode: "save", source: found.source, product: updated });
     } catch (e) {

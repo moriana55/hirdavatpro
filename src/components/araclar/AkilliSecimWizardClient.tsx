@@ -4,6 +4,7 @@ import { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
 import type { Product } from "@/lib/products/types";
 import { CATEGORY_LABELS } from "@/lib/products/types";
+import { ProductImage } from "@/components/ui/ProductImage";
 
 interface AkilliSecimWizardClientProps {
   allProducts: Product[];
@@ -429,7 +430,7 @@ export function AkilliSecimWizardClient({ allProducts }: AkilliSecimWizardClient
 
                         {/* Product Image */}
                         <div className="w-40 h-40 bg-white border border-border-subtle/50 rounded-xl p-4 flex items-center justify-center flex-shrink-0">
-                          <img
+                          <ProductImage
                             src={getProductImage(p.category, p.imageUrl)}
                             alt={p.model}
                             className="max-h-full max-w-full object-contain"

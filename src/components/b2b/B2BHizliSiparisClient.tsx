@@ -160,7 +160,7 @@ export function B2BHizliSiparisClient({ products }: Props) {
             Toplu Yapıştır
           </h3>
           <p className="text-secondary text-body-sm mb-3">Her satıra bir ürün: <code className="bg-surface-container px-1 rounded">Bosch GSB 13 RE x 10</code></p>
-          <textarea value={bulkText} onChange={(e) => setBulkText(e.target.value)} rows={3} placeholder={"Makita HP1630 x 5\nBosch GBH 2-28 F, 3"} className="w-full bg-white border border-border-subtle rounded-lg p-3 text-body-sm focus:outline-none focus:border-primary resize-none font-mono" />
+          <textarea aria-label="Toplu ürün listesi yapıştır" value={bulkText} onChange={(e) => setBulkText(e.target.value)} rows={3} placeholder={"Makita HP1630 x 5\nBosch GBH 2-28 F, 3"} className="w-full bg-white border border-border-subtle rounded-lg p-3 text-body-sm focus:outline-none focus:border-primary resize-none font-mono" />
           <button onClick={importBulk} disabled={!bulkText.trim()} className="mt-3 bg-slate-gray text-white px-5 py-2.5 rounded font-label-caps text-[11px] font-bold hover:bg-primary transition-colors disabled:opacity-50">SATIRLARA AKTAR</button>
         </div>
 
@@ -170,7 +170,7 @@ export function B2BHizliSiparisClient({ products }: Props) {
             <span className="material-symbols-outlined text-[20px] text-primary">search</span>
             Katalogdan Ekle
           </h3>
-          <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Marka veya model ara…" className="w-full bg-white border border-border-subtle rounded-lg px-3 py-2.5 text-body-sm focus:outline-none focus:border-primary" />
+          <input aria-label="Katalogda marka veya model ara" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Marka veya model ara…" className="w-full bg-white border border-border-subtle rounded-lg px-3 py-2.5 text-body-sm focus:outline-none focus:border-primary" />
           {searchResults.length > 0 && (
             <div className="mt-3 space-y-1.5 max-h-60 overflow-y-auto">
               {searchResults.map((p) => (
@@ -207,11 +207,12 @@ export function B2BHizliSiparisClient({ products }: Props) {
                   <input
                     type="number"
                     min={1}
+                    aria-label="Adet"
                     value={l.qty}
                     onChange={(e) => updateLine(l.key, { qty: Math.max(1, parseInt(e.target.value, 10) || 1) })}
                     className="w-20 bg-white border border-border-subtle rounded px-3 py-2.5 text-body-sm focus:outline-none focus:border-primary text-center"
                   />
-                  <button onClick={() => removeLine(l.key)} className="text-secondary hover:text-error p-2" title="Satırı sil">
+                  <button onClick={() => removeLine(l.key)} className="text-secondary hover:text-error p-2" aria-label="Sipariş satırını sil" title="Satırı sil">
                     <span className="material-symbols-outlined text-[20px]">delete</span>
                   </button>
                 </div>

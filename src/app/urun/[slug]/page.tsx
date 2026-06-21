@@ -11,6 +11,7 @@ import { YedekParcaKatalogClient } from "@/components/urun/YedekParcaKatalogClie
 import { UyumlulukSection } from "@/components/urun/UyumlulukSection";
 import { FiyatKarsilastirClient } from "@/components/urun/FiyatKarsilastirClient";
 import { VideoEmbed } from "@/components/urun/VideoEmbed";
+import { ProductImage } from "@/components/ui/ProductImage";
 
 const getCompatibilityGuide = (category: string, specs: Record<string, any>) => {
   const isDrill = ["darbeli-matkap", "kirici-delici", "vidalama"].includes(category);
@@ -308,8 +309,7 @@ export default async function ProductDetailPage({ params }: Props) {
           {/* Product Image */}
           <div className="lg:col-span-5 bg-white border border-border-subtle p-8 rounded-lg relative">
             <div className="aspect-square w-full relative group flex items-center justify-center">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <ProductImage
                 alt={`${product.brand} ${product.model} ${catLabel} ürün görseli`}
                 className="max-h-full max-w-full object-contain"
                 src={imageUrl}

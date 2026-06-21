@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { prisma } from "@/lib/db";
 import { isAuthorized } from "@/lib/auth";
-import { safeJson, reqString, badRequest } from "@/lib/validation";
+import { safeJson, reqString, badRequest, safeHttpUrl } from "@/lib/validation";
 
 export const dynamic = "force-dynamic";
 
@@ -48,9 +48,7 @@ export async function POST(req: NextRequest) {
   if (!readTime.ok) return badRequest(readTime.error);
   if (!slugInput.ok) return badRequest(slugInput.error);
 
-  const coverImage = typeof body.coverImage === "string" && body.coverImage.length <= 2000
-    ? body.coverImage
-    : null;
+  const coverImage = safeHttpUrl(body.coverImage);
 
   const finalSlug = slugInput.value || slugify(title.value);
 
@@ -88,6 +86,8 @@ export async function PATCH(req: NextRequest) {
   for (const key of allowed) {
     if (key in rest) data[key] = rest[key];
   }
+  // coverImage güncelleniyorsa http/https URL'e zorla (depo→render güvenliği).
+  if ("coverImage" in data) data.coverImage = safeHttpUrl(data.coverImage);
 
   try {
     const post = await prisma.blogPost.update({ where: { id }, data });

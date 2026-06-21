@@ -5,6 +5,7 @@ import Link from "next/link";
 import type { Product, Comparison } from "@/lib/products/types";
 import { CATEGORY_LABELS } from "@/lib/products/types";
 import { CompareButton } from "@/components/karsilastirma/CompareButton";
+import { ProductImage } from "@/components/ui/ProductImage";
 
 const productSlug = (p: Pick<Product, "brand" | "model">): string => {
   return `${p.brand}-${p.model}`.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/-+/g, "-").replace(/^-|-$/g, "");
@@ -298,8 +299,7 @@ export function CategoryClient({
                   className="bg-surface-container-lowest border border-border-subtle group hover:border-primary hover:shadow-lg transition-all duration-300 flex flex-col h-full rounded overflow-hidden"
                 >
                   <div className="relative overflow-hidden aspect-square bg-white p-6 flex items-center justify-center border-b border-border-subtle/50">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
+                    <ProductImage
                       alt={`${p.brand} ${p.model} ürün görseli`}
                       className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-500"
                       src={p.imageUrl || "https://lh3.googleusercontent.com/aida-public/AB6AXuA5m42AzDr3y1U___uU6NdqHcVSsRGFiQcP_CEu-8Ck7TorGju3xxAo-nxgKVCuTsnwYTIugRWy2FncNbBqfVliAgETsT2XayQNILCVbCCaQyiquhufpPGDIrLUdbUxqq7qsjy53G4ET677CEdQ5X9eq7TkMtUGb5gShKY8z7aRKzaxuVI-ltuDXhdW9CLaPO5ir9w-GQEDD8sA8Rgzx67lEhiR7YrbFI_S1p81T3oZ_W5AFIOmi3elRIRSjVKzB1g5pRidXLenx8E"}

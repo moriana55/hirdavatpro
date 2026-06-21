@@ -5,6 +5,7 @@ import Link from "next/link";
 import type { Product, Comparison } from "@/lib/products/types";
 import { CATEGORY_LABELS } from "@/lib/products/types";
 import { ComparisonShareBar } from "@/components/karsilastirma/ComparisonShareBar";
+import { ProductImage } from "@/components/ui/ProductImage";
 
 const productSlug = (p: Pick<Product, "brand" | "model">): string => {
   return `${p.brand}-${p.model}`.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/-+/g, "-").replace(/^-|-$/g, "");
@@ -123,8 +124,7 @@ export function ComparisonClient({
           onMouseLeave={() => setHoveredCol(null)}
         >
           <div className="aspect-square mb-4 overflow-hidden rounded bg-white flex items-center justify-center p-4 border border-border-subtle/50">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img className="object-contain max-h-full max-w-full transition-transform duration-300 group-hover:scale-105" alt={`${a.brand} ${a.model} karşılaştırma görseli`} src={imgA} width={320} height={320} decoding="async" />
+            <ProductImage className="object-contain max-h-full max-w-full transition-transform duration-300 group-hover:scale-105" alt={`${a.brand} ${a.model} karşılaştırma görseli`} src={imgA} width={320} height={320} decoding="async" />
           </div>
           <h3 className="font-title-md text-title-md font-bold mb-1 line-clamp-1">{a.brand} {a.model}</h3>
           <span className="font-label-caps text-label-caps text-slate-gray font-bold uppercase">{categoryLabel}</span>
@@ -141,8 +141,7 @@ export function ComparisonClient({
           onMouseLeave={() => setHoveredCol(null)}
         >
           <div className="aspect-square mb-4 overflow-hidden rounded bg-white flex items-center justify-center p-4 border border-border-subtle/50">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img className="object-contain max-h-full max-w-full transition-transform duration-300 group-hover:scale-105" alt={`${b.brand} ${b.model} karşılaştırma görseli`} src={imgB} width={320} height={320} decoding="async" />
+            <ProductImage className="object-contain max-h-full max-w-full transition-transform duration-300 group-hover:scale-105" alt={`${b.brand} ${b.model} karşılaştırma görseli`} src={imgB} width={320} height={320} decoding="async" />
           </div>
           <h3 className="font-title-md text-title-md font-bold mb-1 line-clamp-1">{b.brand} {b.model}</h3>
           <span className="font-label-caps text-label-caps text-slate-gray font-bold uppercase">{categoryLabel}</span>

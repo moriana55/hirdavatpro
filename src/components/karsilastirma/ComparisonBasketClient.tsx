@@ -4,6 +4,7 @@ import { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
 import type { Product } from "@/lib/products/types";
 import { ComparisonShareBar } from "@/components/karsilastirma/ComparisonShareBar";
+import { ProductImage } from "@/components/ui/ProductImage";
 
 interface ComparisonBasketClientProps {
   allProducts: Product[];
@@ -195,12 +196,13 @@ export function ComparisonBasketClient({ allProducts }: ComparisonBasketClientPr
                 <button
                   onClick={() => handleRemove(selectedProducts[0].id)}
                   className="absolute top-4 right-4 text-secondary hover:text-danger-vibrant transition-colors cursor-pointer"
+                  aria-label="Ürünü sepetten çıkar"
                   title="Sepetten Çıkar"
                 >
                   <span className="material-symbols-outlined text-[20px]">delete</span>
                 </button>
                 <div className="aspect-square bg-white rounded border border-border-subtle/50 p-4 mb-4 flex items-center justify-center">
-                  <img
+                  <ProductImage
                     src={getProductImage(selectedProducts[0].category, selectedProducts[0].imageUrl)}
                     alt={`${selectedProducts[0].brand} ${selectedProducts[0].model}`}
                     className="max-h-full max-w-full object-contain"
@@ -226,7 +228,7 @@ export function ComparisonBasketClient({ allProducts }: ComparisonBasketClientPr
                     <div key={p.id} className="bg-white border border-border-subtle p-4 rounded-lg flex items-center justify-between gap-4">
                       <div className="flex items-center gap-3">
                         <div className="w-12 h-12 bg-surface-container-low flex-shrink-0 flex items-center justify-center p-1 rounded">
-                          <img src={getProductImage(p.category, p.imageUrl)} alt={p.model} className="object-contain max-h-full max-w-full" />
+                          <ProductImage src={getProductImage(p.category, p.imageUrl)} alt={p.model} className="object-contain max-h-full max-w-full" />
                         </div>
                         <div>
                           <span className="text-[10px] font-bold text-secondary uppercase block">{p.brand}</span>
@@ -294,7 +296,7 @@ export function ComparisonBasketClient({ allProducts }: ComparisonBasketClientPr
                 </button>
 
                 <div className="aspect-square mb-4 overflow-hidden rounded bg-white flex items-center justify-center p-4 border border-border-subtle/50">
-                  <img
+                  <ProductImage
                     className="object-contain max-h-full max-w-full transition-transform duration-300 group-hover:scale-105"
                     alt={`${p.brand} ${p.model}`}
                     src={getProductImage(p.category, p.imageUrl)}

@@ -1,4 +1,4 @@
-import { getComparisonBySlug, getProductById, getComparisons } from "@/lib/products/store";
+import { getComparisonBySlug, getProductById, getComparisons, productSlug } from "@/lib/products/store";
 import { CATEGORY_LABELS } from "@/lib/products/types";
 import type { ProductCategory } from "@/lib/products/types";
 import { notFound } from "next/navigation";
@@ -54,28 +54,70 @@ export default async function ComparisonDetailPage({ params }: Props) {
   }
 
   const catLabel = CATEGORY_LABELS[a.category as ProductCategory] || a.category;
-  
+  const catLabelB = CATEGORY_LABELS[b.category as ProductCategory] || b.category;
+
   // Markdown'ı HTML'e çevirme işlemi (sunucu tarafında yapılıyor)
   const markdownContentHtml = markdownToHtml(comparison.content);
 
+  const pageUrl = `https://hirdavatpro.com/karsilastirma/${slug}`;
+  const urlA = `https://hirdavatpro.com/urun/${productSlug(a)}`;
+  const urlB = `https://hirdavatpro.com/urun/${productSlug(b)}`;
+
+  // Ürün başına Product schema (ürün sayfasıyla aynı kalıp: offers/fiyat işaretlenmez —
+  // bu bir affiliate/karşılaştırma sitesidir, Google'a mağaza sinyali verilmez).
+  const productNode = (p: Product, label: string, url: string) => ({
+    "@type": "Product",
+    name: `${p.brand} ${p.model}`,
+    image: p.imageUrl || undefined,
+    description: `${p.brand} ${p.model} ${label} teknik özellikleri ve incelemesi.`,
+    brand: { "@type": "Brand", name: p.brand },
+    category: label,
+    ...(p.mpn ? { mpn: p.mpn } : {}),
+    ...(p.ean ? { gtin13: p.ean } : {}),
+    url,
+  });
+
+  // Schema.org: Article + iki Product + BreadcrumbList + ItemList (ana gelir sayfası)
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        headline: `${a.brand} ${a.model} vs ${b.brand} ${b.model} Karşılaştırması`,
+        description: comparison.verdict,
+        datePublished: comparison.createdAt,
+        dateModified: comparison.createdAt,
+        mainEntityOfPage: pageUrl,
+        author: { "@type": "Organization", name: "Hırdavat Pro" },
+        publisher: { "@type": "Organization", name: "Hırdavat Pro", url: "https://hirdavatpro.com" },
+      },
+      productNode(a, catLabel, urlA),
+      productNode(b, catLabelB, urlB),
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Ana Sayfa", item: "https://hirdavatpro.com" },
+          { "@type": "ListItem", position: 2, name: "Karşılaştırmalar", item: "https://hirdavatpro.com/karsilastirma" },
+          { "@type": "ListItem", position: 3, name: `${a.brand} ${a.model} vs ${b.brand} ${b.model}`, item: pageUrl },
+        ],
+      },
+      {
+        "@type": "ItemList",
+        name: `${a.brand} ${a.model} vs ${b.brand} ${b.model}`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: `${a.brand} ${a.model}`, url: urlA },
+          { "@type": "ListItem", position: 2, name: `${b.brand} ${b.model}`, url: urlB },
+        ],
+      },
+    ],
+  };
+
   return (
     <>
-      {/* Schema.org Article Structured Data */}
+      {/* Schema.org: Article + Product (x2) + BreadcrumbList + ItemList */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            headline: `${a.brand} ${a.model} vs ${b.brand} ${b.model} Karşılaştırması`,
-            description: comparison.verdict,
-            datePublished: comparison.createdAt,
-            dateModified: comparison.createdAt,
-            mainEntityOfPage: `https://hirdavatpro.com/karsilastirma/${slug}`,
-            author: { "@type": "Organization", name: "Hırdavat Pro" },
-            publisher: { "@type": "Organization", name: "Hırdavat Pro", url: "https://hirdavatpro.com" },
-          }),
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
       <ComparisonClient

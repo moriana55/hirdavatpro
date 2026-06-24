@@ -64,8 +64,20 @@ export function SiteFooter() {
         </div>
       </div>
 
-      {/* Copyright */}
-      <div className="w-full border-t border-on-secondary-fixed-variant/20 pt-8 text-center max-w-max-width mx-auto">
+      {/* Copyright + Yasal */}
+      <div className="w-full border-t border-on-secondary-fixed-variant/20 pt-8 text-center max-w-max-width mx-auto space-y-4">
+        <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-secondary-fixed-dim font-body-sm">
+          <li>
+            <Link href="/affiliate-aciklama" className="hover:text-primary-fixed transition-colors decoration-none">
+              Affiliate Açıklaması
+            </Link>
+          </li>
+          <li>
+            <Link href="/gizlilik" className="hover:text-primary-fixed transition-colors decoration-none">
+              Gizlilik Politikası (KVKK)
+            </Link>
+          </li>
+        </ul>
         <p className="font-label-caps text-label-caps text-secondary-fixed-dim">
           © {new Date().getFullYear()} HırdavatPro. Her Spesifikasyonda Endüstriyel Hassasiyet.
         </p>
